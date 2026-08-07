@@ -1,0 +1,22 @@
+{
+  "name": "tdpd-product-framework",
+  "version": "0.1.0",
+  "description": "Create and deliver products with TDPD and a risk-scaled development council.",
+  "author": {
+    "name": "Innokenty Bodrov"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "TDPD Product Framework",
+    "shortDescription": "From product problem to tested delivery and UAT.",
+    "longDescription": "Platform adapter for Test-Driven Product Development, product roles, delivery gates, executable scenarios, and human acceptance.",
+    "developerName": "Innokenty Bodrov",
+    "category": "Productivity",
+    "capabilities": ["Product discovery", "Delivery planning", "Test-first implementation", "Product audit"],
+    "defaultPrompt": [
+      "Turn my product idea into a TDPD plan.",
+      "Deliver this feature through TDPD.",
+      "Audit this product against TDPD gates."
+    ]
+  }
+}

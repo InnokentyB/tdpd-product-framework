@@ -1,0 +1,12 @@
+---
+description: TDPD product creation and delivery workflow
+alwaysApply: true
+---
+
+# TDPD Product Delivery
+
+Read `.tdpd/core/METHOD.md`, `.tdpd/core/GATES.md`, `.tdpd/core/WORKFLOW.md`, and `.tdpd/core/ROLES.md` for product and development tasks.
+
+Use Shape, Plan, Deliver, or Audit mode. Planning and auditing do not authorize implementation. Deliver user-facing behavior by writing executable user scenarios and proving red before production code. Maintain `PROB → RULE → SCN → E2E → implementation evidence → UAT`.
+
+Scale role reviews to risk. Do not claim TDPD completion without green executable scenarios and explicit human UAT; otherwise state **engineering complete, awaiting UAT**.
