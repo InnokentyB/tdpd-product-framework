@@ -23,6 +23,10 @@ Test-Driven Product Development (TDPD) is an original method by Innokenty Bodrov
 - Preserve traceability from business value to acceptance evidence.
 - Never claim product value solely because automated tests pass.
 
+## Evidence precondition
+
+Apply [CONTEXT.md](CONTEXT.md) before committing the specification. TDPD does not treat input material as self-consistent: inventory sources, extract source-linked context, expose findings, record authorized decisions, and preserve provenance through requirements, scenarios, tests, implementation, and UAT.
+
 ## Honest limits
 
 Tone, perceived convenience, visual taste, and strategic value may require human judgment. Legacy products may need a narrow e2e adoption slice. When no practical executable boundary exists, label the work as a specification or UAT plan rather than completed TDPD.

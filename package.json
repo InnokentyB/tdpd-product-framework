@@ -1,6 +1,6 @@
 {
   "name": "tdpd-product-framework",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "description": "Platform-independent Test-Driven Product Development framework and AI-tool adapters",
   "author": "Innokenty Bodrov",
   "private": true,
@@ -15,7 +15,8 @@
     "bin",
     "core",
     "templates",
-    "adapters"
+    "adapters",
+    "PRIOR_ART.md"
   ],
   "engines": {
     "node": ">=18"

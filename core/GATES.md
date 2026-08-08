@@ -1,12 +1,16 @@
 # Delivery Gates
 
+## Context gate
+
+Require a source map, atomic context pack, review findings, decision log, and traceability matrix proportionate to the task. Every factual statement has a readable locator or is marked `NO SOURCE`; material contradictions and gaps are unresolved visibly or closed by an authorized `DL-###` decision. Context readiness is Ready or Partially ready with no critical blocker for the next gate.
+
 ## Problem gate
 
 Require an actor, real job or pain, current workaround, desired outcome, and observable success signal. If value is unclear, run discovery or a cheap experiment before building.
 
 ## Input gate
 
-Require reconciled sources, deterministic behavior, testable acceptance criteria, explicit non-goals, and approval of material architecture choices. Record unresolved ambiguity as a decision.
+Require reconciled evidence, deterministic behavior, testable acceptance criteria, explicit non-goals, and approval of material architecture choices. Every material rule traces to a source-grounded context entry or an authorized decision. Record unresolved ambiguity as a finding, not a silent choice.
 
 ## Red gate
 
@@ -24,6 +28,6 @@ Require human UAT against the original problem in realistic use. Without this, r
 
 Use stable IDs for non-trivial work:
 
-`PROB → RULE → SCN → E2E → implementation evidence → UAT`
+`S → F/C/G/A/R → DL → PROB → RULE → SCN → E2E/MANUAL → WORK/HANDOFF → UAT`
 
 Every material rule maps to a scenario or explicit manual check. Every test maps to user value or a necessary safety constraint.

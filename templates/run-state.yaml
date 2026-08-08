@@ -1,0 +1,16 @@
+schemaVersion: 1
+mode: manual # manual | orchestrated
+runtime: manual-controller
+status: active # active | paused | engineering_complete | accepted | stopped
+currentGate: context
+gates:
+  context: in_progress
+  problem: not_started
+  input: not_started
+  red: not_started
+  green: not_started
+  output: not_started
+workUnits: []
+blockers: []
+createdAt: ""
+updatedAt: ""
