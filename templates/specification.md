@@ -6,6 +6,9 @@
 - Reconciled sources:
 - Scope:
 - Non-goals:
+- Approved product surface (`SURF-###`):
+- Interface contract (`UI-###`):
+- Project organization contract (`PROJ-###`):
 
 ## Rules
 

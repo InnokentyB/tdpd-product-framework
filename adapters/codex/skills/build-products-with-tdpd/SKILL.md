@@ -1,12 +1,14 @@
 ---
 name: build-products-with-tdpd
-description: Run source-grounded end-to-end product creation with the AnalystCraft evidence workflow and Test-Driven Product Development (TDPD), from source collection, source maps, context packs, findings, and decision logs through deterministic specification, user scenarios, executable e2e tests, implementation governance, release, and human UAT. Use when Codex needs to consolidate product context, preserve decision traceability, shape an idea, plan an MVP, build or change a user-facing product, coordinate product/UX/QA/architecture/security/development roles, recover a stalled project, or audit delivery readiness and provenance.
+description: "Run the modular TDPD Product Framework as one or more independent but connected layers: Product & Business, Design & Requirements, Implementation & Delivery, and Launch & Operations. Use for source-grounded opportunity/business validation, requirements and architecture, test-first implementation and UAT, GTM/launch/operations, outcome learning, layer handoffs, or full lifecycle product creation and audit."
 ---
 
 # Build Products with TDPD
 
-Read `.tdpd/core/METHOD.md`, `.tdpd/core/CONTEXT.md`, `.tdpd/core/GATES.md`, `.tdpd/core/WORKFLOW.md`, and `.tdpd/core/ROLES.md`. Use templates from `.tdpd/templates/`. Build the AnalystCraft evidence chain `Source map → System Context Pack → Review Findings → Decision Log` before committing the specification; scale artifact size to the task but never omit provenance, unsupported assumptions, or unresolved contradictions.
+Read `.tdpd/core/FRAMEWORK.md`, select the smallest relevant layer manifest under `.tdpd/core/layers/`, then read its owned modules plus `.tdpd/core/GATES.md`, `.tdpd/core/ROLES.md`, and `.tdpd/core/LAYER_CONTRACTS.md`. Use `full` only when the request spans the complete lifecycle. A standalone layer accepts external inputs that satisfy its entry contract and must not silently rewrite upstream decisions.
 
 Select **Shape**, **Plan**, **Deliver**, or **Audit** from the request. Do not infer implementation permission from planning or audit work. In Deliver mode, obtain approval for material architecture boundaries, implement executable user scenarios first, prove the intended red state, implement the smallest coherent change to green, verify proportionately, and hand over for human UAT.
 
-Maintain `S → F/C/G/A/R → DL → PROB → RULE → SCN → E2E/MANUAL → WORK/HANDOFF → UAT`. Scale the role council to risk and use veto only with evidence, a blocked gate, and a clearing condition. Never claim TDPD completion without green executable scenarios and explicit human UAT; otherwise report **engineering complete, awaiting UAT**.
+Before Deliver mode, require an approved product surface (`SURF-###`), interface contract and inventory, and project organization contract (`PROJ-###`). If the surface is unspecified, stop at the Input gate; do not default to a CLI, API, generated file, or test harness. E2E acceptance must exercise the approved user surface.
+
+Use `templates/layer-handoff.md` at boundaries. Maintain provenance and traceability across consumed and produced contracts. Route downstream discoveries back as evidence-backed change requests to the owning layer. Scale the role council to risk and report the selected layer, entry status, exit status, and unresolved handoffs.

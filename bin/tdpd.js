@@ -8,6 +8,67 @@ import { fileURLToPath } from "node:url";
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const adaptersRoot = join(root, "adapters");
 
+const sharedFiles = [
+  ".tdpd/core/FRAMEWORK.md",
+  ".tdpd/core/LAYER_CONTRACTS.md",
+  ".tdpd/core/QUICKSTART.md",
+  ".tdpd/core/GATES.md",
+  ".tdpd/core/ROLES.md",
+  ".tdpd/templates/layer-handoff.md",
+  ".tdpd/templates/traceability-matrix.md",
+  ".tdpd/templates/run-state.yaml"
+];
+
+const layerConfig = {
+  "product-business": {
+    gates: ["context", "problem", "opportunity", "business"],
+    files: [
+      ".tdpd/core/layers/PRODUCT_BUSINESS.md", ".tdpd/core/CONTEXT.md", ".tdpd/core/OPPORTUNITY.md", ".tdpd/core/BUSINESS.md",
+      ".tdpd/templates/source-map.md", ".tdpd/templates/system-context-pack.md", ".tdpd/templates/review-findings.md", ".tdpd/templates/decision-log.md",
+      ".tdpd/templates/opportunity-brief.md", ".tdpd/templates/assumption-register.md", ".tdpd/templates/alternatives-map.md",
+      ".tdpd/templates/experiment-contract.md", ".tdpd/templates/observation-log.md", ".tdpd/templates/opportunity-decision.md",
+      ".tdpd/templates/buyer-map.md", ".tdpd/templates/business-model.md", ".tdpd/templates/pricing-experiment.md",
+      ".tdpd/templates/unit-economics.md", ".tdpd/templates/commercial-decision.md"
+    ]
+  },
+  "design-requirements": {
+    gates: ["input"],
+    files: [
+      ".tdpd/core/layers/DESIGN_REQUIREMENTS.md", ".tdpd/core/DESIGN_REQUIREMENTS.md", ".tdpd/core/METHOD.md",
+      ".tdpd/templates/product-brief.md", ".tdpd/templates/product-surface-decision.md", ".tdpd/templates/interface-contract.md",
+      ".tdpd/templates/interface-inventory.md", ".tdpd/templates/project-contract.md", ".tdpd/templates/specification.md", ".tdpd/templates/architecture-decision.md",
+      ".tdpd/templates/scenario-matrix.md", ".tdpd/templates/measurement-contract.md", ".tdpd/templates/metric-dictionary.md",
+      ".tdpd/templates/instrumentation-map.md"
+    ]
+  },
+  "implementation-delivery": {
+    gates: ["red", "green", "output"],
+    files: [
+      ".tdpd/core/layers/IMPLEMENTATION_DELIVERY.md", ".tdpd/core/METHOD.md", ".tdpd/core/ORCHESTRATION.md", ".tdpd/core/RECOVERY.md",
+      ".tdpd/templates/work-unit.md", ".tdpd/templates/handoff.md", ".tdpd/templates/dependency-map.yaml",
+      ".tdpd/templates/recovery-record.md", ".tdpd/templates/delivery-evidence.md", ".tdpd/templates/agent-run-evidence.md",
+      ".tdpd/templates/uat-record.md"
+    ]
+  },
+  "launch-operations": {
+    gates: ["gtm", "launch", "outcome"],
+    files: [
+      ".tdpd/core/layers/LAUNCH_OPERATIONS.md", ".tdpd/core/GTM.md", ".tdpd/core/OUTCOMES.md",
+      ".tdpd/templates/channel-plan.md", ".tdpd/templates/sales-motion.md", ".tdpd/templates/onboarding-activation.md",
+      ".tdpd/templates/gtm-readiness.md", ".tdpd/templates/launch-plan.md", ".tdpd/templates/outcome-observation.md",
+      ".tdpd/templates/outcome-review.md", ".tdpd/templates/lifecycle-decision.md"
+    ]
+  }
+};
+
+const layerNames = Object.keys(layerConfig);
+
+function resolveLayers(layer = "full") {
+  if (layer === "full") return layerNames;
+  if (!layerConfig[layer]) throw new Error(`Unknown layer '${layer}'. Available: ${layerNames.join(", ")}, full`);
+  return [layer];
+}
+
 async function adapters() {
   return (await readdir(adaptersRoot, { withFileTypes: true }))
     .filter((entry) => entry.isDirectory())
@@ -30,7 +91,7 @@ function parse(args) {
   for (let index = 1; index < args.length; index += 1) {
     const arg = args[index];
     if (arg === "--force") options.force = true;
-    else if (arg === "--adapter" || arg === "--target" || arg === "--mode") {
+    else if (arg === "--adapter" || arg === "--target" || arg === "--mode" || arg === "--layer") {
       if (!args[index + 1]) throw new Error(`${arg} requires a value`);
       options[arg.slice(2)] = args[index + 1];
       index += 1;
@@ -56,7 +117,7 @@ async function readState(targetRoot) {
   }
 }
 
-async function start(mode, target) {
+async function start(mode, target, layer) {
   if (!new Set(["manual", "orchestrated"]).has(mode)) {
     throw new Error("--mode must be 'manual' or 'orchestrated'");
   }
@@ -70,20 +131,16 @@ async function start(mode, target) {
   if (existsSync(statePath)) throw new Error(`Run state already exists: ${statePath}`);
 
   const now = new Date().toISOString();
+  const selectedLayers = resolveLayers(layer);
+  const selectedGates = selectedLayers.flatMap((name) => layerConfig[name].gates);
   const state = {
     schemaVersion: 1,
     mode,
     runtime: "manual-controller",
     status: "active",
-    currentGate: "context",
-    gates: {
-      context: "in_progress",
-      problem: "not_started",
-      input: "not_started",
-      red: "not_started",
-      green: "not_started",
-      output: "not_started"
-    },
+    selectedLayers,
+    currentGate: selectedGates[0],
+    gates: Object.fromEntries(selectedGates.map((gate, index) => [gate, index === 0 ? "in_progress" : "not_started"])),
     workUnits: [],
     blockers: [],
     createdAt: now,
@@ -101,46 +158,33 @@ function labelGate(gate) {
 async function status(target) {
   const targetRoot = targetDirectory(target);
   const state = await readState(targetRoot);
-  process.stdout.write(`TDPD run: ${state.status}\nMode: ${state.mode}\nRuntime: ${state.runtime}\nCurrent gate: ${labelGate(state.currentGate)}\n`);
-  for (const gate of ["context", "problem", "input", "red", "green", "output"]) {
+  process.stdout.write(`TDPD run: ${state.status}\nMode: ${state.mode}\nLayers: ${(state.selectedLayers ?? layerNames).join(", ")}\nRuntime: ${state.runtime}\nCurrent gate: ${labelGate(state.currentGate)}\n`);
+  for (const gate of Object.keys(state.gates ?? {})) {
     process.stdout.write(`${labelGate(gate)}: ${state.gates?.[gate] ?? "missing"}\n`);
   }
   process.stdout.write(`Work units: ${Array.isArray(state.workUnits) ? state.workUnits.length : "invalid"}\n`);
 }
 
-async function audit(target) {
+async function audit(target, layer) {
   const targetRoot = targetDirectory(target);
-  const required = [
-    ".tdpd/core/METHOD.md",
-    ".tdpd/core/CONTEXT.md",
-    ".tdpd/core/GATES.md",
-    ".tdpd/core/WORKFLOW.md",
-    ".tdpd/core/ROLES.md",
-    ".tdpd/core/ORCHESTRATION.md",
-    ".tdpd/core/RECOVERY.md",
-    ".tdpd/templates/work-unit.md",
-    ".tdpd/templates/handoff.md",
-    ".tdpd/templates/run-state.yaml",
-    ".tdpd/templates/dependency-map.yaml",
-    ".tdpd/templates/recovery-record.md",
-    ".tdpd/templates/source-map.md",
-    ".tdpd/templates/system-context-pack.md",
-    ".tdpd/templates/review-findings.md",
-    ".tdpd/templates/decision-log.md",
-    ".tdpd/templates/traceability-matrix.md"
-  ];
+  const selectedLayers = resolveLayers(layer);
+  const required = [...new Set([
+    ...sharedFiles,
+    ...selectedLayers.flatMap((name) => layerConfig[name].files),
+    ...(layer === undefined || layer === "full" ? [".tdpd/core/WORKFLOW.md", ".tdpd/core/BUSINESS_GTM.md"] : [])
+  ])];
   const issues = required.filter((file) => !existsSync(join(targetRoot, file))).map((file) => `missing ${file}`);
   const state = await readState(targetRoot);
-  const gateNames = ["context", "problem", "input", "red", "green", "output"];
+  const gateNames = selectedLayers.flatMap((name) => layerConfig[name].gates);
   const gateStatuses = new Set(["not_started", "in_progress", "passed", "blocked"]);
   if (state.schemaVersion !== 1) issues.push("unsupported state schemaVersion");
   if (!["manual", "orchestrated"].includes(state.mode)) issues.push("invalid run mode");
-  if (!gateNames.includes(state.currentGate)) issues.push("invalid currentGate");
+  if (state.selectedLayers?.every((name) => selectedLayers.includes(name)) && !gateNames.includes(state.currentGate)) issues.push("invalid currentGate");
   if (!state.gates || gateNames.some((gate) => !gateStatuses.has(state.gates[gate]))) issues.push("invalid gate status map");
   if (!Array.isArray(state.workUnits)) issues.push("workUnits must be an array");
   if (!Array.isArray(state.blockers)) issues.push("blockers must be an array");
   if (issues.length) throw new Error(`Audit failed:\n${issues.map((issue) => `- ${issue}`).join("\n")}`);
-  process.stdout.write(`Audit passed for ${targetRoot}\n`);
+  process.stdout.write(`Audit passed for ${layer ?? "full"} in ${targetRoot}\n`);
 }
 
 async function install(adapter, target, force) {
@@ -157,6 +201,7 @@ async function install(adapter, target, force) {
   const sources = [
     { source: join(root, "core"), destination: join(targetRoot, ".tdpd", "core") },
     { source: join(root, "templates"), destination: join(targetRoot, ".tdpd", "templates") },
+    { source: join(root, "bin"), destination: join(targetRoot, ".tdpd", "bin") },
     { source: join(adaptersRoot, adapter), destination: targetRoot }
   ];
 
@@ -177,7 +222,20 @@ async function install(adapter, target, force) {
     await cp(item.source, item.destination, { recursive: true, force });
   }
 
-  process.stdout.write(`Installed TDPD with '${adapter}' into ${targetRoot}\n`);
+  process.stdout.write(
+    `Installed TDPD with '${adapter}' into ${targetRoot}\n\n` +
+    "Next:\n" +
+    "  1. Ask your agent: \"Shape this product idea with TDPD.\"\n" +
+    "  2. Or start a tracked run:\n" +
+    "     node ./.tdpd/bin/tdpd.js start --mode manual --layer <layer>\n" +
+    "  3. Check it later:\n" +
+    "     node ./.tdpd/bin/tdpd.js status\n\n" +
+    "Layers: product-business, design-requirements, implementation-delivery, launch-operations\n" +
+    "Guide: .tdpd/core/QUICKSTART.md\n"
+  );
+  if (adapter === "cline") {
+    process.stdout.write("Cline: invoke /tdpd and verify the response begins with 'TDPD ACTIVE'.\n");
+  }
 }
 
 async function main() {
@@ -186,8 +244,12 @@ async function main() {
     process.stdout.write(`${(await adapters()).join("\n")}\n`);
     return;
   }
+  if (options.command === "layers") {
+    process.stdout.write(`${layerNames.join("\n")}\n`);
+    return;
+  }
   if (options.command === "start") {
-    await start(options.mode, options.target);
+    await start(options.mode, options.target, options.layer);
     return;
   }
   if (options.command === "status") {
@@ -195,11 +257,11 @@ async function main() {
     return;
   }
   if (options.command === "audit") {
-    await audit(options.target);
+    await audit(options.target, options.layer);
     return;
   }
   if (options.command !== "init" || !options.adapter) {
-    throw new Error("Usage:\n  tdpd init --adapter <name> [--target <directory>] [--force]\n  tdpd start --mode <manual|orchestrated> [--target <directory>]\n  tdpd status [--target <directory>]\n  tdpd audit [--target <directory>]\n  tdpd list");
+    throw new Error("Usage:\n  tdpd init --adapter <name> [--target <directory>] [--force]\n  tdpd start --mode <manual|orchestrated> [--layer <name|full>] [--target <directory>]\n  tdpd status [--target <directory>]\n  tdpd audit [--layer <name|full>] [--target <directory>]\n  tdpd layers\n  tdpd list");
   }
   await install(options.adapter, options.target ?? process.cwd(), options.force);
 }

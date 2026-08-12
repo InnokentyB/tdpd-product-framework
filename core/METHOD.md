@@ -4,7 +4,7 @@ Test-Driven Product Development (TDPD) is an original method by Innokenty Bodrov
 
 ## Canonical pipeline
 
-`Business problem → Specification → User scenarios → E2E tests → Agent implementation → Acceptance (UAT)`
+`Business problem → Approved product surface → Specification → User scenarios → E2E tests → Agent implementation → Acceptance (UAT)`
 
 1. Establish the actor, problem, desired outcome, and success signal.
 2. Specify observable behavior, rules, states, data, constraints, failures, and recovery.
@@ -17,6 +17,8 @@ Test-Driven Product Development (TDPD) is an original method by Innokenty Bodrov
 
 - Reconcile contradictory sources before development.
 - Treat an untestable scenario as a wish until it has an observable condition or is assigned to manual review.
+- Treat an unspecified product surface as a blocking product decision. Never substitute a CLI or engineering interface for the intended experience.
+- Exercise executable scenarios through the approved user surface; supporting API or CLI checks do not replace surface-level acceptance.
 - Prove tests fail because behavior is absent before implementing it.
 - Do not weaken tests merely to create green.
 - Keep human judgment at architecture input and UAT output instead of requiring line-by-line review of every agent rewrite.
@@ -26,6 +28,18 @@ Test-Driven Product Development (TDPD) is an original method by Innokenty Bodrov
 ## Evidence precondition
 
 Apply [CONTEXT.md](CONTEXT.md) before committing the specification. TDPD does not treat input material as self-consistent: inventory sources, extract source-linked context, expose findings, record authorized decisions, and preserve provenance through requirements, scenarios, tests, implementation, and UAT.
+
+## Opportunity precondition
+
+Apply [OPPORTUNITY.md](OPPORTUNITY.md) after framing the problem and before committing the specification. Use the cheapest credible experiment to test load-bearing assumptions. TDPD ensures disciplined delivery of a chosen product bet; it does not make an unvalidated bet valuable.
+
+## Business and market precondition
+
+Apply [BUSINESS_GTM.md](BUSINESS_GTM.md) before committing commercial, billing, entitlement, onboarding, or channel-dependent requirements. Validate the buyer/value exchange and bound economic uncertainty before delivery; validate the go-to-market path before launch.
+
+## Product lifecycle extension
+
+Apply [OUTCOMES.md](OUTCOMES.md) to define measurement before delivery and to govern launch and learning after UAT. Preserve the TDPD boundary: UAT is the human acceptance of delivered behavior; live outcome evidence determines whether to iterate, scale, hold, roll back, or sunset.
 
 ## Honest limits
 

@@ -2,7 +2,12 @@
 
 Use roles as review lenses. Scale depth to risk; do not create ceremony for tiny changes or claim independent review that did not occur.
 
-- **Product lead:** problem, actor, outcome, signal, assumptions, scope, priority, and UAT verdict.
+- **Product lead:** problem, actor, alternatives, opportunity, experiments, investment boundary, outcome, signal, scope, priority, and UAT verdict.
+- **Discovery lead:** behavioral evidence, observation quality, assumption ranking, experiment validity, bias, and opportunity decision readiness.
+- **Product analyst:** measurement contract, metric definitions, instrumentation validity, baselines, segmentation, attribution limits, guardrails, and outcome review.
+- **Business/monetization lead:** buyer, value exchange, pricing, billing contract, unit economics, capacity, commercial assumptions, and viability decision.
+- **Go-to-market lead:** positioning, offer, channel, sales motion, contracting, onboarding, activation, acquisition cost, and launch-segment readiness.
+- **Launch/operations lead:** rollout, support, monitoring, incident readiness, migration, communication, rollback, operational load, and lifecycle execution.
 - **UI/UX designer:** end-to-end workflow, visible states, feedback, accessibility, responsive and keyboard behavior.
 - **UX skeptic:** necessity, removable complexity, dead ends, recovery, empty/slow/large/invalid/interrupted states.
 - **QA analyst:** acceptance criteria, user scenarios, contradictions, hidden requirements, boundaries, negative paths.

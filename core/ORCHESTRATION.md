@@ -18,6 +18,8 @@ This layer governs how one or more agents execute an approved TDPD delivery cont
 7. Use independent review proportionate to risk. Keep human approval for architecture, high-risk actions, and final UAT.
 8. Preserve execution evidence: unit, owner, input artifacts, changed surfaces, checks, handoff, failure cause, and recovery action.
 
+For an agentic run, record the decision path, versioned execution contract, tool authorization, side effects, validations, and outcome in `templates/agent-run-evidence.md`. Missing required provenance makes the run `INCOMPLETE`, not passed; execution evidence still does not replace independent tests or human UAT.
+
 ## Work-unit state
 
 Use `templates/work-unit.md`. A unit moves through:
