@@ -2,6 +2,9 @@
 
 ## Gate dashboard
 
+- **Context Baseline:** CB-001
+- **Baseline status:** CURRENT / STALE / BLOCKED
+
 | Gate | Status | Evidence or missing condition |
 |---|---|---|
 | Problem | not started | |

@@ -1,8 +1,8 @@
 # Scenario and Test Matrix
 
-| Scenario | Rule | Approved surface | Actor / initial state | Action | Observable result | Side effect | Level | Status |
+| Scenario | Rule / RH | Approved surface | Actor / initial state | Action | Observable result | Side effect / guardrail | Level | Status |
 |---|---|---|---|---|---|---|---|---|
-| SCN-001 | RULE-001 | SURF-001 / web |  |  |  |  | E2E | planned |
+| SCN-001 | RULE-001 / RH-001 | SURF-001 / web |  |  |  |  | E2E | planned |
 
 Levels: `E2E`, `SUPPORTING`, or `MANUAL`. Statuses: `planned`, `red`, `green`, `blocked`, `accepted`.
 

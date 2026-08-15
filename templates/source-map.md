@@ -5,10 +5,11 @@
 - **Created:**
 - **Last updated:**
 - **Business objective:**
+- **Context Baseline candidate:** CB-001
 
-| ID | Source and locator | Type | Owner | Published/updated | Accessed | Version/validity | Access/status | Reliability | Relationships, conflicts, limitations |
-|---|---|---|---|---|---|---|---|---|---|
-| S001 |  |  |  | NO SOURCE |  |  |  | Unknown |  |
+| ID | Source and locator | Type | Owner | Published/updated | Accessed | Version/hash and validity | Access/classification | Approval state | Reliability | Relationships, conflicts, supersession, limitations |
+|---|---|---|---|---|---|---|---|---|---|---|
+| S001 |  |  |  | NO SOURCE |  |  |  | unknown | Unknown |  |
 
 Reliability is claim-dependent: High / Medium / Low / Unknown. Known but unread sources remain listed with `no access` and cannot support facts.
 

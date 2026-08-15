@@ -3,6 +3,7 @@
 ## Scope and sources
 
 - Linked problem:
+- Context Baseline (`CB-###`):
 - Reconciled sources:
 - Scope:
 - Non-goals:
@@ -14,6 +15,8 @@
 
 ### RULE-001
 
+- Evidence/decision IDs:
+- Trace status: CURRENT / STALE / BLOCKED
 - Actor and permission:
 - Initial state:
 - Trigger:

@@ -14,5 +14,8 @@
 - **Segment reachability:**
 - **Why now:**
 - **Constraints:**
+- **Reliance & Harm assessment:** RH-001
+- **Direct contextual evidence and missing edge users:**
+- **Immediate / delayed consequences and guardrails:**
 - **Explicit non-goals:**
 - **Decision this brief supports:**

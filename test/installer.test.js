@@ -273,12 +273,17 @@ test("installs the complete AnalystCraft evidence layer", async () => {
       ".tdpd/templates/system-context-pack.md",
       ".tdpd/templates/review-findings.md",
       ".tdpd/templates/decision-log.md",
+      ".tdpd/templates/context-baseline.md",
+      ".tdpd/templates/reliance-harm-assessment.md",
       ".tdpd/templates/traceability-matrix.md"
     ];
     for (const file of expected) {
       assert.ok((await readFile(join(target, file), "utf8")).length > 100, `${file} should be installed`);
     }
     assert.match(await readFile(join(target, ".tdpd/core/CONTEXT.md"), "utf8"), /Source map → System Context Pack → Review Findings → Decision Log/);
+    assert.match(await readFile(join(target, ".tdpd/core/CONTEXT.md"), "utf8"), /previous Green/i);
+    assert.match(await readFile(join(target, ".tdpd/templates/context-baseline.md"), "utf8"), /CURRENT \/ STALE \/ BLOCKED/);
+    assert.match(await readFile(join(target, ".tdpd/templates/reliance-harm-assessment.md"), "utf8"), /LOW \/ MATERIAL \/ HIGH/);
   } finally {
     await rm(target, { recursive: true, force: true });
   }

@@ -4,7 +4,7 @@ This module converts approved intent into an externally observable delivery cont
 
 ## Design the experience and service
 
-Describe actors, jobs, journey, entry points, information, actions, feedback, permissions, empty/loading/error/success states, interruption, recovery, accessibility, responsive behavior, operator workflow, and support boundary. Remove steps or concepts that do not contribute to the intended job.
+Describe actors, jobs, journey, entry points, information, actions, feedback, permissions, empty/loading/error/success states, interruption, recovery, accessibility, responsive behavior, operator workflow, and support boundary. Remove steps or concepts that do not contribute to the intended job. For `MATERIAL` and `HIGH` reliance/harm, explicitly cover edge or excluded users, opt-out, consent/comprehension where applicable, cancellation, recovery, support, and escalation.
 
 ## Approve the product surface
 
@@ -28,13 +28,13 @@ Record `PROJ-###` for project organization: stack and versions, repository/modul
 
 ## Create acceptance scenarios
 
-Map rules to user scenarios covering the happy path and relevant empty, invalid, unauthorized, duplicate, repeated, slow, partial-failure, interruption, quota, migration, and recovery paths. Every scenario identifies its approved surface. Convert automatable scenarios into boundary-level e2e tests through that surface; a CLI or API test does not prove a web, mobile, desktop, or conversational experience. Keep perceptual or strategic judgment as manual UAT.
+Map rules to user scenarios covering the happy path and relevant empty, invalid, unauthorized, duplicate, repeated, slow, partial-failure, interruption, quota, migration, and recovery paths. For `MATERIAL` and `HIGH`, include the seeded edge-user, opt-out, cancellation, recovery, support/escalation, and guardrail scenarios identified by `RH-###`; assign delayed effects to monitoring or manual review when they cannot be tested honestly before launch. Every scenario identifies its approved surface. Convert automatable scenarios into boundary-level e2e tests through that surface; a CLI or API test does not prove a web, mobile, desktop, or conversational experience. Keep perceptual or strategic judgment as manual UAT.
 
 ## Pass the three Input readiness checks
 
 ### Experience readiness
 
-The product surface is approved; primary journeys, interface inventory, navigation, states, accessibility, responsive behavior, and manual UAT judgments are explicit.
+The product surface is approved; primary journeys, interface inventory, navigation, states, accessibility, responsive behavior, and manual UAT judgments are explicit. Any `MATERIAL` or `HIGH` reliance/harm contract has corresponding edge-user, exit, recovery, support, escalation, and guardrail coverage.
 
 ### Requirements readiness
 

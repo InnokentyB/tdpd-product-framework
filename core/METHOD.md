@@ -23,11 +23,13 @@ Test-Driven Product Development (TDPD) is an original method by Innokenty Bodrov
 - Do not weaken tests merely to create green.
 - Keep human judgment at architecture input and UAT output instead of requiring line-by-line review of every agent rewrite.
 - Preserve traceability from business value to acceptance evidence.
+- Bind source-heavy delivery to a versioned Context Baseline and invalidate affected downstream artifacts when material evidence or decisions change.
+- Scale Problem, Opportunity, and Input rigor using a Reliance & Harm preflight; require direct evidence and additional guardrails only when user dependency and consequences justify them.
 - Never claim product value solely because automated tests pass.
 
 ## Evidence precondition
 
-Apply [CONTEXT.md](CONTEXT.md) before committing the specification. TDPD does not treat input material as self-consistent: inventory sources, extract source-linked context, expose findings, record authorized decisions, and preserve provenance through requirements, scenarios, tests, implementation, and UAT.
+Apply [CONTEXT.md](CONTEXT.md) before committing the specification. TDPD does not treat input material as self-consistent: inventory sources, extract source-linked context, expose findings, record authorized decisions, freeze a Context Baseline, and preserve provenance through requirements, scenarios, tests, implementation, and UAT. A baseline identifies the evidence version being tested; it does not certify that evidence as true.
 
 ## Opportunity precondition
 

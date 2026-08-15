@@ -11,15 +11,15 @@ The full workflow composes them in that order. A standalone layer evaluates only
 
 ## Context gate
 
-Require a source map, atomic context pack, review findings, decision log, and traceability matrix proportionate to the task. Every factual statement has a readable locator or is marked `NO SOURCE`; material contradictions and gaps are unresolved visibly or closed by an authorized `DL-###` decision. Context readiness is Ready or Partially ready with no critical blocker for the next gate.
+Require a source map, atomic context pack, review findings, decision log, current `CB-###` Context Baseline, and traceability matrix proportionate to the task. Every factual statement has a readable locator or is marked `NO SOURCE`; material contradictions and gaps are unresolved visibly or closed by an authorized `DL-###` decision. Context readiness is Ready or Partially ready with no critical blocker for the next gate. No artifact required by the next gate may remain `STALE`.
 
 ## Problem gate
 
-Require an actor, real job or pain, current workaround, desired outcome, and observable success signal. If value is unclear, run discovery or a cheap experiment before building.
+Require an actor, real job or pain, current workaround, desired outcome, and observable success signal. Record a proportionate `RH-###` Reliance & Harm preflight covering dependency, practical ability to exit, consequence severity and duration, reversibility, and support/recovery. Distinguish the expressed request from the underlying need. If value or the risk classification is unclear, run discovery or a cheap experiment before building.
 
 ## Opportunity gate
 
-Require a source-grounded opportunity, alternatives map, ranked assumption register, proportionate experiments with predeclared pass/fail/inconclusive rules, preserved observations, and a human `OPP-DEC-###` decision. Proceeding work has an investment boundary, residual uncertainty, and kill criteria. Stated interest alone does not establish behavioral demand.
+Require a source-grounded opportunity, alternatives map, ranked assumption register, proportionate experiments with predeclared pass/fail/inconclusive rules, preserved observations, and a human `OPP-DEC-###` decision. For `MATERIAL` or `HIGH` reliance/harm, require direct contextual evidence for load-bearing user assumptions, explicit edge/excluded-user coverage, immediate and delayed consequence analysis, and guardrail signals. Proceeding work has an investment boundary, residual uncertainty, and kill criteria. Stated interest alone does not establish behavioral demand.
 
 ## Business gate
 
@@ -29,8 +29,8 @@ Require explicit user, buyer, approver, and operator roles; a source-grounded va
 
 Require all three readiness checks:
 
-- **Experience readiness:** an approved `SURF-###` product surface decision, interface contract and inventory, primary journeys, navigation, feedback states, accessibility/responsive expectations, and manual UAT criteria.
-- **Requirements readiness:** reconciled evidence, deterministic behavior and quality attributes, testable acceptance criteria, explicit non-goals, and traceability from every material rule to a source or authorized decision and acceptance scenario.
+- **Experience readiness:** an approved `SURF-###` product surface decision, interface contract and inventory, primary journeys, navigation, feedback states, accessibility/responsive expectations, and manual UAT criteria. For `MATERIAL` or `HIGH` reliance/harm, include applicable opt-out, consent/comprehension, cancellation, recovery, support, and escalation paths plus edge-user scenarios.
+- **Requirements readiness:** a current Context Baseline, reconciled evidence, deterministic behavior and quality attributes, testable acceptance criteria, explicit non-goals, and traceability from every material rule to a source or authorized decision and acceptance scenario. A previous Green cannot satisfy this check after its baseline changes until impact is reviewed.
 - **Engineering readiness:** approved material architecture and `PROJ-###` project organization covering stack, module boundaries, commands, environments, security/data constraints, CI/deployment, observability, compatibility, and rollback.
 
 An unspecified product surface blocks the gate. Do not silently choose a CLI, API, generated file, or test harness as the product interface. Acceptance scenarios and E2E tests must exercise the approved user surface; record unresolved ambiguity as a finding, not a silent choice.
@@ -63,6 +63,6 @@ Require production observations compared with a frozen measurement contract, vis
 
 Use stable IDs for non-trivial work:
 
-`S → F/C/G/A/R → DL → PROB → OPP/ASM/EXP/OBS/OPP-DEC → BIZ/PRICE-EXP/COM-DEC → MEAS → RULE → SCN → E2E/MANUAL → WORK/HANDOFF → UAT → GTM → LAUNCH → OUT-OBS/OUT-REV → LIFE-DEC`
+`CB → S → F/C/G/A/R → DL → PROB/RH → OPP/ASM/EXP/OBS/OPP-DEC → BIZ/PRICE-EXP/COM-DEC → MEAS → RULE → SCN → E2E/MANUAL → WORK/HANDOFF → UAT → GTM → LAUNCH → OUT-OBS/OUT-REV → LIFE-DEC`
 
 Every material rule maps to a scenario or explicit manual check. Every test maps to user value or a necessary safety constraint.

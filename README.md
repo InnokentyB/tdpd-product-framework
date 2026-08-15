@@ -62,6 +62,10 @@ The Design & Requirements layer blocks implementation until three checks pass:
 
 An agent must never select a CLI, API, or other engineering-only surface merely because the intended interface is missing. E2E acceptance exercises the approved product surface.
 
+For source-heavy work, the Context gate freezes a versioned `CB-###` Context Baseline before the specification is approved. If a material source or decision changes, dependent rules, scenarios, tests, and prior delivery evidence become `STALE`; the run returns to the earliest affected gate instead of carrying a previous Green forward.
+
+Early-gate rigor is also proportional to user reliance and plausible harm. A lightweight `RH-###` preflight classifies the work as `LOW`, `MATERIAL`, or `HIGH`; only the latter two require direct contextual evidence, edge-user and delayed-consequence analysis, recovery paths, and explicit guardrails before Input passes.
+
 ## Run a delivery
 
 Start a local, human-controlled run:
