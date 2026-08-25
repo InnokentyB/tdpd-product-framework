@@ -33,9 +33,12 @@ Before implementation require:
 - interface contract and inventory;
 - deterministic specification and scenarios;
 - approved project organization (`PROJ-###`) and architecture;
+- approved Autonomy Contract (`AUT-###`) when external or production side effects are allowed;
 - passed Experience, Requirements, and Engineering readiness.
 
 If the intended surface is unspecified, block and request the decision. **Do not default to a CLI**, API, generated file, or test harness for convenience. E2E acceptance must exercise the approved user surface; supporting API or CLI tests do not replace it.
+
+After Red and before implementation, prove `ER-###` Execution Readiness: the sandbox, tools, checks, environment, observability, stop conditions, and rollback path work within the approved authority envelope. Material UAT rejects, rollbacks, and escaped defects require a human-approved `REG-###` Regression Memory treatment. Measure accepted outcomes and human orchestration cost rather than code volume or run duration alone.
 
 ## Completion
 

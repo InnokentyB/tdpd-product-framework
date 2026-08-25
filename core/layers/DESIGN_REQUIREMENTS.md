@@ -27,6 +27,7 @@ Approved problem/scope or another authoritative design request, actors, constrai
 - user scenarios and e2e/manual acceptance matrix;
 - change and migration implications;
 - approved project organization, runtime commands, environments, and delivery conventions;
+- approved `AUT-###` Autonomy Contract when agent execution may cause external or production side effects;
 - passed Experience, Requirements, and Engineering readiness checks;
 - handoff to Implementation & Delivery.
 

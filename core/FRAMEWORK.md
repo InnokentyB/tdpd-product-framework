@@ -5,8 +5,8 @@ The framework is four independently adoptable layers connected by explicit hando
 | Layer | Primary question | Entry contract | Exit contract |
 |---|---|---|---|
 | Product & Business | Should we invest, for whom, and under what economics? | source-grounded decision context | approved product bet and commercial boundaries |
-| Design & Requirements | What observable system and experience must exist? | approved bet or bounded design problem | deterministic, traceable, architecture-approved delivery contract |
-| Implementation & Delivery | Can we produce and accept the required behavior safely? | approved scenarios, tests, and architecture boundary | green evidence and human UAT verdict |
+| Design & Requirements | What observable system and experience must exist? | approved bet or bounded design problem | deterministic, traceable, architecture- and autonomy-approved delivery contract |
+| Implementation & Delivery | Can we produce and accept the required behavior safely? | approved scenarios, tests, architecture boundary, and applicable authority envelope | readiness/red/green evidence, accepted-outcome measures, regression decisions, and human UAT verdict |
 | Launch & Operations | Can we reach users, operate safely, and create sustained outcomes? | accepted product plus commercial/measurement contracts | lifecycle decision and learning returned upstream |
 
 ## Independence rules

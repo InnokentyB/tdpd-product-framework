@@ -20,6 +20,7 @@ Recovery preserves traceability and prevents a failed agent run from becoming lo
 6. For a blocker, pause and request the smallest missing human decision or external change.
 7. Quarantine corrupt state; do not silently repair it while continuing execution.
 8. Resume from the earliest affected dependency or TDPD gate and record the result.
+9. For a material UAT rejection, rollback, or escaped defect, create or update `REG-###` and choose exactly one durable treatment: scenario/test, human-approved versioned rule, or explicitly owned manual check.
 
 ## Safety rules
 
@@ -28,3 +29,4 @@ Recovery preserves traceability and prevents a failed agent run from becoming lo
 - Never advance Green while relevant checks fail.
 - Never advance Output/UAT without an explicit human verdict.
 - Bound retries and record every attempt so costs and repeated failures remain visible.
+- Do not let an agent promote every historical correction into a permanent rule. A responsible human approves scope, false-positive tolerance, version, and retirement conditions.

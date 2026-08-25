@@ -32,6 +32,7 @@ Require all three readiness checks:
 - **Experience readiness:** an approved `SURF-###` product surface decision, interface contract and inventory, primary journeys, navigation, feedback states, accessibility/responsive expectations, and manual UAT criteria. For `MATERIAL` or `HIGH` reliance/harm, include applicable opt-out, consent/comprehension, cancellation, recovery, support, and escalation paths plus edge-user scenarios.
 - **Requirements readiness:** a current Context Baseline, reconciled evidence, deterministic behavior and quality attributes, testable acceptance criteria, explicit non-goals, and traceability from every material rule to a source or authorized decision and acceptance scenario. A previous Green cannot satisfy this check after its baseline changes until impact is reviewed.
 - **Engineering readiness:** approved material architecture and `PROJ-###` project organization covering stack, module boundaries, commands, environments, security/data constraints, CI/deployment, observability, compatibility, and rollback.
+- **Autonomy readiness when applicable:** an approved `AUT-###` Autonomy Contract covering agent identity, allowed and forbidden actions, least-privilege and time-bounded access, blast radius, human approval boundaries, stop signals, rollback, and recovery ownership. Without it, agent execution is limited to an isolated environment with no external or production side effects.
 
 An unspecified product surface blocks the gate. Do not silently choose a CLI, API, generated file, or test harness as the product interface. Acceptance scenarios and E2E tests must exercise the approved user surface; record unresolved ambiguity as a finding, not a silent choice.
 
@@ -39,13 +40,17 @@ An unspecified product surface blocks the gate. Do not silently choose a CLI, AP
 
 Require executable user scenarios that fail for the intended missing behavior. Infrastructure, fixture, selector, credential, or environment failures do not count.
 
+## Execution Readiness preflight (Red → implementation)
+
+Before an agent begins implementation, require an `ER-###` record proving that the approved sandbox, tool/API/CLI/MCP access, credentials policy, test fixtures, test/staging environment, observability, stop signals, retry/idempotency behavior, and rollback path work. Exercise a safe failure or recovery path where practical. This preflight does not add a top-level gate or prove product correctness; it controls whether autonomous implementation may start.
+
 ## Green gate
 
 Require target e2e tests and proportionate broader checks to pass. Clear authorization, security, data-integrity, migration, payment, destructive-operation, and rollback vetoes.
 
 ## Output gate
 
-Require human UAT against the original problem in realistic use. Without this, report **engineering complete, awaiting UAT**.
+Require human UAT against the original problem in realistic use. Without this, report **engineering complete, awaiting UAT**. Every material rejection, accepted-with-follow-up gap, rollback, or escaped defect must link to a `REG-###` Regression Memory decision: add or update a scenario/test, adopt a human-approved versioned rule, or retain an explicitly owned manual check.
 
 ## GTM gate
 
@@ -63,6 +68,6 @@ Require production observations compared with a frozen measurement contract, vis
 
 Use stable IDs for non-trivial work:
 
-`CB → S → F/C/G/A/R → DL → PROB/RH → OPP/ASM/EXP/OBS/OPP-DEC → BIZ/PRICE-EXP/COM-DEC → MEAS → RULE → SCN → E2E/MANUAL → WORK/HANDOFF → UAT → GTM → LAUNCH → OUT-OBS/OUT-REV → LIFE-DEC`
+`CB → S → F/C/G/A/R → DL → PROB/RH → OPP/ASM/EXP/OBS/OPP-DEC → BIZ/PRICE-EXP/COM-DEC → MEAS → SURF/UI/PROJ/AUT → RULE → SCN → E2E/MANUAL → ER → WORK/HANDOFF/RUN → UAT/REG → GTM → LAUNCH → OUT-OBS/OUT-REV → LIFE-DEC`
 
 Every material rule maps to a scenario or explicit manual check. Every test maps to user value or a necessary safety constraint.

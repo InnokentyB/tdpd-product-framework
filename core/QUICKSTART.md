@@ -18,6 +18,8 @@ The platform adapter in the project root tells the agent how to load the framewo
 
 Before delivery, the agent must obtain an explicit product-surface decision and complete the interface and project organization contracts. If the intended surface is unclear, clarify or block the Input gate; do not let implementation convenience silently turn a graphical product into a CLI.
 
+If agent work may change external systems or production state, complete `templates/autonomy-contract.md` before Input passes. After Red, complete `templates/execution-readiness.md` before implementation begins. Material UAT rejects, rollbacks, and escaped defects go to `templates/regression-memory.md` instead of disappearing into chat or an unversioned prompt.
+
 ## Track a run locally
 
 Run these commands from the installed project's root:

@@ -12,3 +12,6 @@
 - **Human decision required:**
 - **Resume point:**
 - **Outcome:**
+- **Material UAT reject, rollback, or escaped defect:** yes / no
+- **Regression Memory record (`REG-###`):**
+- **Durable treatment:** scenario/test / approved versioned rule / owned manual check / not applicable

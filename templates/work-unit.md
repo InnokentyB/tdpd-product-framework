@@ -10,6 +10,8 @@
 - **Input artifacts:**
 - **Allowed changes:**
 - **Forbidden or high-risk actions:**
+- **Autonomy Contract and authority subset (`AUT-###`):**
+- **Execution Readiness evidence (`ER-###`):**
 - **Required deterministic checks:**
 - **Required reviewer/approval:**
 - **Handoff destination:**

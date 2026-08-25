@@ -9,7 +9,7 @@
   "interface": {
     "displayName": "TDPD Product Framework",
     "shortDescription": "Four connected layers for complete product creation.",
-    "longDescription": "Modular platform adapter with Product & Business, Design & Requirements, Implementation & Delivery, and Launch & Operations layers joined by evidence, approved product-surface and project contracts, traceability, and versioned handoffs.",
+    "longDescription": "Modular platform adapter with Product & Business, Design & Requirements, Implementation & Delivery, and Launch & Operations layers joined by evidence, approved product-surface, project and autonomy contracts, execution readiness, regression memory, traceability, and versioned handoffs.",
     "developerName": "Innokenty Bodrov",
     "category": "Productivity",
     "capabilities": ["Product discovery", "Delivery planning", "Test-first implementation", "Product audit"],

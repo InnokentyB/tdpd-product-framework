@@ -17,8 +17,12 @@ This layer governs how one or more agents execute an approved TDPD delivery cont
 6. Require deterministic checks before a unit is accepted. Validate critical gates with a known failing case where practical.
 7. Use independent review proportionate to risk. Keep human approval for architecture, high-risk actions, and final UAT.
 8. Preserve execution evidence: unit, owner, input artifacts, changed surfaces, checks, handoff, failure cause, and recovery action.
+9. Execute only inside the approved `AUT-###` authority envelope. Use a distinct auditable agent identity where supported; deny inherited or long-lived access that is not required for the work unit.
+10. Prove `ER-###` Execution Readiness before implementation. Tool availability without a safe test, stop condition, and recovery path is not readiness.
 
 For an agentic run, record the decision path, versioned execution contract, tool authorization, side effects, validations, and outcome in `templates/agent-run-evidence.md`. Missing required provenance makes the run `INCOMPLETE`, not passed; execution evidence still does not replace independent tests or human UAT.
+
+Do not optimize for uninterrupted run duration alone. A long run that fails to converge, consumes unbounded cost, or reaches Green only after hidden human steering is not autonomous success. Record accepted outcome, interruptions, owner time, first-pass UAT, rollback, escaped defects, and cost where measurable.
 
 ## Work-unit state
 

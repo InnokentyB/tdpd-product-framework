@@ -42,6 +42,8 @@
 - Data ownership, migrations, backup, and retention:
 - Logs, metrics, traces, alerts, and support ownership:
 - Rollout, compatibility, rollback, and recovery:
+- Linked Autonomy Contract (`AUT-###`) when external or production side effects are allowed:
+- Execution Readiness owner and required evidence (`ER-###`):
 
 ## Documentation and fixtures
 

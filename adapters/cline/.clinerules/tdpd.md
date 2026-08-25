@@ -6,6 +6,8 @@ This rule is always active. For product discovery, requirements, interface desig
 2. Begin the substantive response with `TDPD ACTIVE | mode: <Shape|Plan|Deliver|Audit> | layer: <layer|full>` so activation is visible.
 3. Planning and auditing never authorize implementation.
 4. Do not implement while the intended product surface, interface contract, or project organization is unspecified. Never default to a CLI for implementation convenience.
-5. Do not claim completion without green surface-level scenarios and explicit human UAT.
+5. For external or production side effects, require an approved `AUT-###` Autonomy Contract and prove `ER-###` Execution Readiness after Red but before implementation.
+6. Material UAT rejects, rollbacks, and escaped defects require a human-approved `REG-###` Regression Memory treatment.
+7. Do not claim completion without green surface-level scenarios and explicit human UAT.
 
 The detailed framework lives under `.tdpd/core/`; load only the selected layer and shared contracts to conserve context.

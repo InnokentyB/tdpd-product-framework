@@ -138,6 +138,54 @@ test("requires an approved product surface and project organization before imple
   }
 });
 
+test("installs enforceable autonomy, execution-readiness, and regression-memory contracts", async () => {
+  const target = await mkdtemp(join(tmpdir(), "tdpd-autonomy-contracts-"));
+  try {
+    await exec(process.execPath, [cli, "init", "--adapter", "codex", "--target", target]);
+    const expected = [
+      ".tdpd/templates/autonomy-contract.md",
+      ".tdpd/templates/execution-readiness.md",
+      ".tdpd/templates/regression-memory.md"
+    ];
+    const installed = new Map();
+    for (const file of expected) {
+      const contents = await readFile(join(target, file), "utf8");
+      installed.set(file, contents);
+      assert.ok(contents.length > 500, `${file} should be installed`);
+    }
+
+    const gates = await readFile(join(target, ".tdpd/core/GATES.md"), "utf8");
+    assert.match(gates, /AUT-###/);
+    assert.match(gates, /Execution Readiness preflight/);
+    assert.match(gates, /REG-###/);
+
+    const delivery = await readFile(join(target, ".tdpd/templates/delivery-evidence.md"), "utf8");
+    assert.match(delivery, /Owner minutes before Green/);
+    assert.match(delivery, /Cost of accepted outcome/);
+
+    const adapter = await readFile(join(target, "skills/build-products-with-tdpd/SKILL.md"), "utf8");
+    assert.match(adapter, /Autonomy Contract/);
+    assert.match(adapter, /Regression Memory/);
+
+    await exec(process.execPath, [join(target, ".tdpd/bin/tdpd.js"), "start", "--mode", "manual", "--target", target]);
+    const requiredByLayer = [
+      ["design-requirements", ".tdpd/templates/autonomy-contract.md"],
+      ["implementation-delivery", ".tdpd/templates/execution-readiness.md"],
+      ["implementation-delivery", ".tdpd/templates/regression-memory.md"]
+    ];
+    for (const [layer, file] of requiredByLayer) {
+      await rm(join(target, file));
+      await assert.rejects(
+        exec(process.execPath, [join(target, ".tdpd/bin/tdpd.js"), "audit", "--layer", layer, "--target", target]),
+        (error) => error.stderr.includes(`missing ${file}`)
+      );
+      await writeFile(join(target, file), installed.get(file), "utf8");
+    }
+  } finally {
+    await rm(target, { recursive: true, force: true });
+  }
+});
+
 test("refuses to overwrite an existing installation", async () => {
   const target = await mkdtemp(join(tmpdir(), "tdpd-conflict-"));
   try {

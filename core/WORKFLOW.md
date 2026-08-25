@@ -24,17 +24,20 @@ This document describes `full` composition. For independent adoption, start with
 11. Create the interface contract and inventory; cover journeys, navigation, feedback states, accessibility, responsive behavior, and manual UAT judgments.
 12. Specify deterministic externally visible behavior traced to evidence and decisions.
 13. Define project organization, runtime commands, environments, CI/deployment, operability, and rollback.
-14. Pass Experience, Requirements, and Engineering readiness.
-15. Write happy, negative, interruption, and recovery scenarios through the approved surface proportionate to risk.
-16. Obtain human approval for material architecture boundaries and tradeoffs.
-17. Implement e2e tests and prove the intended red state.
-18. Implement the smallest coherent production change to green.
-19. Verify UX, accessibility, authorization, hostile input, data integrity, billing, observability, rollback, and documentation impact as applicable.
-20. Run human UAT and convert gaps into findings, assumptions, experiments, decisions, rules, or scenarios.
-21. Validate GTM readiness: segment, offer, channel, decision motion, onboarding, activation, support, cost, capacity, and commercial operations.
-22. Launch to a bounded audience with validated instrumentation, support, monitoring, and rollback readiness.
-23. Observe acquisition, conversion, activation, retention, outcomes, guardrails, reliability, support load, and economics against baseline.
-24. Record a human lifecycle decision: iterate, scale, hold, roll back, or sunset; return to the earliest affected gate.
+14. When agent work can cause external or production side effects, approve the Autonomy Contract: identity, allowed actions, least privilege, blast radius, approval boundaries, stop signals, rollback, and recovery owner.
+15. Pass Experience, Requirements, Engineering, and applicable Autonomy readiness.
+16. Write happy, negative, interruption, and recovery scenarios through the approved surface proportionate to risk.
+17. Obtain human approval for material architecture boundaries and tradeoffs.
+18. Implement e2e tests and prove the intended red state.
+19. Prove Execution Readiness: sandbox, tools, test/staging environment, observability, stop conditions, and rollback work under the approved autonomy boundary.
+20. Implement the smallest coherent production change to green.
+21. Verify UX, accessibility, authorization, hostile input, data integrity, billing, observability, rollback, and documentation impact as applicable.
+22. Run human UAT and convert material rejection, rollback, or escaped-defect evidence into Regression Memory.
+23. Record accepted-outcome measures including human interruptions, owner time, first-pass UAT, rollback, escaped defects, and cost where available.
+24. Validate GTM readiness: segment, offer, channel, decision motion, onboarding, activation, support, cost, capacity, and commercial operations.
+25. Launch to a bounded audience with validated instrumentation, support, monitoring, and rollback readiness.
+26. Observe acquisition, conversion, activation, retention, outcomes, guardrails, reliability, support load, and economics against baseline.
+27. Record a human lifecycle decision: iterate, scale, hold, roll back, or sunset; return to the earliest affected gate.
 
 ## Risk scaling
 

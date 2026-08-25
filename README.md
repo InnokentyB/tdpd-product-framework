@@ -66,6 +66,10 @@ For source-heavy work, the Context gate freezes a versioned `CB-###` Context Bas
 
 Early-gate rigor is also proportional to user reliance and plausible harm. A lightweight `RH-###` preflight classifies the work as `LOW`, `MATERIAL`, or `HIGH`; only the latter two require direct contextual evidence, edge-user and delayed-consequence analysis, recovery paths, and explicit guardrails before Input passes.
 
+For agentic work with external or production side effects, Input also requires an approved `AUT-###` Autonomy Contract. It defines the agent identity, allowed and forbidden actions, least-privilege access, blast radius, approval boundaries, stop signals, rollback, and recovery ownership. Before implementation begins, an `ER-###` Execution Readiness preflight proves that the approved checks, sandbox, environments, observability, and recovery path actually work. These are enforceable conditions inside the existing Input and Red-to-Green flow, not additional top-level gates.
+
+Rejected UAT, rollback, and escaped defects feed a `REG-###` Regression Memory record. Each material failure must become a scenario/test, a human-approved versioned rule, or an explicit decision to keep the check manual. Delivery evidence measures accepted outcomes and human orchestration cost rather than lines of code or PR volume.
+
 ## Run a delivery
 
 Start a local, human-controlled run:

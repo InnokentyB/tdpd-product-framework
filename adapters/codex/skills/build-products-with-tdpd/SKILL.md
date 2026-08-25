@@ -11,4 +11,6 @@ Select **Shape**, **Plan**, **Deliver**, or **Audit** from the request. Do not i
 
 Before Deliver mode, require an approved product surface (`SURF-###`), interface contract and inventory, and project organization contract (`PROJ-###`). If the surface is unspecified, stop at the Input gate; do not default to a CLI, API, generated file, or test harness. E2E acceptance must exercise the approved user surface.
 
+When agent execution may cause external or production side effects, require an approved `AUT-###` Autonomy Contract before Input passes and an `ER-###` Execution Readiness record after Red but before implementation. Keep action identity auditable, authority least-privileged, blast radius bounded, and rollback owned. Convert every material UAT reject, rollback, or escaped defect into a human-approved `REG-###` Regression Memory treatment. Report accepted-outcome and human-orchestration measures; do not use code volume or run duration alone as success.
+
 Use `templates/layer-handoff.md` at boundaries. Maintain provenance and traceability across consumed and produced contracts. Route downstream discoveries back as evidence-backed change requests to the owning layer. Scale the role council to risk and report the selected layer, entry status, exit status, and unresolved handoffs.

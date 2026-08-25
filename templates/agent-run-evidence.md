@@ -20,6 +20,8 @@ Use this record for an agentic work unit whose decisions, tool calls, or side ef
 | System instructions / prompt template | |
 | Tool or MCP contracts | |
 | Authorization policy | |
+| Autonomy Contract (`AUT-###`) | |
+| Execution Readiness (`ER-###`) | |
 | Evaluation criteria / test set | |
 | Input and context artifacts | |
 
@@ -52,9 +54,17 @@ Keep debugging traces separate from compact audit records when their access or r
 ## Operational measures
 
 - Steps and retries:
+- Reached Green without human re-steering: yes / no / not measured
+- Successful autonomous run duration:
+- Human interruptions:
+- Owner minutes:
 - Duplicate tool calls:
 - Tool failures:
 - Time and cost:
 - Escalations:
 - Human corrections:
 - Outcome-check failures:
+- First-pass UAT verdict:
+- Rollbacks and escaped defects:
+- Cost of accepted outcome:
+- Regression Memory records (`REG-###`):

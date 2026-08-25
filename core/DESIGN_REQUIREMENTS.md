@@ -26,6 +26,8 @@ Record components, interfaces, trust boundaries, data contracts, identity and au
 
 Record `PROJ-###` for project organization: stack and versions, repository/module boundaries, dependency direction, required install/dev/build/test/start commands, configuration, environments, CI, deployment, secrets, data lifecycle, observability, documentation, fixtures, and rollback. The structure must support the approved product surface and its E2E boundary.
 
+When implementation may perform external or production side effects, record `AUT-###`. Define a distinct auditable agent identity where supported, allowed and forbidden actions, least-privilege and time-bounded access, secret handling, data and network boundaries, blast radius, approval checkpoints, stop signals, rollback mechanism, and recovery owner. If this contract is absent or unapproved, constrain implementation to an isolated environment without those side effects.
+
 ## Create acceptance scenarios
 
 Map rules to user scenarios covering the happy path and relevant empty, invalid, unauthorized, duplicate, repeated, slow, partial-failure, interruption, quota, migration, and recovery paths. For `MATERIAL` and `HIGH`, include the seeded edge-user, opt-out, cancellation, recovery, support/escalation, and guardrail scenarios identified by `RH-###`; assign delayed effects to monitoring or manual review when they cannot be tested honestly before launch. Every scenario identifies its approved surface. Convert automatable scenarios into boundary-level e2e tests through that surface; a CLI or API test does not prove a web, mobile, desktop, or conversational experience. Keep perceptual or strategic judgment as manual UAT.
@@ -44,6 +46,8 @@ Behavior and quality attributes are deterministic, sources and decisions are tra
 
 Architecture and project organization are approved; commands, environments, module boundaries, security/data constraints, observability, deployment, compatibility, and rollback are defined sufficiently for implementation without invention.
 
+Where autonomous external or production actions are in scope, the Autonomy Contract is approved and traceable. It does not authorize implementation beyond the accepted scope or remove human UAT.
+
 ## Exit quality
 
-The layer is ready to hand off only when Experience readiness, Requirements readiness, and Engineering readiness all pass. Every material requirement traces to evidence or an authorized decision, scenarios exercise the approved user surface or are explicitly manual, and implementation can proceed without inventing product behavior, interface form, or project conventions.
+The layer is ready to hand off only when Experience readiness, Requirements readiness, and Engineering readiness all pass, plus Autonomy readiness when applicable. Every material requirement traces to evidence or an authorized decision, scenarios exercise the approved user surface or are explicitly manual, and implementation can proceed without inventing product behavior, interface form, project conventions, or authority.

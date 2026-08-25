@@ -37,6 +37,7 @@ const layerConfig = {
       ".tdpd/core/layers/DESIGN_REQUIREMENTS.md", ".tdpd/core/DESIGN_REQUIREMENTS.md", ".tdpd/core/METHOD.md",
       ".tdpd/templates/product-brief.md", ".tdpd/templates/product-surface-decision.md", ".tdpd/templates/interface-contract.md",
       ".tdpd/templates/interface-inventory.md", ".tdpd/templates/project-contract.md", ".tdpd/templates/specification.md", ".tdpd/templates/architecture-decision.md",
+      ".tdpd/templates/autonomy-contract.md",
       ".tdpd/templates/scenario-matrix.md", ".tdpd/templates/measurement-contract.md", ".tdpd/templates/metric-dictionary.md",
       ".tdpd/templates/instrumentation-map.md"
     ]
@@ -47,7 +48,8 @@ const layerConfig = {
       ".tdpd/core/layers/IMPLEMENTATION_DELIVERY.md", ".tdpd/core/METHOD.md", ".tdpd/core/ORCHESTRATION.md", ".tdpd/core/RECOVERY.md",
       ".tdpd/templates/work-unit.md", ".tdpd/templates/handoff.md", ".tdpd/templates/dependency-map.yaml",
       ".tdpd/templates/recovery-record.md", ".tdpd/templates/delivery-evidence.md", ".tdpd/templates/agent-run-evidence.md",
-      ".tdpd/templates/uat-record.md"
+      ".tdpd/templates/uat-record.md", ".tdpd/templates/autonomy-contract.md", ".tdpd/templates/execution-readiness.md",
+      ".tdpd/templates/regression-memory.md"
     ]
   },
   "launch-operations": {

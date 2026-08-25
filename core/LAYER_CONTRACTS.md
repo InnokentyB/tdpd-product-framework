@@ -13,6 +13,7 @@ Every handoff identifies:
 - entry criteria satisfied and evidence;
 - explicit decisions requested from the consumer;
 - invalidation conditions and upstream owner;
+- applicable autonomy contract, execution-readiness evidence, and authority changes;
 - handoff status: proposed, accepted, accepted-with-constraints, rejected, or superseded.
 
 ## Change protocol

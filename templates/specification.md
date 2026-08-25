@@ -10,6 +10,7 @@
 - Approved product surface (`SURF-###`):
 - Interface contract (`UI-###`):
 - Project organization contract (`PROJ-###`):
+- Autonomy Contract (`AUT-###`, when applicable):
 
 ## Rules
 
@@ -33,4 +34,6 @@
 - Migration/retention:
 - Observability:
 - Rollback:
+- Agent authority and approval boundaries:
+- Execution Readiness requirement (`ER-###`):
 - Open decisions:

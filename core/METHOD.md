@@ -10,7 +10,7 @@ Test-Driven Product Development (TDPD) is an original method by Innokenty Bodrov
 2. Specify observable behavior, rules, states, data, constraints, failures, and recovery.
 3. Describe real sequences of user actions and system responses.
 4. Convert every practical scenario into an executable e2e test before production implementation.
-5. Let the implementation agent work within a human-approved architecture boundary until tests pass.
+5. Let the implementation agent work within a human-approved architecture and autonomy boundary, after execution readiness is proven, until tests pass.
 6. Have a responsible human decide through UAT whether the result solves the original problem.
 
 ## Non-negotiable principles
@@ -25,6 +25,10 @@ Test-Driven Product Development (TDPD) is an original method by Innokenty Bodrov
 - Preserve traceability from business value to acceptance evidence.
 - Bind source-heavy delivery to a versioned Context Baseline and invalidate affected downstream artifacts when material evidence or decisions change.
 - Scale Problem, Opportunity, and Input rigor using a Reliance & Harm preflight; require direct evidence and additional guardrails only when user dependency and consequences justify them.
+- Require an approved Autonomy Contract before an agent may perform external or production side effects. Keep permissions least-privileged, actions attributable, blast radius bounded, and rollback owned.
+- Prove Execution Readiness before implementation: the sandbox, tools, checks, environments, observability, stop conditions, and recovery path must work rather than merely exist on paper.
+- Convert material UAT rejects, rollbacks, and escaped defects into Regression Memory: a scenario/test, a human-approved versioned rule, or an explicit manual-check decision.
+- Measure accepted outcomes, human orchestration cost, UAT acceptance, rollback, and escaped defects instead of rewarding code volume or run duration alone.
 - Never claim product value solely because automated tests pass.
 
 ## Evidence precondition

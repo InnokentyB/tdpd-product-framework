@@ -11,4 +11,6 @@ Use Shape, Plan, Deliver, or Audit mode. Planning and auditing do not authorize 
 
 Before implementation, require an approved product surface, interface contract and inventory, and project organization contract. Do not default to a CLI or engineering-only interface when the user surface is unspecified. E2E acceptance must exercise the approved surface.
 
+For external or production side effects, require an approved `AUT-###` Autonomy Contract and prove `ER-###` Execution Readiness after Red but before implementation. Keep authority least-privileged and rollback owned. Material UAT rejects, rollbacks, and escaped defects require a human-approved `REG-###` Regression Memory treatment. Measure accepted outcomes and human orchestration cost rather than code volume or run duration alone.
+
 Scale role reviews to risk. Do not claim TDPD completion without green executable scenarios and explicit human UAT; otherwise state **engineering complete, awaiting UAT**.

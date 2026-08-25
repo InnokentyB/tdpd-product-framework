@@ -11,4 +11,6 @@
 - **Compatibility/migration:**
 - **Observability:**
 - **Rollback:**
+- **Autonomy Contract (`AUT-###`) and execution boundary:**
+- **Execution Readiness evidence required before implementation (`ER-###`):**
 - **Human approval and date:**
