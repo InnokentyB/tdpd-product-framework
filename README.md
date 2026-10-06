@@ -13,6 +13,32 @@ A platform-independent, source-grounded framework for creating products from evi
 
 ## Install into a project
 
+### Pinned workshop install from GitHub
+
+Run this command from the root of the project that will use TDPD:
+
+```bash
+npx --yes --package=github:InnokentyB/tdpd-product-framework#workshop-v0.3.1 tdpd init --adapter codex --target .
+```
+
+Replace `codex` with the adapter for your coding agent:
+
+```text
+codex | claude-code | cursor | windsurf | github-copilot | universal
+```
+
+Verify the installed framework:
+
+```bash
+npx --yes --package=github:InnokentyB/tdpd-product-framework#workshop-v0.3.1 tdpd start --mode manual --target .
+npx --yes --package=github:InnokentyB/tdpd-product-framework#workshop-v0.3.1 tdpd status --target .
+npx --yes --package=github:InnokentyB/tdpd-product-framework#workshop-v0.3.1 tdpd audit --target .
+```
+
+The workshop tag is immutable. Do not replace it with `main` in participant instructions. See [`WORKSHOP.md`](WORKSHOP.md) for the complete participant and organizer checklist.
+
+### Install from a local clone
+
 From this repository:
 
 ```bash
@@ -56,4 +82,4 @@ Every initiative reports six gates: Context, Problem, Input, Red, Green, and Out
 
 ## Distribution
 
-The source repository is public and installable from a local clone. Publishing to npm and granting reuse rights require an explicit licensing decision.
+The framework is available under the [MIT License](LICENSE). Install a pinned Git tag for reproducible workshop use; do not install participant environments from the moving `main` branch.
