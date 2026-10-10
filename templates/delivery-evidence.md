@@ -17,6 +17,9 @@
 ## Red evidence
 
 - Scenario/test:
+- Build and Test Run (`BUILD-###` / `TRUN-###`):
+- Passed / failed / error / skipped / not-run counts:
+- Failed-case diagnostics and disposition:
 - Command/check:
 - Expected missing behavior:
 - Observed failure:

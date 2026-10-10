@@ -10,6 +10,10 @@
 - Approved product surface (`SURF-###`):
 - Interface contract (`UI-###`):
 - Project organization contract (`PROJ-###`):
+- Quality Attribute Requirements (`QAR-###`):
+- Architecture Plan (`ARCH-###`) and ADRs:
+- Architecture/Security/Failure Review (`RISK-###`):
+- Specification Lock (`LOCK-###`):
 - Autonomy Contract (`AUT-###`, when applicable):
 
 ## Rules
@@ -37,3 +41,14 @@
 - Agent authority and approval boundaries:
 - Execution Readiness requirement (`ER-###`):
 - Open decisions:
+
+## Specification readiness
+
+- Goal readiness: PASS / BLOCKED
+- Functional readiness: PASS / BLOCKED
+- Quality readiness: PASS / BLOCKED
+- Architecture readiness: PASS / BLOCKED
+- Risk readiness: PASS / BLOCKED
+- Surface readiness: PASS / BLOCKED
+- Project readiness: PASS / BLOCKED
+- Final scenario drafting authorized by `LOCK-###`: yes / no

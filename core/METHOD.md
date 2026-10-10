@@ -4,13 +4,13 @@ Test-Driven Product Development (TDPD) is an original method by Innokenty Bodrov
 
 ## Canonical pipeline
 
-`Business problem → Approved product surface → Specification → User scenarios → E2E tests → Agent implementation → Acceptance (UAT)`
+`Business problem → Approved product surface → Functional + quality specification → Architecture/risk plan → Specification Lock → User scenarios → E2E/quality tests → Agent implementation → Acceptance (UAT)`
 
 1. Establish the actor, problem, desired outcome, and success signal.
-2. Specify observable behavior, rules, states, data, constraints, failures, and recovery.
-3. Describe real sequences of user actions and system responses.
-4. Convert every practical scenario into an executable e2e test before production implementation.
-5. Let the implementation agent work within a human-approved architecture and autonomy boundary, after execution readiness is proven, until tests pass.
+2. Specify observable functional behavior and measurable quality attributes; plan architecture from those drivers, challenge it through security/failure review, and approve `LOCK-###` before final scenarios.
+3. Describe real sequences of user actions and system responses, including applicable quality, hostile, failure, and recovery cases.
+4. Convert every practical scenario into executable e2e and applicable QAR/risk/fitness tests before production implementation.
+5. Let the implementation agent work within the approved architecture and autonomy boundary, after execution readiness is proven, until tests pass and each build has an honest `TRUN-###`.
 6. Have a responsible human decide through UAT whether the result solves the original problem.
 
 ## Non-negotiable principles
@@ -21,7 +21,9 @@ Test-Driven Product Development (TDPD) is an original method by Innokenty Bodrov
 - Exercise executable scenarios through the approved user surface; supporting API or CLI checks do not replace surface-level acceptance.
 - Prove tests fail because behavior is absent before implementing it.
 - Do not weaken tests merely to create green.
-- Keep human judgment at architecture input and UAT output instead of requiring line-by-line review of every agent rewrite.
+- Keep human judgment at architecture/risk input and UAT output instead of requiring line-by-line review of every agent rewrite.
+- Do not finalize scenarios or enter Red until goal, functional, quality, architecture, risk, surface, and project readiness are locked.
+- Report every required test case as passed, failed, errored, skipped, or not run; absence and infrastructure failure are not green.
 - Preserve traceability from business value to acceptance evidence.
 - Bind source-heavy delivery to a versioned Context Baseline and invalidate affected downstream artifacts when material evidence or decisions change.
 - Scale Problem, Opportunity, and Input rigor using a Reliance & Harm preflight; require direct evidence and additional guardrails only when user dependency and consequences justify them.
@@ -34,6 +36,8 @@ Test-Driven Product Development (TDPD) is an original method by Innokenty Bodrov
 ## Evidence precondition
 
 Apply [CONTEXT.md](CONTEXT.md) before committing the specification. TDPD does not treat input material as self-consistent: inventory sources, extract source-linked context, expose findings, record authorized decisions, freeze a Context Baseline, and preserve provenance through requirements, scenarios, tests, implementation, and UAT. A baseline identifies the evidence version being tested; it does not certify that evidence as true.
+
+Apply [SPECIFICATION_ARCHITECTURE_ASSURANCE.md](SPECIFICATION_ARCHITECTURE_ASSURANCE.md) before final scenario drafting. A current approved Specification Lock proves that quality requirements, architecture, security, failure behavior, project boundaries, and human-owned tradeoffs are explicit enough that implementation need not invent them.
 
 ## Opportunity precondition
 

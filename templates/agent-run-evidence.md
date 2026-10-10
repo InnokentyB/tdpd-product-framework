@@ -24,6 +24,9 @@ Use this record for an agentic work unit whose decisions, tool calls, or side ef
 | Execution Readiness (`ER-###`) | |
 | Evaluation criteria / test set | |
 | Input and context artifacts | |
+| Specification baseline / hash | |
+| Dataset and input hashes / protected references | |
+| Runtime, quantization, and generation parameters | |
 
 ## Execution path
 
@@ -33,6 +36,7 @@ Use this record for an agentic work unit whose decisions, tool calls, or side ef
 
 ## Outcome and acceptance
 
+- Completion state: `STARTED | RUNTIME_FAILED | OUTPUT_MISSING | PARSE_FAILED | SCHEMA_FAILED | ARTIFACTS_MISSING | PLACEHOLDER | QUALITY_ELIGIBLE`
 - Technical outcome: `PASS | FAIL | INCOMPLETE`
 - Incomplete evidence or reason:
 - Outcome checks:
@@ -54,6 +58,15 @@ Keep debugging traces separate from compact audit records when their access or r
 ## Operational measures
 
 - Steps and retries:
+- Clarification loops:
+- Synthesis passes:
+- Specification returns:
+- Test/oracle rewrites and owner:
+- Deterministic repairs:
+- Return reasons: specification / architecture / implementation / test-oracle / environment / changed decision
+- First-pass cost, time, and tokens:
+- Total accepted-outcome cost, time, and tokens:
+- Repair multiplier (only from comparable observed costs):
 - Reached Green without human re-steering: yes / no / not measured
 - Successful autonomous run duration:
 - Human interruptions:
@@ -68,3 +81,5 @@ Keep debugging traces separate from compact audit records when their access or r
 - Rollbacks and escaped defects:
 - Cost of accepted outcome:
 - Regression Memory records (`REG-###`):
+- Spec Fidelity review (`FID-###`):
+- Verification Independence record (`VER-###`):

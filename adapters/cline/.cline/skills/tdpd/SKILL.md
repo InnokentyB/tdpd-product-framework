@@ -43,3 +43,11 @@ After Red and before implementation, prove `ER-###` Execution Readiness: the san
 ## Completion
 
 Maintain source and decision traceability. Route contract conflicts to the owning layer. Report exact gate evidence. Without explicit human acceptance, state **engineering complete, awaiting UAT**.
+
+For agentic execution, load `.tdpd/core/AGENTIC_ASSURANCE.md`. Review Spec Fidelity, separate completion from quality, preserve immutable run provenance, record repair telemetry, and do not let synthesis approve its own release.
+
+For cross-session, distributed-evidence, or multimodal work, load `.tdpd/core/CONTEXT_EVIDENCE_CONTROL.md`. Require `CTX-###`, `EVD-###`, adaptive `COM-###` actions, and native `MME-###` verification.
+
+For material decisions, load `.tdpd/core/DECISION_EVIDENCE.md` and require a `DVE-###` record separating supporting, excluding, contradicting, and uncertain evidence.
+
+Before final acceptance scenarios, load `.tdpd/core/SPECIFICATION_ARCHITECTURE_ASSURANCE.md`: require measurable QARs, approved architecture, security/failure challenge, and `LOCK-###`. Use `.tdpd/core/DEVELOPMENT_COUNCIL.md` for optional role routing and preserve each build's case-level test evidence in `TRUN-###`.

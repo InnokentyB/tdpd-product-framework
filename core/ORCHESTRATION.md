@@ -22,7 +22,19 @@ This layer governs how one or more agents execute an approved TDPD delivery cont
 
 For an agentic run, record the decision path, versioned execution contract, tool authorization, side effects, validations, and outcome in `templates/agent-run-evidence.md`. Missing required provenance makes the run `INCOMPLETE`, not passed; execution evidence still does not replace independent tests or human UAT.
 
+Apply [AGENTIC_ASSURANCE.md](AGENTIC_ASSURANCE.md). Bind each run to an immutable spec/input/model/runtime baseline, separate completion from quality eligibility, and create a new run ID for every retry. Record `FID-###` before synthesis and `VER-###` before merge or release. The synthesis actor and any actor that weakened or repaired an oracle must not approve release from that evidence alone.
+
+Apply [CONTEXT_EVIDENCE_CONTROL.md](CONTEXT_EVIDENCE_CONTROL.md) when context crosses sessions, evidence is distributed, or artifacts are multimodal. Require an acknowledged `CTX-###` before delegated work, publish decision-relevant claims to `EVD-###`, and record adaptive interventions in `COM-###`. Controller, router, contributor, verifier, and release authority are distinct functions even when a small deployment combines some of them under an explicitly accepted boundary.
+
+Apply [DEVELOPMENT_COUNCIL.md](DEVELOPMENT_COUNCIL.md) when explicit development roles are useful. Agent files are adapters, not proof of review. Route Spec/UX/QA/Architecture/Security/Failure-Skeptic responsibilities before `LOCK-###`, Execution only after Red, and QA/Security/Architecture/Verification around Green. Preserve role inputs, outputs, vetoes, and handoffs.
+
+For every build or test attempt, create a new `TRUN-###`; never overwrite a failed run. Summaries do not replace case-level outcomes and diagnostics. A controller may aggregate logs but may not convert skipped, missing, infrastructure-failed, or unexecuted required tests into pass.
+
+Use `challenge`, `clarify`, `seek_evidence`, `route`, and `stop` rather than fixed round-robin debate. Stop only when required evidence coverage is sufficient and material disagreement is resolved or escalated; majority agreement is not a TDPD gate.
+
 Do not optimize for uninterrupted run duration alone. A long run that fails to converge, consumes unbounded cost, or reaches Green only after hidden human steering is not autonomous success. Record accepted outcome, interruptions, owner time, first-pass UAT, rollback, escaped defects, and cost where measurable.
+
+Treat repair multiplier, clarification loops, synthesis passes, and first-pass alignment as locally calibrated diagnostics. Completion and quality use different denominators; never turn an incomplete output into a quality failure or collapse every failure into one pass rate.
 
 ## Work-unit state
 

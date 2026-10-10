@@ -12,10 +12,22 @@ const sharedFiles = [
   ".tdpd/core/FRAMEWORK.md",
   ".tdpd/core/LAYER_CONTRACTS.md",
   ".tdpd/core/QUICKSTART.md",
+  ".tdpd/core/AGENTIC_ASSURANCE.md",
+  ".tdpd/core/CONTEXT_EVIDENCE_CONTROL.md",
+  ".tdpd/core/DECISION_EVIDENCE.md",
+  ".tdpd/core/SPECIFICATION_ARCHITECTURE_ASSURANCE.md",
+  ".tdpd/core/DEVELOPMENT_COUNCIL.md",
   ".tdpd/core/GATES.md",
   ".tdpd/core/ROLES.md",
   ".tdpd/templates/layer-handoff.md",
   ".tdpd/templates/traceability-matrix.md",
+  ".tdpd/templates/context-package.yaml",
+  ".tdpd/templates/distributed-evidence-ledger.md",
+  ".tdpd/templates/communication-control.md",
+  ".tdpd/templates/multimodal-evidence.md",
+  ".tdpd/templates/decision-evidence.yaml",
+  ".tdpd/templates/specification-lock.yaml",
+  ".tdpd/templates/test-run-log.yaml",
   ".tdpd/templates/run-state.yaml"
 ];
 
@@ -25,6 +37,7 @@ const layerConfig = {
     files: [
       ".tdpd/core/layers/PRODUCT_BUSINESS.md", ".tdpd/core/CONTEXT.md", ".tdpd/core/OPPORTUNITY.md", ".tdpd/core/BUSINESS.md",
       ".tdpd/templates/source-map.md", ".tdpd/templates/system-context-pack.md", ".tdpd/templates/review-findings.md", ".tdpd/templates/decision-log.md",
+      ".tdpd/templates/decision-evidence.yaml",
       ".tdpd/templates/opportunity-brief.md", ".tdpd/templates/assumption-register.md", ".tdpd/templates/alternatives-map.md",
       ".tdpd/templates/experiment-contract.md", ".tdpd/templates/observation-log.md", ".tdpd/templates/opportunity-decision.md",
       ".tdpd/templates/buyer-map.md", ".tdpd/templates/business-model.md", ".tdpd/templates/pricing-experiment.md",
@@ -37,7 +50,9 @@ const layerConfig = {
       ".tdpd/core/layers/DESIGN_REQUIREMENTS.md", ".tdpd/core/DESIGN_REQUIREMENTS.md", ".tdpd/core/METHOD.md",
       ".tdpd/templates/product-brief.md", ".tdpd/templates/product-surface-decision.md", ".tdpd/templates/interface-contract.md",
       ".tdpd/templates/interface-inventory.md", ".tdpd/templates/project-contract.md", ".tdpd/templates/specification.md", ".tdpd/templates/architecture-decision.md",
-      ".tdpd/templates/autonomy-contract.md",
+      ".tdpd/templates/quality-attribute-requirements.yaml", ".tdpd/templates/architecture-plan.md", ".tdpd/templates/architecture-risk-review.md",
+      ".tdpd/templates/specification-lock.yaml", ".tdpd/templates/development-council.md",
+      ".tdpd/templates/autonomy-contract.md", ".tdpd/templates/spec-fidelity-review.md", ".tdpd/templates/adoption-readiness.md",
       ".tdpd/templates/scenario-matrix.md", ".tdpd/templates/measurement-contract.md", ".tdpd/templates/metric-dictionary.md",
       ".tdpd/templates/instrumentation-map.md"
     ]
@@ -49,7 +64,8 @@ const layerConfig = {
       ".tdpd/templates/work-unit.md", ".tdpd/templates/handoff.md", ".tdpd/templates/dependency-map.yaml",
       ".tdpd/templates/recovery-record.md", ".tdpd/templates/delivery-evidence.md", ".tdpd/templates/agent-run-evidence.md",
       ".tdpd/templates/uat-record.md", ".tdpd/templates/autonomy-contract.md", ".tdpd/templates/execution-readiness.md",
-      ".tdpd/templates/regression-memory.md"
+      ".tdpd/templates/regression-memory.md", ".tdpd/templates/verification-independence.md", ".tdpd/templates/adoption-readiness.md",
+      ".tdpd/templates/test-run-log.yaml", ".tdpd/templates/development-council.md"
     ]
   },
   "launch-operations": {
@@ -143,6 +159,33 @@ async function start(mode, target, layer) {
     selectedLayers,
     currentGate: selectedGates[0],
     gates: Object.fromEntries(selectedGates.map((gate, index) => [gate, index === 0 ? "in_progress" : "not_started"])),
+    assurance: {
+      fidelity: { status: "not_assessed", baseline: null, review: null },
+      verification: { status: "not_assessed", synthesisActor: null, verifierActor: null, releaseAuthority: null },
+      telemetry: {
+        completionStatus: "not_started",
+        qualityEligible: false,
+        clarificationLoops: 0,
+        synthesisPasses: 0,
+        deterministicRepairs: 0,
+        firstPassCost: null,
+        totalAcceptedOutcomeCost: null,
+        repairMultiplier: null
+      },
+      adoption: { phase: "assessment", decision: null }
+    },
+    contextEvidence: {
+      contextPackage: { status: "not_assessed", id: null, activationAcknowledged: false },
+      evidenceLedger: { status: "not_assessed", id: null, unresolvedConflicts: 0 },
+      communication: { status: "not_started", rounds: 0, lastIntervention: null, prematureConsensus: null },
+      multimodal: { status: "not_assessed", records: [], nativeVerificationRequired: false }
+    },
+    specificationAssurance: {
+      lock: { status: "not_assessed", id: null, finalScenarioDraftingAuthorized: false, redAuthorized: false },
+      quality: { status: "not_assessed", records: [] },
+      architecture: { status: "not_assessed", plan: null, riskReview: null, blockingVetoes: 0 }
+    },
+    testRuns: [],
     workUnits: [],
     blockers: [],
     createdAt: now,
@@ -165,6 +208,16 @@ async function status(target) {
     process.stdout.write(`${labelGate(gate)}: ${state.gates?.[gate] ?? "missing"}\n`);
   }
   process.stdout.write(`Work units: ${Array.isArray(state.workUnits) ? state.workUnits.length : "invalid"}\n`);
+  process.stdout.write(`Spec fidelity: ${state.assurance?.fidelity?.status ?? "not_recorded"}\n`);
+  process.stdout.write(`Verification independence: ${state.assurance?.verification?.status ?? "not_recorded"}\n`);
+  process.stdout.write(`Adoption phase: ${state.assurance?.adoption?.phase ?? "not_recorded"}\n`);
+  process.stdout.write(`Context activation: ${state.contextEvidence?.contextPackage?.activationAcknowledged ? "acknowledged" : "not_acknowledged"}\n`);
+  process.stdout.write(`Evidence ledger: ${state.contextEvidence?.evidenceLedger?.status ?? "not_recorded"}\n`);
+  process.stdout.write(`Multimodal evidence: ${state.contextEvidence?.multimodal?.status ?? "not_recorded"}\n`);
+  process.stdout.write(`Specification lock: ${state.specificationAssurance?.lock?.status ?? "not_recorded"}\n`);
+  process.stdout.write(`Quality attributes: ${state.specificationAssurance?.quality?.status ?? "not_recorded"}\n`);
+  process.stdout.write(`Architecture assurance: ${state.specificationAssurance?.architecture?.status ?? "not_recorded"}\n`);
+  process.stdout.write(`Test runs: ${Array.isArray(state.testRuns) ? state.testRuns.length : "invalid"}\n`);
 }
 
 async function audit(target, layer) {
@@ -185,6 +238,16 @@ async function audit(target, layer) {
   if (!state.gates || gateNames.some((gate) => !gateStatuses.has(state.gates[gate]))) issues.push("invalid gate status map");
   if (!Array.isArray(state.workUnits)) issues.push("workUnits must be an array");
   if (!Array.isArray(state.blockers)) issues.push("blockers must be an array");
+  if (!state.assurance || !state.assurance.fidelity || !state.assurance.verification || !state.assurance.telemetry || !state.assurance.adoption) {
+    issues.push("missing agentic assurance state");
+  }
+  if (!state.contextEvidence || !state.contextEvidence.contextPackage || !state.contextEvidence.evidenceLedger || !state.contextEvidence.communication || !state.contextEvidence.multimodal) {
+    issues.push("missing context and evidence control state");
+  }
+  if (!state.specificationAssurance || !state.specificationAssurance.lock || !state.specificationAssurance.quality || !state.specificationAssurance.architecture) {
+    issues.push("missing specification and architecture assurance state");
+  }
+  if (!Array.isArray(state.testRuns)) issues.push("testRuns must be an array");
   if (issues.length) throw new Error(`Audit failed:\n${issues.map((issue) => `- ${issue}`).join("\n")}`);
   process.stdout.write(`Audit passed for ${layer ?? "full"} in ${targetRoot}\n`);
 }

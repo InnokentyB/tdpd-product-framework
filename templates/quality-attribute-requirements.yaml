@@ -1,0 +1,43 @@
+qualityRequirements:
+  - id: QAR-001
+    title: null
+    category: performance # performance | capacity | availability | reliability | resilience | security | privacy | accessibility | compatibility | localization | auditability | maintainability | operability | observability | integrity | retention | recovery | cost | energy | other
+    status: DRAFT # DRAFT | APPROVED | BLOCKED | STALE | SUPERSEDED
+    rationale: null
+    sourceDecisionIds: []
+    affectedSurfaces: []
+    affectedComponents: []
+    environment: null
+    workload:
+      concurrentActors: null
+      rateAndBurst: null
+      dataVolumeAndGrowth: null
+      payload: null
+      warmColdState: null
+      duration: null
+      dependencyConditions: null
+      environmentParity: null
+      resourceCostCeiling: null
+    stimulus: null
+    expectedResponse: null
+    budget:
+      metric: null
+      target: null
+      tolerance: null
+      unit: null
+      percentileOrWindow: null
+      baseline: null
+    overloadOrFailureBehavior: null
+    recoveryBehavior: null
+    verification:
+      preReleaseChecks: []
+      manualReview: []
+      productionMetrics: []
+      alerts: []
+      testOwner: null
+      operationsOwner: null
+      evidenceIds: []
+    notApplicableReason: null
+    approvedBy: null
+    approvedAt: null
+    reviewOrExpiry: null

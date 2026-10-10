@@ -1,0 +1,27 @@
+id: LOCK-001
+status: DRAFT # DRAFT | APPROVED | BLOCKED | STALE | SUPERSEDED
+baseline:
+  context: CB-001
+  specification: SPEC-001
+  surface: SURF-001
+  interface: UI-001
+  project: PROJ-001
+  architecture: ARCH-001
+  riskReview: RISK-001
+  qualityRequirements: [QAR-001]
+readiness:
+  goalReady: false
+  functionalReady: false
+  qualityReady: false
+  architectureReady: false
+  riskReady: false
+  surfaceReady: false
+  projectReady: false
+blockingGaps: []
+residualRisks: []
+exploratoryScenarios: []
+finalScenarioDraftingAuthorized: false
+redAuthorized: false
+approvedBy: null
+approvedAt: null
+invalidationTriggers: []

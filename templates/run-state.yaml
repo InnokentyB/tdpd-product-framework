@@ -20,6 +20,61 @@ gates:
   gtm: not_started
   launch: not_started
   outcome: not_started
+assurance:
+  fidelity:
+    status: not_assessed # not_assessed | ready | constrained | blocked
+    baseline: null
+    review: null
+  verification:
+    status: not_assessed # not_assessed | sufficient | constrained | insufficient
+    synthesisActor: null
+    verifierActor: null
+    releaseAuthority: null
+  telemetry:
+    completionStatus: not_started
+    qualityEligible: false
+    clarificationLoops: 0
+    synthesisPasses: 0
+    deterministicRepairs: 0
+    firstPassCost: null
+    totalAcceptedOutcomeCost: null
+    repairMultiplier: null
+  adoption:
+    phase: assessment # assessment | pilot | hybrid | tdpd_first
+    decision: null
+contextEvidence:
+  contextPackage:
+    status: not_assessed # not_assessed | ready | context_not_ready | stale
+    id: null
+    activationAcknowledged: false
+  evidenceLedger:
+    status: not_assessed # not_assessed | open | sufficient | conflicted | stale
+    id: null
+    unresolvedConflicts: 0
+  communication:
+    status: not_started # not_started | active | stopped | blocked
+    rounds: 0
+    lastIntervention: null # challenge | clarify | seek_evidence | route | stop
+    prematureConsensus: null
+  multimodal:
+    status: not_assessed # not_assessed | sufficient | constrained | blocked
+    records: []
+    nativeVerificationRequired: false
+specificationAssurance:
+  lock:
+    status: not_assessed # not_assessed | draft | approved | blocked | stale
+    id: null
+    finalScenarioDraftingAuthorized: false
+    redAuthorized: false
+  quality:
+    status: not_assessed # not_assessed | ready | constrained | blocked | stale
+    records: []
+  architecture:
+    status: not_assessed # not_assessed | ready | constrained | blocked | stale
+    plan: null
+    riskReview: null
+    blockingVetoes: 0
+testRuns: []
 workUnits: []
 blockers: []
 createdAt: ""

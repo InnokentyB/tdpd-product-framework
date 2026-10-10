@@ -1,0 +1,66 @@
+id: TRUN-001
+buildId: BUILD-001
+attempt: 1
+status: STARTED # STARTED | COMPLETED | INFRA_FAILED | CANCELLED
+verdict: INCOMPLETE # PASS | FAIL | INCOMPLETE | BLOCKED
+baseline:
+  context: CB-001
+  specification: SPEC-001
+  specificationLock: LOCK-001
+  sourceRevision: null
+  artifactHash: null
+environment:
+  name: null
+  osRuntime: null
+  configuration: null
+  servicesDependencies: []
+  startedAt: null
+  finishedAt: null
+summary:
+  total: 0
+  passed: 0
+  failed: 0
+  skipped: 0
+  errors: 0
+suites:
+  - id: SUITE-001
+    name: null
+    kind: e2e # unit | component | integration | contract | e2e | performance | load | stress | soak | resilience | security | accessibility | compatibility | migration | recovery | architecture_fitness | other
+    command: null
+    status: NOT_RUN # PASS | FAIL | ERROR | SKIPPED | NOT_RUN
+    durationMs: null
+    scenarioIds: []
+    ruleIds: []
+    qarIds: []
+    riskIds: []
+    cases:
+      - id: CASE-001
+        name: null
+        status: NOT_RUN # PASS | FAIL | ERROR | SKIPPED | NOT_RUN
+        durationMs: null
+        expected: null
+        actual: null
+        errorType: null
+        errorMessage: null
+        stackOrDiagnosticRef: null
+        artifactRefs: []
+    stdoutRef: null
+    stderrRef: null
+    reportRef: null
+failures:
+  - suiteId: null
+    caseId: null
+    classification: product_defect # product_defect | test_defect | specification_gap | architecture_gap | security_risk | environment_failure | flaky | unknown
+    message: null
+    evidenceRefs: []
+    owner: null
+    nextAction: null
+    retestRunId: null
+verification:
+  deterministicChecksComplete: false
+  requiredSuitesPresent: false
+  countsReconciled: false
+  failuresDispositioned: false
+  independentReviewer: null
+  reviewedAt: null
+releaseRecommendation: BLOCK # ALLOW | ALLOW_WITH_CONSTRAINTS | BLOCK

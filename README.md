@@ -4,6 +4,8 @@ A platform-independent product framework with four connected but independently a
 
 **Test-Driven Product Development (TDPD) is an original method by Innokenty Bodrov.** User scenarios become executable end-to-end tests before production implementation. A delivery is complete only after those tests pass and a responsible human accepts the result through UAT.
 
+Current release: **0.13.0**. See [Release Notes](RELEASE_NOTES.md) for the changes from 0.12 and migration guidance.
+
 ## What is included
 
 - `core/FRAMEWORK.md` — four-layer architecture and composition rules.
@@ -60,9 +62,15 @@ The Design & Requirements layer blocks implementation until three checks pass:
 - **Requirements readiness:** behavior, quality attributes, scenarios, and traceability are deterministic.
 - **Engineering readiness:** project organization, architecture, commands, environments, delivery, and operations are defined.
 
+TDPD 0.13 adds a hard Specification Lock before final scenario drafting. Material quality attributes use `QAR-###` with explicit workload/environment, measurable budgets, overload and recovery behavior, pre-release verification, and production monitoring. `ARCH-###` compares credible architecture candidates against those drivers; `RISK-###` gives Security and Architecture/Failure Skeptic reviews explicit veto and residual-risk ownership. Only an approved current `LOCK-###` authorizes final scenarios and Red.
+
+The optional Development Council profile maps product/specification, UX, QA, architecture, security, failure challenge, execution, automation, verification, and documentation responsibilities to TDPD gates. It works as single-agent, multi-agent, or hybrid execution; agent files never count as evidence by themselves.
+
+Every build or test attempt records an immutable `TRUN-###` with environment, suite and case outcomes, timings, diagnostics, raw report references, linked scenarios/rules/QARs/risks, failure classification, ownership, and retest lineage. Required tests that are missing, skipped, errored, or blocked by infrastructure cannot be summarized as Green.
+
 An agent must never select a CLI, API, or other engineering-only surface merely because the intended interface is missing. E2E acceptance exercises the approved product surface.
 
-For source-heavy work, the Context gate freezes a versioned `CB-###` Context Baseline before the specification is approved. If a material source or decision changes, dependent rules, scenarios, tests, and prior delivery evidence become `STALE`; the run returns to the earliest affected gate instead of carrying a previous Green forward.
+For source-heavy work, the Context gate freezes a versioned `CB-###` Context Baseline before the specification is approved. Material decisions also use `DVE-###` Decision Evidence records that separate affirmative support from evidence that only excludes alternatives, contradictory evidence, and unresolved uncertainty. If a material source or decision changes, dependent rules, scenarios, tests, and prior delivery evidence become `STALE`; the run returns to the earliest affected gate instead of carrying a previous Green forward.
 
 Early-gate rigor is also proportional to user reliance and plausible harm. A lightweight `RH-###` preflight classifies the work as `LOW`, `MATERIAL`, or `HIGH`; only the latter two require direct contextual evidence, edge-user and delayed-consequence analysis, recovery paths, and explicit guardrails before Input passes.
 
@@ -95,6 +103,21 @@ The orchestration design is informed by [Orchestrated Coding](https://github.com
 
 The complete lifecycle reports eleven gates, but a standalone layer reports only the gates it owns. Cross-layer changes travel as evidence-backed handoffs rather than silent downstream rewrites.
 
+Agentic work also uses the cross-layer Agentic Assurance profile: Spec Fidelity, completion-before-quality, ambiguity/repair telemetry, independent verification, immutable run provenance, human comprehension, and reversible adoption from Assessment through Pilot and Hybrid to TDPD-first. Its metrics are locally calibrated diagnostics, not universal performance thresholds.
+
+TDPD includes cross-layer Context and Evidence Control. A role must acknowledge a bounded `CTX-###` package before acting; distributed claims enter a shared `EVD-###` ledger; `DVE-###` records make the evidential structure of decisions inspectable; a controller selects `challenge`, `clarify`, `seek_evidence`, `route`, or `stop` based on evidence state; and `MME-###` preserves native visual, audio, video, interface, telemetry, and behavioral evidence through acceptance. File presence, evidence volume, agent consensus, and text summaries of non-text evidence are not completion proofs.
+
 ## Distribution
 
 The source repository is public and installable from a local clone. Publishing to npm and granting reuse rights require an explicit licensing decision.
+
+## Upgrading from 0.12
+
+Re-run the installer with `--force` only after reviewing local changes to framework-managed adapter and `.tdpd/` files:
+
+```bash
+git pull --ff-only origin main
+node bin/tdpd.js init --adapter <adapter> --target <project> --force
+```
+
+Existing initiatives are not automatically considered locked or green. Create `QAR-###`, `ARCH-###`, `RISK-###`, and `LOCK-###` evidence before advancing them, and create a new `TRUN-###` for each subsequent build attempt. Preserve old evidence rather than rewriting it into the new format.

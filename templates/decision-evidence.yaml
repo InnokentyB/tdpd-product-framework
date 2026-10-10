@@ -1,0 +1,41 @@
+id: DVE-001
+decisionId: DL-001
+status: DRAFT # DRAFT | CURRENT | STALE | BLOCKED | SUPERSEDED
+decisionMaker: null
+decisionDate: null
+contextBaseline: CB-001
+question: null
+selectedOption: null
+selectionCriteria: []
+alternatives: []
+evidence:
+  - claimId: F001
+    sourceIds: [S001]
+    locator: null
+    modality: text # text | image | audio | video | interface | telemetry | executable
+    multimodalEvidenceId: null # MME-### when applicable
+    role: supporting # supporting | excluding | contradicting | uncertain
+    criterion: null
+    statement: null
+    confidence: null
+    authority: null
+    freshness: null
+    transformationProvenance: null
+contradictions:
+  - claimId: null
+    disposition: null # accepted_risk | mitigated | decision_revised | escalated | unresolved
+    owner: null
+    reviewBy: null
+uncertainties:
+  - unknown: null
+    couldChangeDecision: true
+    nextAction: null
+    owner: null
+sufficiency:
+  relianceHarm: LOW # LOW | MATERIAL | HIGH
+  reversibility: null
+  rationale: null
+  independentReviewer: null
+  verdict: NOT_REVIEWED # NOT_REVIEWED | PASS | CONSTRAINED | BLOCKED
+affectedArtifacts: []
+supersedes: null

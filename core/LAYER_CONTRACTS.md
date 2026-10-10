@@ -14,6 +14,8 @@ Every handoff identifies:
 - explicit decisions requested from the consumer;
 - invalidation conditions and upstream owner;
 - applicable autonomy contract, execution-readiness evidence, and authority changes;
+- current `LOCK-###`, referenced QAR/ARCH/RISK records, and unresolved architecture or security vetoes;
+- relevant `TRUN-###` records, build IDs, failed/errored/skipped required tests, and retest lineage;
 - handoff status: proposed, accepted, accepted-with-constraints, rejected, or superseded.
 
 ## Change protocol

@@ -9,3 +9,11 @@ Before implementation, require an approved product surface, interface contract a
 For external or production side effects, require an approved `AUT-###` Autonomy Contract and prove `ER-###` Execution Readiness after Red but before implementation. Keep authority least-privileged and rollback owned. Material UAT rejects, rollbacks, and escaped defects require a human-approved `REG-###` Regression Memory treatment. Measure accepted outcomes and human orchestration cost rather than code volume or run duration alone.
 
 Scale product, UX, QA, architecture, security, implementation, automation, and operations reviews to risk. Never claim TDPD completion without green executable scenarios and explicit human UAT; report **engineering complete, awaiting UAT** when acceptance is pending.
+
+For agentic execution, apply `.tdpd/core/AGENTIC_ASSURANCE.md`: Spec Fidelity, completion-before-quality, immutable provenance, repair telemetry, and risk-proportionate independence between synthesis and release authority.
+
+For cross-session, multi-agent, or multimodal work, apply `.tdpd/core/CONTEXT_EVIDENCE_CONTROL.md`; require acknowledged context, a cited evidence ledger, adaptive evidence requests, and native-surface verification.
+
+For material decisions, apply `.tdpd/core/DECISION_EVIDENCE.md` and require an inspectable `DVE-###` rationale with opposing evidence retained.
+
+Before final scenarios or Red, apply `.tdpd/core/SPECIFICATION_ARCHITECTURE_ASSURANCE.md`; require measurable quality requirements, approved architecture and security/failure review, and `LOCK-###`. Record every build/test attempt in `TRUN-###` without hiding failures, errors, skips, or missing checks.

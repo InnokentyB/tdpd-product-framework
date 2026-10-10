@@ -186,6 +186,135 @@ test("installs enforceable autonomy, execution-readiness, and regression-memory 
   }
 });
 
+test("installs agentic assurance contracts and durable run telemetry", async () => {
+  const target = await mkdtemp(join(tmpdir(), "tdpd-agentic-assurance-"));
+  try {
+    await exec(process.execPath, [cli, "init", "--adapter", "universal", "--target", target]);
+    const expected = [
+      ".tdpd/core/AGENTIC_ASSURANCE.md",
+      ".tdpd/templates/spec-fidelity-review.md",
+      ".tdpd/templates/verification-independence.md",
+      ".tdpd/templates/adoption-readiness.md"
+    ];
+    for (const file of expected) {
+      assert.ok((await readFile(join(target, file), "utf8")).length > 500, `${file} should be installed`);
+    }
+
+    const assurance = await readFile(join(target, ".tdpd/core/AGENTIC_ASSURANCE.md"), "utf8");
+    assert.match(assurance, /completeness.*consistency.*unambiguity.*verifiability/is);
+    assert.match(assurance, /completion.*quality-eligible/is);
+    assert.match(assurance, /must not approve its own release/i);
+    assert.match(assurance, /diagnostic.*not.*universal threshold/is);
+
+    await exec(process.execPath, [join(target, ".tdpd/bin/tdpd.js"), "start", "--mode", "orchestrated", "--layer", "implementation-delivery", "--target", target]);
+    const state = JSON.parse(await readFile(join(target, ".tdpd/state/run-state.json"), "utf8"));
+    assert.equal(state.assurance.fidelity.status, "not_assessed");
+    assert.equal(state.assurance.verification.status, "not_assessed");
+    assert.equal(state.assurance.telemetry.clarificationLoops, 0);
+    assert.equal(state.assurance.adoption.phase, "assessment");
+
+    const { stdout } = await exec(process.execPath, [join(target, ".tdpd/bin/tdpd.js"), "status", "--target", target]);
+    assert.match(stdout, /Spec fidelity: not_assessed/);
+    assert.match(stdout, /Verification independence: not_assessed/);
+    assert.match(stdout, /Adoption phase: assessment/);
+  } finally {
+    await rm(target, { recursive: true, force: true });
+  }
+});
+
+test("installs context priming, evidence communication, and multimodal contracts", async () => {
+  const target = await mkdtemp(join(tmpdir(), "tdpd-context-evidence-control-"));
+  try {
+    await exec(process.execPath, [cli, "init", "--adapter", "cline", "--target", target]);
+    const expected = [
+      ".tdpd/core/CONTEXT_EVIDENCE_CONTROL.md",
+      ".tdpd/core/DECISION_EVIDENCE.md",
+      ".tdpd/templates/context-package.yaml",
+      ".tdpd/templates/distributed-evidence-ledger.md",
+      ".tdpd/templates/communication-control.md",
+      ".tdpd/templates/multimodal-evidence.md",
+      ".tdpd/templates/decision-evidence.yaml"
+    ];
+    for (const file of expected) {
+      assert.ok((await readFile(join(target, file), "utf8")).length > 500, `${file} should be installed`);
+    }
+
+    const control = await readFile(join(target, ".tdpd/core/CONTEXT_EVIDENCE_CONTROL.md"), "utf8");
+    assert.match(control, /observable acknowledgement/i);
+    assert.match(control, /challenge.*clarify.*seek_evidence.*route.*stop/is);
+    assert.match(control, /derived view, not a replacement/i);
+    assert.match(control, /content found.*untrusted data/is);
+    assert.match(control, /excluding evidence is not automatically supporting evidence/i);
+
+    const decisionEvidence = await readFile(join(target, ".tdpd/core/DECISION_EVIDENCE.md"), "utf8");
+    assert.match(decisionEvidence, /supporting.*excluding.*contradicting.*uncertain/is);
+    assert.match(decisionEvidence, /one authoritative contradiction may outweigh many weak supporting items/i);
+
+    const decisionTemplate = await readFile(join(target, ".tdpd/templates/decision-evidence.yaml"), "utf8");
+    assert.match(decisionTemplate, /role: supporting/);
+    assert.match(decisionTemplate, /independentReviewer/);
+
+    await exec(process.execPath, [join(target, ".tdpd/bin/tdpd.js"), "start", "--mode", "orchestrated", "--target", target]);
+    const state = JSON.parse(await readFile(join(target, ".tdpd/state/run-state.json"), "utf8"));
+    assert.equal(state.contextEvidence.contextPackage.activationAcknowledged, false);
+    assert.equal(state.contextEvidence.evidenceLedger.status, "not_assessed");
+    assert.equal(state.contextEvidence.communication.rounds, 0);
+    assert.equal(state.contextEvidence.multimodal.status, "not_assessed");
+
+    const { stdout } = await exec(process.execPath, [join(target, ".tdpd/bin/tdpd.js"), "status", "--target", target]);
+    assert.match(stdout, /Context activation: not_acknowledged/);
+    assert.match(stdout, /Evidence ledger: not_assessed/);
+    assert.match(stdout, /Multimodal evidence: not_assessed/);
+
+    const clineRule = await readFile(join(target, ".clinerules/tdpd.md"), "utf8");
+    assert.match(clineRule, /CONTEXT_EVIDENCE_CONTROL\.md/);
+  } finally {
+    await rm(target, { recursive: true, force: true });
+  }
+});
+
+test("installs specification lock, quality, architecture-risk, council, and per-build test evidence", async () => {
+  const target = await mkdtemp(join(tmpdir(), "tdpd-spec-architecture-assurance-"));
+  try {
+    await exec(process.execPath, [cli, "init", "--adapter", "universal", "--target", target]);
+    const expected = [
+      ".tdpd/core/SPECIFICATION_ARCHITECTURE_ASSURANCE.md",
+      ".tdpd/core/DEVELOPMENT_COUNCIL.md",
+      ".tdpd/templates/specification-lock.yaml",
+      ".tdpd/templates/quality-attribute-requirements.yaml",
+      ".tdpd/templates/architecture-plan.md",
+      ".tdpd/templates/architecture-risk-review.md",
+      ".tdpd/templates/development-council.md",
+      ".tdpd/templates/test-run-log.yaml"
+    ];
+    for (const file of expected) {
+      assert.ok((await readFile(join(target, file), "utf8")).length > 500, `${file} should be installed`);
+    }
+
+    const assurance = await readFile(join(target, ".tdpd/core/SPECIFICATION_ARCHITECTURE_ASSURANCE.md"), "utf8");
+    assert.match(assurance, /final scenario drafting.*Red.*implementation are blocked/is);
+    assert.match(assurance, /concurrent actors.*request\/event rate.*data volume/is);
+    assert.match(assurance, /Architecture and Failure Skeptic/i);
+
+    const testRun = await readFile(join(target, ".tdpd/templates/test-run-log.yaml"), "utf8");
+    assert.match(testRun, /passed: 0[\s\S]*failed: 0[\s\S]*skipped: 0[\s\S]*errors: 0/);
+    assert.match(testRun, /product_defect.*environment_failure.*flaky/is);
+
+    await exec(process.execPath, [join(target, ".tdpd/bin/tdpd.js"), "start", "--mode", "orchestrated", "--target", target]);
+    const state = JSON.parse(await readFile(join(target, ".tdpd/state/run-state.json"), "utf8"));
+    assert.equal(state.specificationAssurance.lock.finalScenarioDraftingAuthorized, false);
+    assert.equal(state.specificationAssurance.lock.redAuthorized, false);
+    assert.equal(state.specificationAssurance.architecture.blockingVetoes, 0);
+    assert.deepEqual(state.testRuns, []);
+
+    const { stdout } = await exec(process.execPath, [join(target, ".tdpd/bin/tdpd.js"), "status", "--target", target]);
+    assert.match(stdout, /Specification lock: not_assessed/);
+    assert.match(stdout, /Test runs: 0/);
+  } finally {
+    await rm(target, { recursive: true, force: true });
+  }
+});
+
 test("refuses to overwrite an existing installation", async () => {
   const target = await mkdtemp(join(tmpdir(), "tdpd-conflict-"));
   try {

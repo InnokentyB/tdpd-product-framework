@@ -16,14 +16,20 @@ Red → Green → Output/UAT
 
 ## Entry contract
 
-Versioned rules, user scenarios, test matrix, architecture boundary, owned surfaces, security/data constraints, migration/rollback constraints, human escalation points, and an approved `AUT-###` Autonomy Contract when external or production side effects are allowed.
+Current approved `LOCK-###`; versioned rules and `QAR-###`; user scenarios and test matrix; approved `ARCH-###`, `RISK-###`, fitness functions, owned surfaces, security/data/failure/migration/rollback constraints, human escalation points, and an approved `AUT-###` Autonomy Contract when external or production side effects are allowed.
 
 ## Exit contract
 
 - red evidence for missing behavior;
 - passed `ER-###` Execution Readiness evidence before autonomous implementation;
+- immutable run provenance and a completion-before-quality record;
+- acknowledged role context and `COM-###` communication trace when delegated actors pool distributed evidence;
+- native-modality verification linked to `MME-###` for non-text product outcomes;
+- `VER-###` Verification Independence evidence naming synthesis, oracle, verification, merge, release, and UAT authority;
+- clarification, resynthesis, repair, and accepted-outcome telemetry where observable;
 - implementation and review handoffs;
 - green target and broader verification evidence;
+- one immutable `TRUN-###` per build/attempt with suite and case outcomes, diagnostics, linked requirements/risks, failure disposition, and retest lineage;
 - accepted-outcome and human-orchestration measures;
 - unresolved and accepted risks;
 - release/deploy status;

@@ -1,0 +1,50 @@
+id: CTX-###
+initiative: INIT-###
+runId: RUN-###
+workUnit: WORK-###
+layer: product-business # product-business | design-requirements | implementation-delivery | launch-operations
+role: ""
+status: draft # draft | ready | context_not_ready | stale
+baseline:
+  contextBaseline: CB-###
+  specification: null
+  productSurface: null
+  projectContract: null
+providers:
+  - id: MEM-###
+    type: repository # repository | source-map | decision-log | document-store | conversation-index | issue-system | local-database
+    query: ""
+    retrievedAt: ""
+    retrievalReason: ""
+    status: success # success | empty | timeout | error
+items:
+  - id: ""
+    type: source # source | decision | requirement | regression | run-state | code | operation
+    reference: ""
+    revisionOrHash: ""
+    recordedAt: ""
+    authority: ""
+    access: internal
+    retrievalReason: ""
+    supersedes: []
+    conflictsWith: []
+    required: true
+omissions: []
+unresolvedConflicts: []
+budget:
+  unit: tokens
+  limit: null
+  compression: none
+  knownLoss: []
+activation:
+  deliveryMechanism: ""
+  deliveredAt: ""
+  acknowledged: false
+  acknowledgedBy: ""
+  acknowledgedBaseline: ""
+  loadedItemIds: []
+  missingRequiredIds: []
+  reportedConflicts: []
+emptyRetrievalFallback: bounded_context_discovery
+owner: ""
+approvedAt: ""
