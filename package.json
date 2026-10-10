@@ -3,7 +3,13 @@
   "version": "0.13.0",
   "description": "Platform-independent Test-Driven Product Development framework and AI-tool adapters",
   "author": "Innokenty Bodrov",
+  "license": "MIT",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/InnokentyB/tdpd-product-framework.git"
+  },
+  "homepage": "https://github.com/InnokentyB/tdpd-product-framework#readme",
   "type": "module",
   "bin": {
     "tdpd": "./bin/tdpd.js"
@@ -17,7 +23,8 @@
     "templates",
     "adapters",
     "PRIOR_ART.md",
-    "RELEASE_NOTES.md"
+    "RELEASE_NOTES.md",
+    "WORKSHOP.md"
   ],
   "engines": {
     "node": ">=18"

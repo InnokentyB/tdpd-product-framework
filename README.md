@@ -17,6 +17,42 @@ Current release: **0.13.0**. See [Release Notes](RELEASE_NOTES.md) for the chang
 
 ## Install into a project
 
+### Current production release
+
+Install the immutable 0.13 release from GitHub:
+
+```bash
+npx --yes --package=github:InnokentyB/tdpd-product-framework#v0.13.0 tdpd init --adapter codex --target .
+```
+
+Replace `codex` with `claude-code`, `cline`, `cursor`, `windsurf`, `github-copilot`, or `universal`. Use `--force` only for a reviewed upgrade of framework-managed files.
+
+### Pinned workshop install from GitHub
+
+Run this command from the root of the project that will use TDPD:
+
+```bash
+npx --yes --package=github:InnokentyB/tdpd-product-framework#workshop-v0.3.1 tdpd init --adapter codex --target .
+```
+
+Replace `codex` with the adapter for your coding agent:
+
+```text
+codex | claude-code | cursor | windsurf | github-copilot | universal
+```
+
+Verify the installed framework:
+
+```bash
+npx --yes --package=github:InnokentyB/tdpd-product-framework#workshop-v0.3.1 tdpd start --mode manual --target .
+npx --yes --package=github:InnokentyB/tdpd-product-framework#workshop-v0.3.1 tdpd status --target .
+npx --yes --package=github:InnokentyB/tdpd-product-framework#workshop-v0.3.1 tdpd audit --target .
+```
+
+The workshop tag is immutable. Do not replace it with `main` in participant instructions. See [`WORKSHOP.md`](WORKSHOP.md) for the complete participant and organizer checklist.
+
+### Install from a local clone
+
 From this repository:
 
 ```bash
@@ -109,7 +145,7 @@ TDPD includes cross-layer Context and Evidence Control. A role must acknowledge 
 
 ## Distribution
 
-The source repository is public and installable from a local clone. Publishing to npm and granting reuse rights require an explicit licensing decision.
+The framework is available under the [MIT License](LICENSE). Install a pinned Git tag for reproducible production or workshop use; do not base durable installations on the moving `main` branch.
 
 ## Upgrading from 0.12
 
