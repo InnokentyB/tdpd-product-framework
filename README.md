@@ -4,8 +4,9 @@ A platform-independent product framework with four connected but independently a
 
 **Test-Driven Product Development (TDPD) is an original method by Innokenty Bodrov.** User scenarios become executable end-to-end tests before production implementation. A delivery is complete only after those tests pass and a responsible human accepts the result through UAT.
 
-Review candidate: **0.14.0**, not published or fleet-installed. Stable release:
-**0.13.0**. See [Release Notes](RELEASE_NOTES.md) and [0.14 migration](MIGRATION_0.14.md).
+Review candidate: **0.14.0** on `review/tdpd-0.14.0`, not a tagged stable release
+or fleet installation. Stable release: **0.13.0**. See [Changelog](CHANGELOG.md),
+[Release Notes](RELEASE_NOTES.md) and [0.14 migration](MIGRATION_0.14.md).
 
 ## 0.14 review scope
 

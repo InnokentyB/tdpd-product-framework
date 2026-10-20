@@ -2,7 +2,8 @@
 
 ## 0.14.0 — review candidate, 2026-10-20
 
-Not published/tagged or installed into portfolio projects. Base: v0.13.0 (`2f5c87c`).
+Review branch: `review/tdpd-0.14.0`. Not tagged as a stable release or installed
+into portfolio projects. Base: v0.13.0 (`2f5c87c`). See [Changelog](CHANGELOG.md).
 
 - `CTRL`: protected asset, actual permission/isolation/guard, safe negative probe,
   forbidden effects, revision and residual risk. Instructions/tests are not prevention.

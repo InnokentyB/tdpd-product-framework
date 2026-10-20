@@ -1,6 +1,7 @@
 # 0.13 → 0.14 review and compatibility
 
-Status: review candidate, not a published release. Do not use a nonexistent v0.14 tag.
+Status: review candidate on `review/tdpd-0.14.0`, not a tagged stable release.
+Do not use a nonexistent v0.14 tag.
 Do not run an automatic fleet upgrade or edit live skills because this package exists.
 
 1. Back up managed files, local instruction changes, run state and initiative evidence.

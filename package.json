@@ -26,7 +26,8 @@
     "RELEASE_NOTES.md",
     "WORKSHOP.md",
     "examples",
-    "MIGRATION_0.14.md"
+    "MIGRATION_0.14.md",
+    "CHANGELOG.md"
   ],
   "engines": {
     "node": ">=18"
