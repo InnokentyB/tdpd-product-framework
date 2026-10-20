@@ -20,6 +20,11 @@ published/tagged, installed into live projects, or accepted via human UAT.
 
 ## Failure and recovery, not hidden
 
+Bundled RED transcript normalizes trailing spaces/blank EOF only; original output
+remains on the verification runner. Failure diagnostics and attempt history are
+retained. An initial review-log whitespace check surfaced this formatting issue;
+the final normalized transcript passes the repository whitespace check.
+
 Schema attempt 1 and 2 failed while loading the native jsonschema dependency on
 temporary noexec storage. Third job passed with explicit executable temporary
 library storage, no host secrets or application access. Reusable schema-checks
