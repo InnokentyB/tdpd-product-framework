@@ -32,3 +32,8 @@
 - Approved implementation start:
 
 Tool availability alone is not readiness. This record controls entry into implementation after Red; it is not a new top-level TDPD gate and does not prove product correctness.
+
+For every critical CTRL, name permission/barrier, isolation/glass or guard and
+its actual bounded negative probe. Instructions/tests alone are not prevention.
+Start the timestamped JRN capture/redaction contract before actions; establish
+independent candidate review ownership before authoring the implementation.

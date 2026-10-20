@@ -10,7 +10,7 @@ Test-Driven Product Development (TDPD) is an original method by Innokenty Bodrov
 2. Specify observable functional behavior and measurable quality attributes; plan architecture from those drivers, challenge it through security/failure review, and approve `LOCK-###` before final scenarios.
 3. Describe real sequences of user actions and system responses, including applicable quality, hostile, failure, and recovery cases.
 4. Convert every practical scenario into executable e2e and applicable QAR/risk/fitness tests before production implementation.
-5. Let the implementation agent work within the approved architecture and autonomy boundary, after execution readiness is proven, until tests pass and each build has an honest `TRUN-###`.
+5. Let the implementation agent work within the approved architecture and autonomy boundary, after execution readiness is proven, until tests and code gates pass, the exact candidate has independent review, and each build has an honest `TRUN-###` with a contemporaneous action journal.
 6. Have a responsible human decide through UAT whether the result solves the original problem.
 
 ## Non-negotiable principles
@@ -34,6 +34,11 @@ Test-Driven Product Development (TDPD) is an original method by Innokenty Bodrov
 - Never claim product value solely because automated tests pass.
 
 ## Evidence precondition
+
+Apply [EXECUTABLE_DELIVERY_ASSURANCE.md](EXECUTABLE_DELIVERY_ASSURANCE.md): critical
+constraints need enforceable mechanisms plus negative probes; abuse scenarios
+assert absence of forbidden effects; record actions during execution, not as a
+fabricated retrospective. Prompts/tests are not permissions or isolation.
 
 Apply [CONTEXT.md](CONTEXT.md) before committing the specification. TDPD does not treat input material as self-consistent: inventory sources, extract source-linked context, expose findings, record authorized decisions, freeze a Context Baseline, and preserve provenance through requirements, scenarios, tests, implementation, and UAT. A baseline identifies the evidence version being tested; it does not certify that evidence as true.
 

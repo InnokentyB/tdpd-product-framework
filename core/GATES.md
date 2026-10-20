@@ -29,6 +29,9 @@ Require explicit user, buyer, approver, and operator roles; a source-grounded va
 
 ## Input gate
 
+For critical constraints, require `CTRL-###` naming protected asset, preventive
+mechanism and safe negative verification plan; policy prose alone is insufficient.
+
 Require all three readiness checks:
 
 - **Experience readiness:** an approved `SURF-###` product surface decision, interface contract and inventory, primary journeys, navigation, feedback states, accessibility/responsive expectations, and manual UAT criteria. For `MATERIAL` or `HIGH` reliance/harm, include applicable opt-out, consent/comprehension, cancellation, recovery, support, and escalation paths plus edge-user scenarios.
@@ -46,13 +49,28 @@ An unspecified product surface blocks the gate. Do not silently choose a CLI, AP
 
 ## Red gate
 
+Apply `NEG-###`: derive negative/abuse cases from the locked spec and an independent
+boundary model. Cover applicable malformed input, foreign rights, skipped stages,
+stale approvals, replay/races, bypass and interruption/recovery. Assert correct
+refusal/recovery AND absence of forbidden durable/dispatch/debit effects.
+
 Require a current `LOCK-###` and executable user scenarios that fail for the intended missing behavior. Infrastructure, fixture, selector, credential, or environment failures do not count. Include applicable QAR, architecture-fitness, security, failure, recovery, and native-modality scenarios. Identify synthesis, oracle, verification, merge, and release authorities in `VER-###`; the actor that synthesizes or weakens an oracle cannot approve its own release from that evidence alone.
 
 ## Execution Readiness preflight (Red → implementation)
 
+Exercise the applicable permission/isolation/guard mechanisms with bounded probes.
+Start `JRN-###` before implementation, with capture/redaction policy and ownership.
+
 Before an agent begins implementation, require an `ER-###` record proving that the approved sandbox, tool/API/CLI/MCP access, credentials policy, test fixtures, test/staging environment, observability, stop signals, retry/idempotency behavior, and rollback path work. Exercise a safe failure or recovery path where practical. This preflight does not add a top-level gate or prove product correctness; it controls whether autonomous implementation may start.
 
 ## Green gate
+
+Require the exact candidate's formatter/lint/types, coding/module/security/
+architecture checks and independent strict `CRV-###` review (Spec and Standards
+verdicts). Material findings block readiness until fixed, retested and re-reviewed.
+Reconcile negative assertions and contemporaneous `JRN-###` with TRUN; retain
+failed attempts. A read-only evidence checker validates declared structure only.
+See [EXECUTABLE_DELIVERY_ASSURANCE.md](EXECUTABLE_DELIVERY_ASSURANCE.md).
 
 Require target e2e tests and proportionate broader checks to pass. Every build has a `TRUN-###` recording required suites and individual pass/fail/error/skip outcomes, diagnostics, environment, durations, linked scenarios/rules/QARs/risks, failure disposition, and retest lineage. Counts reconcile and no required test is hidden by summary. Separate completion, quality eligibility, verification, and acceptance. Clear authorization, verification-independence, architecture-fitness, security, data-integrity, migration, payment, destructive-operation, recovery, and rollback vetoes.
 
@@ -79,3 +97,7 @@ Use stable IDs for non-trivial work:
 `CB/CTX → S/MME → F/C/G/A/R/EVD/COM → DL/DVE → PROB/RH → OPP/ASM/EXP/OBS/OPP-DEC → BIZ/PRICE-EXP/COM-DEC → MEAS → SURF/UI → RULE/QAR → ARCH/ADR/RISK/FIT → PROJ/AUT/FID/LOCK → SCN → E2E/MANUAL → ER → WORK/HANDOFF/RUN/TRUN/VER → UAT/REG → GTM → LAUNCH → OUT-OBS/OUT-REV → LIFE-DEC`
 
 Every material rule maps to a scenario or explicit manual check. Every test maps to user value or a necessary safety constraint.
+
+Delivery adds `requirement → decision → action(JRN) → change/revision → check → result`;
+link CTRL/NEG/CRV, current findings and handoff/UAT state. No link alone proves
+artifact authenticity, absence of a bypass or completeness of capture.

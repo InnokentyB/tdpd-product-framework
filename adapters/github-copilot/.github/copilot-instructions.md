@@ -17,3 +17,10 @@ For cross-session, multi-agent, or multimodal work, apply `.tdpd/core/CONTEXT_EV
 For material decisions, apply `.tdpd/core/DECISION_EVIDENCE.md` and require an inspectable `DVE-###` rationale with opposing evidence retained.
 
 Before final scenarios or Red, apply `.tdpd/core/SPECIFICATION_ARCHITECTURE_ASSURANCE.md`; require measurable quality requirements, approved architecture and security/failure review, and `LOCK-###`. Record every build/test attempt in `TRUN-###` without hiding failures, errors, skips, or missing checks.
+
+For delivery in 0.14, apply `.tdpd/core/EXECUTABLE_DELIVERY_ASSURANCE.md`: bind
+critical restrictions to actual permissions/isolation/guards and negative probes;
+assert refusal/recovery AND no forbidden effects. Require candidate code gates
+and independent Spec/Standards review before human UAT. Append timestamped JRN
+actions/checks/errors during execution, preserve failed attempts and sanitize logs.
+The evidence checker validates declared structure, not safety, authority or UAT.

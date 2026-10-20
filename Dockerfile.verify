@@ -1,0 +1,5 @@
+FROM node:24.22.0-bookworm-slim
+WORKDIR /work
+COPY --chown=node:node . .
+USER node
+CMD ["node", "--test"]

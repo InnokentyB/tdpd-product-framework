@@ -1,4 +1,28 @@
-# TDPD 0.13.0 Release Notes
+# TDPD Release Notes
+
+## 0.14.0 — review candidate, 2026-10-20
+
+Not published/tagged or installed into portfolio projects. Base: v0.13.0 (`2f5c87c`).
+
+- `CTRL`: protected asset, actual permission/isolation/guard, safe negative probe,
+  forbidden effects, revision and residual risk. Instructions/tests are not prevention.
+- `NEG`: spec-derived independent boundary models and proportional abuse coverage;
+  correct refusal/recovery plus no unauthorized write/send/debit/disclosure.
+- `CRV`: formatter/lint/types/rules/module/security/architecture checks, independent
+  Spec/Standards review, concrete findings and fix/retest/re-review before human UAT.
+- `JRN`: timestamped task/spec/base/actor/scope, actions/reasons/files, expected/
+  actual checks, sanitized errors/root cause/recovery and explicit handoff/UAT state.
+- Updated layer gates/role cards/templates/adapters, standalone journal schema,
+  deliberately synthetic example and dependency-free read-only evidence verifier.
+- Additive optional run-state metadata, installed ESM package boundary for local CLI,
+  and explicit installation-audit versus product-assurance wording.
+- Bounded non-root Docker Compose verification; negative CLI/installed-flow tests.
+
+No new top-level method step, automatic production gate, evidence signing or
+runtime sandbox is claimed. Human architecture approval and explicit UAT remain.
+See [migration and compatibility](MIGRATION_0.14.md) for opt-in adoption.
+
+## 0.13.0
 
 Released: 2026-10-10
 

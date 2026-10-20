@@ -75,6 +75,11 @@ specificationAssurance:
     riskReview: null
     blockingVetoes: 0
 testRuns: []
+deliveryAssurance:
+  controls: { status: not_assessed, records: [] }
+  negativeCoverage: { status: not_assessed, matrix: null }
+  codeReview: { status: not_assessed, revision: null, reviewer: null }
+  journal: { status: not_started, locator: null, lastEvent: null }
 workUnits: []
 blockers: []
 createdAt: ""

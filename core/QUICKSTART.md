@@ -1,5 +1,11 @@
 # TDPD Quick Start
 
+For 0.14 delivery read `core/EXECUTABLE_DELIVERY_ASSURANCE.md`. Prepare CTRL/NEG,
+candidate code gates/independent CRV and a contemporaneous JRN. Use the new
+enforcement, abuse-matrix, code-review and journal templates. The optional command
+`node .tdpd/bin/check-delivery-evidence.js evidence.json` checks declared structure;
+it neither executes checks nor proves sandbox safety or human acceptance.
+
 TDPD works through two complementary interfaces:
 
 1. **Natural-language work** — ask the connected agent to Shape, Plan, Deliver, or Audit a product initiative with TDPD.

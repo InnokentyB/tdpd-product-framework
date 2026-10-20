@@ -29,6 +29,11 @@ Every council contribution states role, input IDs and baseline, findings, decisi
 
 ## Independence
 
+Version 0.14 requires an independent candidate code review before human UAT
+(Spec and Standards verdicts, risk-scaled depth). Sequential self-review lenses
+remain useful but cannot satisfy that independent-review record. If no reviewer
+is available, mark the gate BLOCKED rather than fabricating independence.
+
 The actor that writes production behavior must not be the sole actor approving its security, architecture fitness, test oracle, or release. Small/low-risk work may combine roles, but must disclose the combination and retain human UAT. High-risk work requires independent security and release authority.
 
 ## Vetoes

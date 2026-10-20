@@ -20,6 +20,10 @@ The framework is four independently adoptable layers connected by explicit hando
 
 ## Composition
 
+Apply shared [Executable Delivery Assurance](EXECUTABLE_DELIVERY_ASSURANCE.md)
+for enforceable constraints, abuse/negative outcomes, candidate code review and
+timestamped execution journals. These strengthen existing layers, not new steps.
+
 The normal path is:
 
 `Product & Business → Design & Requirements → Implementation & Delivery → Launch & Operations`

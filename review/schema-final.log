@@ -1,0 +1,47 @@
+time="2026-10-20T20:39:27+01:00" level=warning msg="Docker Compose is configured to build using Bake, but buildx isn't installed"
+#0 building with "default" instance using docker driver
+
+#1 [schema-checks internal] load build definition from Dockerfile.verify-schema
+#1 transferring dockerfile: 254B done
+#1 DONE 0.0s
+
+#2 [schema-checks internal] load metadata for docker.io/library/python:3.11-slim
+#2 DONE 0.0s
+
+#3 [schema-checks internal] load .dockerignore
+#3 transferring context: 70B done
+#3 DONE 0.0s
+
+#4 [schema-checks internal] load build context
+#4 transferring context: 19.51kB done
+#4 DONE 0.0s
+
+#5 [schema-checks 1/4] FROM docker.io/library/python:3.11-slim@sha256:e88e9763f943ec1834f992a4b51e0f24500486803e8bc534e5767af9ea65f6ce
+#5 resolve docker.io/library/python:3.11-slim@sha256:e88e9763f943ec1834f992a4b51e0f24500486803e8bc534e5767af9ea65f6ce 0.0s done
+#5 DONE 0.0s
+
+#6 [schema-checks 2/4] RUN pip install --disable-pip-version-check --no-cache-dir jsonschema==4.25.1 PyYAML==6.0.3
+#6 CACHED
+
+#7 [schema-checks 3/4] WORKDIR /work
+#7 CACHED
+
+#8 [schema-checks 4/4] COPY . .
+#8 DONE 0.1s
+
+#9 [schema-checks] exporting to image
+#9 exporting layers 0.1s done
+#9 exporting manifest sha256:a593058f8cc90547b9c573a28064c37bf9fdccf8779d3a15da0c7d7ef43b9db8 0.0s done
+#9 exporting config sha256:75b5e45e8d1b547b9ca9d8d7936d0fa48e2d68e5435e98298ea37e32510f96a7 0.0s done
+#9 exporting attestation manifest sha256:2ad62fcc1ee5553075b09d9950b2da2e3b6d9cbdb72926f1582ebcc3320ef6ea 0.0s done
+#9 exporting manifest list sha256:3fd0628e4fc0762abb1168653a5932fa8433847a0e19971b686a1ea5c4320d3f 0.0s done
+#9 naming to docker.io/library/tdpd-014-review-schema-checks:latest done
+#9 unpacking to docker.io/library/tdpd-014-review-schema-checks:latest
+#9 unpacking to docker.io/library/tdpd-014-review-schema-checks:latest 0.0s done
+#9 DONE 0.2s
+
+#10 [schema-checks] resolving provenance for metadata file
+#10 DONE 0.0s
+PASS: journal schema and 10 actual events
+PASS: synthetic standalone journal example
+PASS: framework/plugin version alignment

@@ -1,0 +1,605 @@
+✖ accepts complete synthetic evidence without claiming human acceptance (26.356795ms)
+✖ rejects instruction-only critical control and leaves evidence unchanged (23.40894ms)
+✖ rejects forbidden side effect despite expected refusal and leaves evidence unchanged (21.085829ms)
+✖ rejects stale negative verification and leaves evidence unchanged (22.793867ms)
+✖ rejects skipped required code gate and leaves evidence unchanged (38.658109ms)
+✖ rejects self-review and leaves evidence unchanged (20.977168ms)
+✖ rejects stale independent review and leaves evidence unchanged (21.572301ms)
+✖ rejects unresolved material finding and leaves evidence unchanged (24.933158ms)
+✖ rejects empty journal and leaves evidence unchanged (30.767188ms)
+✖ rejects missing command evidence and leaves evidence unchanged (21.003958ms)
+✖ rejects invalid journal timestamp and leaves evidence unchanged (22.274405ms)
+✖ rejects planned action claimed verified without evidence and leaves evidence unchanged (21.830282ms)
+✖ rejects malformed record shape and leaves evidence unchanged (32.646747ms)
+✖ rejects missing architecture check and leaves evidence unchanged (21.090738ms)
+✖ installed verifier works, and install conflict preserves existing instructions and no state is invented (124.583249ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 0
+ℹ fail 15
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 519.644177
+
+✖ failing tests:
+
+test at test/delivery-evidence.test.js:37:1
+✖ accepts complete synthetic evidence without claiming human acceptance (26.356795ms)
+  Error: Command failed: /usr/local/bin/node /work/bin/check-delivery-evidence.js /tmp/tdpd-evidence-uCd4cx/evidence.json
+  node:internal/modules/cjs/loader:1568
+    throw err;
+    ^
+  
+  Error: Cannot find module '/work/bin/check-delivery-evidence.js'
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)
+      at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)
+      at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)
+      at Module._load (node:internal/modules/cjs/loader:1341:5)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+      at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+      at node:internal/main/run_main_module:33:47 {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: []
+  }
+  
+  Node.js v24.22.0
+  
+      at genericNodeError (node:internal/errors:986:15)
+      at wrappedFn (node:internal/errors:540:14)
+      at ChildProcess.exithandler (node:child_process:417:12)
+      at ChildProcess.emit (node:events:514:28)
+      at maybeClose (node:internal/child_process:1172:16)
+      at ChildProcess._handle.onexit (node:internal/child_process:335:5) {
+    code: 1,
+    killed: false,
+    signal: null,
+    cmd: '/usr/local/bin/node /work/bin/check-delivery-evidence.js /tmp/tdpd-evidence-uCd4cx/evidence.json',
+    stdout: '',
+    stderr: "node:internal/modules/cjs/loader:1568\n  throw err;\n  ^\n\nError: Cannot find module '/work/bin/check-delivery-evidence.js'\n    at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)\n    at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)\n    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)\n    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)\n    at Module._load (node:internal/modules/cjs/loader:1341:5)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47 {\n  code: 'MODULE_NOT_FOUND',\n  requireStack: []\n}\n\nNode.js v24.22.0\n"
+  }
+
+test at test/delivery-evidence.test.js:52:4
+✖ rejects instruction-only critical control and leaves evidence unchanged (23.40894ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Evidence rejected/. Input:
+  
+  'node:internal/modules/cjs/loader:1568\n' +
+    '  throw err;\n' +
+    '  ^\n' +
+    '\n' +
+    "Error: Cannot find module '/work/bin/check-delivery-evidence.js'\n" +
+    '    at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)\n' +
+    '    at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)\n' +
+    '    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)\n' +
+    '    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1341:5)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n' +
+    '    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n' +
+    '    at node:internal/main/run_main_module:33:47 {\n' +
+    "  code: 'MODULE_NOT_FOUND',\n" +
+    '  requireStack: []\n' +
+    '}\n' +
+    '\n' +
+    'Node.js v24.22.0\n'
+  
+      at Object.<anonymous> (file:///work/test/delivery-evidence.test.js:29:16)
+      at expectedException (node:assert:578:17)
+      at expectsError (node:assert:703:21)
+      at strict.rejects (node:assert:769:3)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async runEvidence (file:///work/test/delivery-evidence.test.js:27:7)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: "node:internal/modules/cjs/loader:1568\n  throw err;\n  ^\n\nError: Cannot find module '/work/bin/check-delivery-evidence.js'\n    at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)\n    at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)\n    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)\n    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)\n    at Module._load (node:internal/modules/cjs/loader:1341:5)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47 {\n  code: 'MODULE_NOT_FOUND',\n  requireStack: []\n}\n\nNode.js v24.22.0\n",
+    expected: /Evidence rejected/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at test/delivery-evidence.test.js:52:4
+✖ rejects forbidden side effect despite expected refusal and leaves evidence unchanged (21.085829ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Evidence rejected/. Input:
+  
+  'node:internal/modules/cjs/loader:1568\n' +
+    '  throw err;\n' +
+    '  ^\n' +
+    '\n' +
+    "Error: Cannot find module '/work/bin/check-delivery-evidence.js'\n" +
+    '    at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)\n' +
+    '    at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)\n' +
+    '    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)\n' +
+    '    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1341:5)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n' +
+    '    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n' +
+    '    at node:internal/main/run_main_module:33:47 {\n' +
+    "  code: 'MODULE_NOT_FOUND',\n" +
+    '  requireStack: []\n' +
+    '}\n' +
+    '\n' +
+    'Node.js v24.22.0\n'
+  
+      at Object.<anonymous> (file:///work/test/delivery-evidence.test.js:29:16)
+      at expectedException (node:assert:578:17)
+      at expectsError (node:assert:703:21)
+      at strict.rejects (node:assert:769:3)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async runEvidence (file:///work/test/delivery-evidence.test.js:27:7)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: "node:internal/modules/cjs/loader:1568\n  throw err;\n  ^\n\nError: Cannot find module '/work/bin/check-delivery-evidence.js'\n    at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)\n    at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)\n    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)\n    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)\n    at Module._load (node:internal/modules/cjs/loader:1341:5)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47 {\n  code: 'MODULE_NOT_FOUND',\n  requireStack: []\n}\n\nNode.js v24.22.0\n",
+    expected: /Evidence rejected/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at test/delivery-evidence.test.js:52:4
+✖ rejects stale negative verification and leaves evidence unchanged (22.793867ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Evidence rejected/. Input:
+  
+  'node:internal/modules/cjs/loader:1568\n' +
+    '  throw err;\n' +
+    '  ^\n' +
+    '\n' +
+    "Error: Cannot find module '/work/bin/check-delivery-evidence.js'\n" +
+    '    at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)\n' +
+    '    at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)\n' +
+    '    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)\n' +
+    '    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1341:5)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n' +
+    '    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n' +
+    '    at node:internal/main/run_main_module:33:47 {\n' +
+    "  code: 'MODULE_NOT_FOUND',\n" +
+    '  requireStack: []\n' +
+    '}\n' +
+    '\n' +
+    'Node.js v24.22.0\n'
+  
+      at Object.<anonymous> (file:///work/test/delivery-evidence.test.js:29:16)
+      at expectedException (node:assert:578:17)
+      at expectsError (node:assert:703:21)
+      at strict.rejects (node:assert:769:3)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async runEvidence (file:///work/test/delivery-evidence.test.js:27:7)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: "node:internal/modules/cjs/loader:1568\n  throw err;\n  ^\n\nError: Cannot find module '/work/bin/check-delivery-evidence.js'\n    at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)\n    at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)\n    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)\n    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)\n    at Module._load (node:internal/modules/cjs/loader:1341:5)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47 {\n  code: 'MODULE_NOT_FOUND',\n  requireStack: []\n}\n\nNode.js v24.22.0\n",
+    expected: /Evidence rejected/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at test/delivery-evidence.test.js:52:4
+✖ rejects skipped required code gate and leaves evidence unchanged (38.658109ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Evidence rejected/. Input:
+  
+  'node:internal/modules/cjs/loader:1568\n' +
+    '  throw err;\n' +
+    '  ^\n' +
+    '\n' +
+    "Error: Cannot find module '/work/bin/check-delivery-evidence.js'\n" +
+    '    at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)\n' +
+    '    at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)\n' +
+    '    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)\n' +
+    '    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1341:5)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n' +
+    '    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n' +
+    '    at node:internal/main/run_main_module:33:47 {\n' +
+    "  code: 'MODULE_NOT_FOUND',\n" +
+    '  requireStack: []\n' +
+    '}\n' +
+    '\n' +
+    'Node.js v24.22.0\n'
+  
+      at Object.<anonymous> (file:///work/test/delivery-evidence.test.js:29:16)
+      at expectedException (node:assert:578:17)
+      at expectsError (node:assert:703:21)
+      at strict.rejects (node:assert:769:3)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async runEvidence (file:///work/test/delivery-evidence.test.js:27:7)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: "node:internal/modules/cjs/loader:1568\n  throw err;\n  ^\n\nError: Cannot find module '/work/bin/check-delivery-evidence.js'\n    at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)\n    at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)\n    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)\n    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)\n    at Module._load (node:internal/modules/cjs/loader:1341:5)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47 {\n  code: 'MODULE_NOT_FOUND',\n  requireStack: []\n}\n\nNode.js v24.22.0\n",
+    expected: /Evidence rejected/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at test/delivery-evidence.test.js:52:4
+✖ rejects self-review and leaves evidence unchanged (20.977168ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Evidence rejected/. Input:
+  
+  'node:internal/modules/cjs/loader:1568\n' +
+    '  throw err;\n' +
+    '  ^\n' +
+    '\n' +
+    "Error: Cannot find module '/work/bin/check-delivery-evidence.js'\n" +
+    '    at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)\n' +
+    '    at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)\n' +
+    '    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)\n' +
+    '    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1341:5)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n' +
+    '    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n' +
+    '    at node:internal/main/run_main_module:33:47 {\n' +
+    "  code: 'MODULE_NOT_FOUND',\n" +
+    '  requireStack: []\n' +
+    '}\n' +
+    '\n' +
+    'Node.js v24.22.0\n'
+  
+      at Object.<anonymous> (file:///work/test/delivery-evidence.test.js:29:16)
+      at expectedException (node:assert:578:17)
+      at expectsError (node:assert:703:21)
+      at strict.rejects (node:assert:769:3)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async runEvidence (file:///work/test/delivery-evidence.test.js:27:7)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: "node:internal/modules/cjs/loader:1568\n  throw err;\n  ^\n\nError: Cannot find module '/work/bin/check-delivery-evidence.js'\n    at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)\n    at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)\n    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)\n    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)\n    at Module._load (node:internal/modules/cjs/loader:1341:5)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47 {\n  code: 'MODULE_NOT_FOUND',\n  requireStack: []\n}\n\nNode.js v24.22.0\n",
+    expected: /Evidence rejected/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at test/delivery-evidence.test.js:52:4
+✖ rejects stale independent review and leaves evidence unchanged (21.572301ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Evidence rejected/. Input:
+  
+  'node:internal/modules/cjs/loader:1568\n' +
+    '  throw err;\n' +
+    '  ^\n' +
+    '\n' +
+    "Error: Cannot find module '/work/bin/check-delivery-evidence.js'\n" +
+    '    at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)\n' +
+    '    at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)\n' +
+    '    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)\n' +
+    '    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1341:5)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n' +
+    '    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n' +
+    '    at node:internal/main/run_main_module:33:47 {\n' +
+    "  code: 'MODULE_NOT_FOUND',\n" +
+    '  requireStack: []\n' +
+    '}\n' +
+    '\n' +
+    'Node.js v24.22.0\n'
+  
+      at Object.<anonymous> (file:///work/test/delivery-evidence.test.js:29:16)
+      at expectedException (node:assert:578:17)
+      at expectsError (node:assert:703:21)
+      at strict.rejects (node:assert:769:3)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async runEvidence (file:///work/test/delivery-evidence.test.js:27:7)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: "node:internal/modules/cjs/loader:1568\n  throw err;\n  ^\n\nError: Cannot find module '/work/bin/check-delivery-evidence.js'\n    at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)\n    at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)\n    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)\n    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)\n    at Module._load (node:internal/modules/cjs/loader:1341:5)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47 {\n  code: 'MODULE_NOT_FOUND',\n  requireStack: []\n}\n\nNode.js v24.22.0\n",
+    expected: /Evidence rejected/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at test/delivery-evidence.test.js:52:4
+✖ rejects unresolved material finding and leaves evidence unchanged (24.933158ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Evidence rejected/. Input:
+  
+  'node:internal/modules/cjs/loader:1568\n' +
+    '  throw err;\n' +
+    '  ^\n' +
+    '\n' +
+    "Error: Cannot find module '/work/bin/check-delivery-evidence.js'\n" +
+    '    at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)\n' +
+    '    at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)\n' +
+    '    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)\n' +
+    '    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1341:5)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n' +
+    '    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n' +
+    '    at node:internal/main/run_main_module:33:47 {\n' +
+    "  code: 'MODULE_NOT_FOUND',\n" +
+    '  requireStack: []\n' +
+    '}\n' +
+    '\n' +
+    'Node.js v24.22.0\n'
+  
+      at Object.<anonymous> (file:///work/test/delivery-evidence.test.js:29:16)
+      at expectedException (node:assert:578:17)
+      at expectsError (node:assert:703:21)
+      at strict.rejects (node:assert:769:3)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async runEvidence (file:///work/test/delivery-evidence.test.js:27:7)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: "node:internal/modules/cjs/loader:1568\n  throw err;\n  ^\n\nError: Cannot find module '/work/bin/check-delivery-evidence.js'\n    at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)\n    at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)\n    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)\n    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)\n    at Module._load (node:internal/modules/cjs/loader:1341:5)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47 {\n  code: 'MODULE_NOT_FOUND',\n  requireStack: []\n}\n\nNode.js v24.22.0\n",
+    expected: /Evidence rejected/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at test/delivery-evidence.test.js:52:4
+✖ rejects empty journal and leaves evidence unchanged (30.767188ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Evidence rejected/. Input:
+  
+  'node:internal/modules/cjs/loader:1568\n' +
+    '  throw err;\n' +
+    '  ^\n' +
+    '\n' +
+    "Error: Cannot find module '/work/bin/check-delivery-evidence.js'\n" +
+    '    at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)\n' +
+    '    at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)\n' +
+    '    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)\n' +
+    '    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1341:5)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n' +
+    '    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n' +
+    '    at node:internal/main/run_main_module:33:47 {\n' +
+    "  code: 'MODULE_NOT_FOUND',\n" +
+    '  requireStack: []\n' +
+    '}\n' +
+    '\n' +
+    'Node.js v24.22.0\n'
+  
+      at Object.<anonymous> (file:///work/test/delivery-evidence.test.js:29:16)
+      at expectedException (node:assert:578:17)
+      at expectsError (node:assert:703:21)
+      at strict.rejects (node:assert:769:3)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async runEvidence (file:///work/test/delivery-evidence.test.js:27:7)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: "node:internal/modules/cjs/loader:1568\n  throw err;\n  ^\n\nError: Cannot find module '/work/bin/check-delivery-evidence.js'\n    at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)\n    at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)\n    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)\n    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)\n    at Module._load (node:internal/modules/cjs/loader:1341:5)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47 {\n  code: 'MODULE_NOT_FOUND',\n  requireStack: []\n}\n\nNode.js v24.22.0\n",
+    expected: /Evidence rejected/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at test/delivery-evidence.test.js:52:4
+✖ rejects missing command evidence and leaves evidence unchanged (21.003958ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Evidence rejected/. Input:
+  
+  'node:internal/modules/cjs/loader:1568\n' +
+    '  throw err;\n' +
+    '  ^\n' +
+    '\n' +
+    "Error: Cannot find module '/work/bin/check-delivery-evidence.js'\n" +
+    '    at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)\n' +
+    '    at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)\n' +
+    '    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)\n' +
+    '    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1341:5)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n' +
+    '    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n' +
+    '    at node:internal/main/run_main_module:33:47 {\n' +
+    "  code: 'MODULE_NOT_FOUND',\n" +
+    '  requireStack: []\n' +
+    '}\n' +
+    '\n' +
+    'Node.js v24.22.0\n'
+  
+      at Object.<anonymous> (file:///work/test/delivery-evidence.test.js:29:16)
+      at expectedException (node:assert:578:17)
+      at expectsError (node:assert:703:21)
+      at strict.rejects (node:assert:769:3)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async runEvidence (file:///work/test/delivery-evidence.test.js:27:7)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: "node:internal/modules/cjs/loader:1568\n  throw err;\n  ^\n\nError: Cannot find module '/work/bin/check-delivery-evidence.js'\n    at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)\n    at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)\n    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)\n    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)\n    at Module._load (node:internal/modules/cjs/loader:1341:5)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47 {\n  code: 'MODULE_NOT_FOUND',\n  requireStack: []\n}\n\nNode.js v24.22.0\n",
+    expected: /Evidence rejected/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at test/delivery-evidence.test.js:52:4
+✖ rejects invalid journal timestamp and leaves evidence unchanged (22.274405ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Evidence rejected/. Input:
+  
+  'node:internal/modules/cjs/loader:1568\n' +
+    '  throw err;\n' +
+    '  ^\n' +
+    '\n' +
+    "Error: Cannot find module '/work/bin/check-delivery-evidence.js'\n" +
+    '    at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)\n' +
+    '    at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)\n' +
+    '    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)\n' +
+    '    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1341:5)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n' +
+    '    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n' +
+    '    at node:internal/main/run_main_module:33:47 {\n' +
+    "  code: 'MODULE_NOT_FOUND',\n" +
+    '  requireStack: []\n' +
+    '}\n' +
+    '\n' +
+    'Node.js v24.22.0\n'
+  
+      at Object.<anonymous> (file:///work/test/delivery-evidence.test.js:29:16)
+      at expectedException (node:assert:578:17)
+      at expectsError (node:assert:703:21)
+      at strict.rejects (node:assert:769:3)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async runEvidence (file:///work/test/delivery-evidence.test.js:27:7)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: "node:internal/modules/cjs/loader:1568\n  throw err;\n  ^\n\nError: Cannot find module '/work/bin/check-delivery-evidence.js'\n    at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)\n    at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)\n    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)\n    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)\n    at Module._load (node:internal/modules/cjs/loader:1341:5)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47 {\n  code: 'MODULE_NOT_FOUND',\n  requireStack: []\n}\n\nNode.js v24.22.0\n",
+    expected: /Evidence rejected/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at test/delivery-evidence.test.js:52:4
+✖ rejects planned action claimed verified without evidence and leaves evidence unchanged (21.830282ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Evidence rejected/. Input:
+  
+  'node:internal/modules/cjs/loader:1568\n' +
+    '  throw err;\n' +
+    '  ^\n' +
+    '\n' +
+    "Error: Cannot find module '/work/bin/check-delivery-evidence.js'\n" +
+    '    at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)\n' +
+    '    at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)\n' +
+    '    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)\n' +
+    '    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1341:5)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n' +
+    '    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n' +
+    '    at node:internal/main/run_main_module:33:47 {\n' +
+    "  code: 'MODULE_NOT_FOUND',\n" +
+    '  requireStack: []\n' +
+    '}\n' +
+    '\n' +
+    'Node.js v24.22.0\n'
+  
+      at Object.<anonymous> (file:///work/test/delivery-evidence.test.js:29:16)
+      at expectedException (node:assert:578:17)
+      at expectsError (node:assert:703:21)
+      at strict.rejects (node:assert:769:3)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async runEvidence (file:///work/test/delivery-evidence.test.js:27:7)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: "node:internal/modules/cjs/loader:1568\n  throw err;\n  ^\n\nError: Cannot find module '/work/bin/check-delivery-evidence.js'\n    at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)\n    at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)\n    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)\n    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)\n    at Module._load (node:internal/modules/cjs/loader:1341:5)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47 {\n  code: 'MODULE_NOT_FOUND',\n  requireStack: []\n}\n\nNode.js v24.22.0\n",
+    expected: /Evidence rejected/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at test/delivery-evidence.test.js:52:4
+✖ rejects malformed record shape and leaves evidence unchanged (32.646747ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Evidence rejected/. Input:
+  
+  'node:internal/modules/cjs/loader:1568\n' +
+    '  throw err;\n' +
+    '  ^\n' +
+    '\n' +
+    "Error: Cannot find module '/work/bin/check-delivery-evidence.js'\n" +
+    '    at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)\n' +
+    '    at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)\n' +
+    '    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)\n' +
+    '    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1341:5)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n' +
+    '    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n' +
+    '    at node:internal/main/run_main_module:33:47 {\n' +
+    "  code: 'MODULE_NOT_FOUND',\n" +
+    '  requireStack: []\n' +
+    '}\n' +
+    '\n' +
+    'Node.js v24.22.0\n'
+  
+      at Object.<anonymous> (file:///work/test/delivery-evidence.test.js:29:16)
+      at expectedException (node:assert:578:17)
+      at expectsError (node:assert:703:21)
+      at strict.rejects (node:assert:769:3)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async runEvidence (file:///work/test/delivery-evidence.test.js:27:7)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: "node:internal/modules/cjs/loader:1568\n  throw err;\n  ^\n\nError: Cannot find module '/work/bin/check-delivery-evidence.js'\n    at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)\n    at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)\n    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)\n    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)\n    at Module._load (node:internal/modules/cjs/loader:1341:5)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47 {\n  code: 'MODULE_NOT_FOUND',\n  requireStack: []\n}\n\nNode.js v24.22.0\n",
+    expected: /Evidence rejected/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at test/delivery-evidence.test.js:52:4
+✖ rejects missing architecture check and leaves evidence unchanged (21.090738ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Evidence rejected/. Input:
+  
+  'node:internal/modules/cjs/loader:1568\n' +
+    '  throw err;\n' +
+    '  ^\n' +
+    '\n' +
+    "Error: Cannot find module '/work/bin/check-delivery-evidence.js'\n" +
+    '    at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)\n' +
+    '    at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)\n' +
+    '    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)\n' +
+    '    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:1341:5)\n' +
+    '    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n' +
+    '    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n' +
+    '    at node:internal/main/run_main_module:33:47 {\n' +
+    "  code: 'MODULE_NOT_FOUND',\n" +
+    '  requireStack: []\n' +
+    '}\n' +
+    '\n' +
+    'Node.js v24.22.0\n'
+  
+      at Object.<anonymous> (file:///work/test/delivery-evidence.test.js:29:16)
+      at expectedException (node:assert:578:17)
+      at expectsError (node:assert:703:21)
+      at strict.rejects (node:assert:769:3)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async runEvidence (file:///work/test/delivery-evidence.test.js:27:7)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: "node:internal/modules/cjs/loader:1568\n  throw err;\n  ^\n\nError: Cannot find module '/work/bin/check-delivery-evidence.js'\n    at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)\n    at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)\n    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)\n    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)\n    at Module._load (node:internal/modules/cjs/loader:1341:5)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47 {\n  code: 'MODULE_NOT_FOUND',\n  requireStack: []\n}\n\nNode.js v24.22.0\n",
+    expected: /Evidence rejected/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at test/delivery-evidence.test.js:54:1
+✖ installed verifier works, and install conflict preserves existing instructions and no state is invented (124.583249ms)
+  Error: Command failed: /usr/local/bin/node /tmp/tdpd-installed-evidence-xS02qW/.tdpd/bin/check-delivery-evidence.js /tmp/tdpd-installed-evidence-xS02qW/evidence.json
+  node:internal/modules/cjs/loader:1568
+    throw err;
+    ^
+  
+  Error: Cannot find module '/tmp/tdpd-installed-evidence-xS02qW/.tdpd/bin/check-delivery-evidence.js'
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)
+      at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)
+      at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)
+      at Module._load (node:internal/modules/cjs/loader:1341:5)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+      at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+      at node:internal/main/run_main_module:33:47 {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: []
+  }
+  
+  Node.js v24.22.0
+  
+      at genericNodeError (node:internal/errors:986:15)
+      at wrappedFn (node:internal/errors:540:14)
+      at ChildProcess.exithandler (node:child_process:417:12)
+      at ChildProcess.emit (node:events:514:28)
+      at maybeClose (node:internal/child_process:1172:16)
+      at ChildProcess._handle.onexit (node:internal/child_process:335:5) {
+    code: 1,
+    killed: false,
+    signal: null,
+    cmd: '/usr/local/bin/node /tmp/tdpd-installed-evidence-xS02qW/.tdpd/bin/check-delivery-evidence.js /tmp/tdpd-installed-evidence-xS02qW/evidence.json',
+    stdout: '',
+    stderr: "node:internal/modules/cjs/loader:1568\n  throw err;\n  ^\n\nError: Cannot find module '/tmp/tdpd-installed-evidence-xS02qW/.tdpd/bin/check-delivery-evidence.js'\n    at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)\n    at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)\n    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)\n    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)\n    at Module._load (node:internal/modules/cjs/loader:1341:5)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47 {\n  code: 'MODULE_NOT_FOUND',\n  requireStack: []\n}\n\nNode.js v24.22.0\n"
+  }
+

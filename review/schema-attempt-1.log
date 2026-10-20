@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/work/review/validate-artifacts.py", line 5, in <module>
+    from jsonschema import Draft202012Validator, FormatChecker
+  File "/tmp/vendor/jsonschema/__init__.py", line 13, in <module>
+    from jsonschema._format import FormatChecker
+  File "/tmp/vendor/jsonschema/_format.py", line 11, in <module>
+    from jsonschema.exceptions import FormatError
+  File "/tmp/vendor/jsonschema/exceptions.py", line 15, in <module>
+    from referencing.exceptions import Unresolvable as _Unresolvable
+  File "/tmp/vendor/referencing/__init__.py", line 5, in <module>
+    from referencing._core import Anchor, Registry, Resource, Specification
+  File "/tmp/vendor/referencing/_core.py", line 9, in <module>
+    from rpds import HashTrieMap, HashTrieSet, List
+  File "/tmp/vendor/rpds/__init__.py", line 1, in <module>
+    from .rpds import *
+ImportError: /tmp/vendor/rpds/rpds.cpython-311-x86_64-linux-gnu.so: failed to map segment from shared object

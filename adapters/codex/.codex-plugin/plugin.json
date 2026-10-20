@@ -1,6 +1,6 @@
 {
   "name": "tdpd-product-framework",
-  "version": "0.13.0",
+  "version": "0.14.0",
   "description": "Run four independent, connected layers for product/business, requirements, delivery, and operations.",
   "author": {
     "name": "Innokenty Bodrov"

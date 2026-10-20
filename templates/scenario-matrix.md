@@ -10,6 +10,11 @@
 
 Levels: `E2E`, `SUPPORTING`, or `MANUAL`. Statuses: `planned`, `red`, `green`, `blocked`, `accepted`.
 
+For negative/abuse scenarios also record independent boundary-model source,
+CTRL/NEG IDs, expected refusal/recovery, forbidden effects, durable before/after
+and dispatch/debit spies, actual concurrency/recovery setup, and evidence revision.
+Correct response with forbidden effects is a failure, never GREEN.
+
 An E2E scenario must exercise the approved user surface. Lower-level CLI, API, or direct-storage checks may support diagnosis, but do not replace acceptance through a web, mobile, desktop, conversational, or other approved interface.
 
 Do not mark a scenario `READY` when `LOCK-###` is absent, blocked, or stale. Include applicable load, security, dependency-failure, degraded-mode, migration, recovery, and architecture-fitness scenarios; link production-only qualities to their monitoring and owner.

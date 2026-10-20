@@ -51,3 +51,10 @@ For cross-session, distributed-evidence, or multimodal work, load `.tdpd/core/CO
 For material decisions, load `.tdpd/core/DECISION_EVIDENCE.md` and require a `DVE-###` record separating supporting, excluding, contradicting, and uncertain evidence.
 
 Before final acceptance scenarios, load `.tdpd/core/SPECIFICATION_ARCHITECTURE_ASSURANCE.md`: require measurable QARs, approved architecture, security/failure challenge, and `LOCK-###`. Use `.tdpd/core/DEVELOPMENT_COUNCIL.md` for optional role routing and preserve each build's case-level test evidence in `TRUN-###`.
+
+For delivery in 0.14, apply `.tdpd/core/EXECUTABLE_DELIVERY_ASSURANCE.md`: bind
+critical restrictions to actual permissions/isolation/guards and negative probes;
+assert refusal/recovery AND no forbidden effects. Require candidate code gates
+and independent Spec/Standards review before human UAT. Append timestamped JRN
+actions/checks/errors during execution, preserve failed attempts and sanitize logs.
+The evidence checker validates declared structure, not safety, authority or UAT.

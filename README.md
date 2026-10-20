@@ -4,7 +4,36 @@ A platform-independent product framework with four connected but independently a
 
 **Test-Driven Product Development (TDPD) is an original method by Innokenty Bodrov.** User scenarios become executable end-to-end tests before production implementation. A delivery is complete only after those tests pass and a responsible human accepts the result through UAT.
 
-Current release: **0.13.0**. See [Release Notes](RELEASE_NOTES.md) for the changes from 0.12 and migration guidance.
+Review candidate: **0.14.0**, not published or fleet-installed. Stable release:
+**0.13.0**. See [Release Notes](RELEASE_NOTES.md) and [0.14 migration](MIGRATION_0.14.md).
+
+## 0.14 review scope
+
+Executable restrictions (`CTRL`), negative/abuse boundary assertions (`NEG`),
+current-candidate code gates and independent review (`CRV`), contemporaneous
+action/error/recovery journals (`JRN`). Read
+[Executable Delivery Assurance](core/EXECUTABLE_DELIVERY_ASSURANCE.md).
+The six TDPD steps, human architecture input and human UAT output are unchanged.
+
+The new read-only `bin/check-delivery-evidence.js` rejects structurally incomplete,
+stale or contradictory declared evidence. It does **not** provide a sandbox,
+authenticate artifacts, enforce project permissions, execute tests or accept UAT.
+`examples/delivery-evidence.synthetic.json` demonstrates format only.
+
+Review this checkout without touching any product:
+
+```bash
+docker compose -f compose.verify.yaml run --rm --build checks
+docker compose -f compose.verify.yaml run --rm --build schema-checks
+```
+
+Use only an authorized Docker host (the operator's configured runner). The reviewed
+job is Linux amd64, non-root, network-disabled, read-only, resource-bounded and
+uses a disposable /tmp. No persistent service, ports, secrets, queues or volumes.
+Build/start: the one-off commands above. Completion removes each container. If an
+operator interrupts a run, use `docker compose -f compose.verify.yaml stop` or
+`down` (never `down -v`). Inspect `docker compose ... ps -a` / `logs checks` while
+a job exists; there is no app health endpoint or long-running stack to activate.
 
 ## What is included
 
@@ -17,7 +46,7 @@ Current release: **0.13.0**. See [Release Notes](RELEASE_NOTES.md) for the chang
 
 ## Install into a project
 
-### Current production release
+### Current stable production release (unchanged)
 
 Install the immutable 0.13 release from GitHub:
 

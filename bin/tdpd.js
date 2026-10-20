@@ -17,6 +17,7 @@ const sharedFiles = [
   ".tdpd/core/DECISION_EVIDENCE.md",
   ".tdpd/core/SPECIFICATION_ARCHITECTURE_ASSURANCE.md",
   ".tdpd/core/DEVELOPMENT_COUNCIL.md",
+  ".tdpd/core/EXECUTABLE_DELIVERY_ASSURANCE.md",
   ".tdpd/core/GATES.md",
   ".tdpd/core/ROLES.md",
   ".tdpd/templates/layer-handoff.md",
@@ -65,7 +66,10 @@ const layerConfig = {
       ".tdpd/templates/recovery-record.md", ".tdpd/templates/delivery-evidence.md", ".tdpd/templates/agent-run-evidence.md",
       ".tdpd/templates/uat-record.md", ".tdpd/templates/autonomy-contract.md", ".tdpd/templates/execution-readiness.md",
       ".tdpd/templates/regression-memory.md", ".tdpd/templates/verification-independence.md", ".tdpd/templates/adoption-readiness.md",
-      ".tdpd/templates/test-run-log.yaml", ".tdpd/templates/development-council.md"
+      ".tdpd/templates/test-run-log.yaml", ".tdpd/templates/development-council.md",
+      ".tdpd/templates/enforcement-contract.md", ".tdpd/templates/negative-abuse-matrix.md",
+      ".tdpd/templates/code-review.md", ".tdpd/templates/implementation-journal.schema.json",
+      ".tdpd/templates/implementation-journal.md", ".tdpd/bin/check-delivery-evidence.js"
     ]
   },
   "launch-operations": {
@@ -186,6 +190,12 @@ async function start(mode, target, layer) {
       architecture: { status: "not_assessed", plan: null, riskReview: null, blockingVetoes: 0 }
     },
     testRuns: [],
+    deliveryAssurance: {
+      controls: { status: "not_assessed", records: [] },
+      negativeCoverage: { status: "not_assessed", matrix: null },
+      codeReview: { status: "not_assessed", revision: null, reviewer: null },
+      journal: { status: "not_started", locator: null, lastEvent: null }
+    },
     workUnits: [],
     blockers: [],
     createdAt: now,
@@ -218,6 +228,7 @@ async function status(target) {
   process.stdout.write(`Quality attributes: ${state.specificationAssurance?.quality?.status ?? "not_recorded"}\n`);
   process.stdout.write(`Architecture assurance: ${state.specificationAssurance?.architecture?.status ?? "not_recorded"}\n`);
   process.stdout.write(`Test runs: ${Array.isArray(state.testRuns) ? state.testRuns.length : "invalid"}\n`);
+  process.stdout.write(`Delivery assurance: ${state.deliveryAssurance ? "recorded (not independently verified)" : "not_recorded (legacy state)"}\n`);
 }
 
 async function audit(target, layer) {
@@ -249,7 +260,7 @@ async function audit(target, layer) {
   }
   if (!Array.isArray(state.testRuns)) issues.push("testRuns must be an array");
   if (issues.length) throw new Error(`Audit failed:\n${issues.map((issue) => `- ${issue}`).join("\n")}`);
-  process.stdout.write(`Audit passed for ${layer ?? "full"} in ${targetRoot}\n`);
+  process.stdout.write(`Audit passed for ${layer ?? "full"} in ${targetRoot}\nInstallation/state structure only; not product GREEN, enforcement verification, release or UAT.\n`);
 }
 
 async function install(adapter, target, force) {

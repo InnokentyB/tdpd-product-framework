@@ -1,0 +1,6 @@
+FROM python:3.11-slim
+RUN pip install --disable-pip-version-check --no-cache-dir jsonschema==4.25.1 PyYAML==6.0.3
+WORKDIR /work
+COPY . .
+USER 65534:65534
+CMD ["python", "review/validate-artifacts.py"]

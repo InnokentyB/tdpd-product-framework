@@ -1,0 +1,27 @@
+name: tdpd-014-review
+services:
+  checks:
+    build:
+      context: .
+      dockerfile: Dockerfile.verify
+    platform: linux/amd64
+    network_mode: none
+    read_only: true
+    tmpfs:
+      - /tmp:rw,nosuid,noexec,size=128m
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    cpus: 1.0
+    mem_limit: 512m
+    pids_limit: 128
+    logging:
+      driver: json-file
+      options:
+        max-size: 2m
+        max-file: '1'
+  schema-checks:
+    extends:
+      service: checks
+    build:
+      context: .
+      dockerfile: Dockerfile.verify-schema

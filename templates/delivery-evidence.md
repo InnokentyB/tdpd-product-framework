@@ -26,6 +26,12 @@
 
 ## Implementation and green evidence
 
+- CTRL mechanisms and safe negative probe evidence:
+- NEG coverage/model; refusal/recovery AND forbidden-effect observations:
+- Candidate revision, formatter/lint/types/rules/module/security/architecture results:
+- Independent CRV Spec/Standards verdicts, findings, fixes/retest/re-review:
+- JRN locator and last event; error/root-cause/recovery, capture gaps:
+
 - Change summary linked to scenarios:
 - Target verification:
 - Broader verification:

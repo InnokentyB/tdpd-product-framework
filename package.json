@@ -1,6 +1,6 @@
 {
   "name": "tdpd-product-framework",
-  "version": "0.13.0",
+  "version": "0.14.0",
   "description": "Platform-independent Test-Driven Product Development framework and AI-tool adapters",
   "author": "Innokenty Bodrov",
   "license": "MIT",
@@ -24,7 +24,9 @@
     "adapters",
     "PRIOR_ART.md",
     "RELEASE_NOTES.md",
-    "WORKSHOP.md"
+    "WORKSHOP.md",
+    "examples",
+    "MIGRATION_0.14.md"
   ],
   "engines": {
     "node": ">=18"

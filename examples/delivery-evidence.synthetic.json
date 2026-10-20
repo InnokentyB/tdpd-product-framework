@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "synthetic": true,
+  "task": "DEMO-ONLY",
+  "specVersion": "LOCK-demo-1",
+  "baseCommit": "demo-base",
+  "revision": "demo-candidate",
+  "implementationActor": "demo-author",
+  "approvedScope": "Synthetic example only; does not authorize production operations",
+  "controls": [{"id":"CTRL-demo","critical":true,"asset":"tenant records","invariant":"cross-tenant mutation forbidden","mechanism":{"kind":"permission","description":"server tenant authorization plus scoped storage identity"},"negativeTest":"SCN-demo","revision":"demo-candidate","evidence":["synthetic://authorization-check"]}],
+  "negativeScenarios": [{"id":"SCN-demo","requirement":"RULE-demo","boundaryModel":"tenant identity and object ownership model derived from locked specification","expected":"deny other-tenant write; retain original record","actual":"denied in synthetic fixture","status":"passed","forbiddenEffect":"mutation or outbound dispatch","forbiddenEffectObserved":false,"revision":"demo-candidate","evidence":["synthetic://before-after-and-outbox"]}],
+  "codeGates": [
+    {"id":"formatter","status":"passed","revision":"demo-candidate","evidence":["synthetic://formatter"]},
+    {"id":"lint","status":"passed","revision":"demo-candidate","evidence":["synthetic://lint"]},
+    {"id":"types","status":"not_applicable","reason":"synthetic text fixture has no typed runtime","revision":"demo-candidate","evidence":["synthetic://scope-review"]},
+    {"id":"codingRules","status":"passed","revision":"demo-candidate","evidence":["synthetic://rules"]},
+    {"id":"moduleBoundaries","status":"passed","revision":"demo-candidate","evidence":["synthetic://modules"]},
+    {"id":"security","status":"passed","revision":"demo-candidate","evidence":["synthetic://security"]},
+    {"id":"architecture","status":"passed","revision":"demo-candidate","evidence":["synthetic://fitness"]}
+  ],
+  "review":{"reviewer":"demo-independent-reviewer","revision":"demo-candidate","verdict":"passed","openMaterialFindings":0,"evidence":["synthetic://review"]},
+  "journal":[{"id":"J-demo","timestamp":"2026-10-20T00:00:00Z","actor":"demo-author","status":"verified","action":"synthetic authorization test","reason":"demonstrate no forbidden effect","requirements":["RULE-demo"],"decisions":["DL-demo"],"files":["synthetic-fixture"],"expected":"deny; unchanged record and outbox","actual":"denied; unchanged","evidence":["synthetic://before-after-and-outbox"]}],
+  "uat":{"status":"not_run","owner":null}
+}

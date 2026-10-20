@@ -6,6 +6,11 @@
 
 ## Coverage checks
 
+- Critical restriction → CTRL mechanism/configuration → negative probe → observed
+  no-forbidden-effect evidence; missing or stale evidence remains visible.
+- Requirement → decision → timestamped JRN action → changed revision → check → result.
+- Candidate → code gates → independent CRV findings → fix/retest/re-review → UAT.
+
 - Every factual context entry has a readable source locator or is explicitly `NO SOURCE`.
 - Every material finding is resolved by a decision or remains visibly blocking.
 - Every material rule traces to evidence or an authorized decision.

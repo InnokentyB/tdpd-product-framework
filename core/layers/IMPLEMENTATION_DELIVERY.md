@@ -9,6 +9,7 @@ Produce the approved behavior safely, prove executable scenarios red then green,
 - implementation and UAT portions of `core/METHOD.md`
 - `core/ORCHESTRATION.md`
 - `core/RECOVERY.md`
+- `core/EXECUTABLE_DELIVERY_ASSURANCE.md`
 
 ## Gates
 
@@ -28,6 +29,10 @@ Current approved `LOCK-###`; versioned rules and `QAR-###`; user scenarios and t
 - `VER-###` Verification Independence evidence naming synthesis, oracle, verification, merge, release, and UAT authority;
 - clarification, resynthesis, repair, and accepted-outcome telemetry where observable;
 - implementation and review handoffs;
+- `CTRL/NEG/CRV` evidence for preventive restrictions, forbidden-effect assertions
+  and independently reviewed candidate code gates;
+- contemporaneous timestamped `JRN` action/error/recovery/handoff history, sanitized
+  and linked to requirements, decisions, files, checks and actual results;
 - green target and broader verification evidence;
 - one immutable `TRUN-###` per build/attempt with suite and case outcomes, diagnostics, linked requirements/risks, failure disposition, and retest lineage;
 - accepted-outcome and human-orchestration measures;

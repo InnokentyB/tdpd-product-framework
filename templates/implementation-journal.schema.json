@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TDPD 0.14 implementation event (one JSONL line)",
+  "type": "object",
+  "required": ["id", "timestamp", "actor", "task", "specVersion", "baseCommit", "approvedScope", "status", "action", "reason", "requirements", "decisions", "files"],
+  "properties": {
+    "id": {"type":"string","minLength":1},
+    "timestamp": {"type":"string","format":"date-time"},
+    "actor": {"type":"string","minLength":1},
+    "task": {"type":"string","minLength":1},
+    "specVersion": {"type":"string","minLength":1},
+    "baseCommit": {"type":"string","minLength":1},
+    "approvedScope": {"type":"string","minLength":1},
+    "actionId": {"type":"string"},
+    "priorEvent": {"type":"string"},
+    "status": {"enum":["planned","attempted","completed","verified"]},
+    "action": {"type":"string","minLength":1},
+    "reason": {"type":"string","minLength":1},
+    "requirements": {"$ref":"#/$defs/strings"},
+    "decisions": {"$ref":"#/$defs/strings"},
+    "files": {"$ref":"#/$defs/strings"},
+    "expected": {"type":"string","minLength":1,"pattern":"\\S"},
+    "actual": {"type":"string","minLength":1,"pattern":"\\S"},
+    "evidence": {"$ref":"#/$defs/strings"},
+    "error": {"type":"object","required":["summary","rootCause","recovery"],"properties":{"summary":{"type":"string","minLength":1,"pattern":"\\S"},"rootCause":{"type":"string","minLength":1,"pattern":"\\S"},"recovery":{"type":"string","minLength":1,"pattern":"\\S"}}}
+  },
+  "allOf":[{"if":{"properties":{"status":{"enum":["completed","verified"]}}},"then":{"required":["expected","actual","evidence"]}}],
+  "$defs":{"strings":{"type":"array","minItems":1,"items":{"type":"string","minLength":1}}}
+}

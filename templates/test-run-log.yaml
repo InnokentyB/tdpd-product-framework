@@ -64,3 +64,12 @@ verification:
   independentReviewer: null
   reviewedAt: null
 releaseRecommendation: BLOCK # ALLOW | ALLOW_WITH_CONSTRAINTS | BLOCK
+deliveryAssurance:
+  controlIds: []
+  negativeCoverageRef: null
+  forbiddenEffectAssertionsRef: null
+  codeGateResultsRef: null
+  independentReviewRef: null
+  reviewedRevision: null
+  implementationJournalRef: null
+  lastJournalEvent: null

@@ -15,3 +15,10 @@ This rule is always active. For product discovery, requirements, interface desig
 11. Before final scenarios or Red, load `.tdpd/core/SPECIFICATION_ARCHITECTURE_ASSURANCE.md`; require QAR, architecture/security/failure review, and an approved Specification Lock. Record case-level test outcomes for every build in `TRUN-###`.
 
 The detailed framework lives under `.tdpd/core/`; load only the selected layer and shared contracts to conserve context.
+
+For delivery in 0.14, apply `.tdpd/core/EXECUTABLE_DELIVERY_ASSURANCE.md`: bind
+critical restrictions to actual permissions/isolation/guards and negative probes;
+assert refusal/recovery AND no forbidden effects. Require candidate code gates
+and independent Spec/Standards review before human UAT. Append timestamped JRN
+actions/checks/errors during execution, preserve failed attempts and sanitize logs.
+The evidence checker validates declared structure, not safety, authority or UAT.
