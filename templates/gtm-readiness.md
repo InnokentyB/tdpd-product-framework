@@ -5,6 +5,7 @@
 | Initial segment and positioning |  |  |  |  |
 | Offer, packaging, pricing |  |  |  |  |
 | Channel and attribution |  |  |  |  |
+| JTBD-led promotion strategy, channel tests and content briefs |  |  |  |  |
 | Sales/decision motion |  |  |  |  |
 | Contracting/procurement |  |  |  |  |
 | Billing/entitlements/refunds |  |  |  |  |
