@@ -48,13 +48,23 @@ An unspecified product surface blocks the gate. Do not silently choose a CLI, AP
 
 Require a current `LOCK-###` and executable user scenarios that fail for the intended missing behavior. Infrastructure, fixture, selector, credential, or environment failures do not count. Include applicable QAR, architecture-fitness, security, failure, recovery, and native-modality scenarios. Identify synthesis, oracle, verification, merge, and release authorities in `VER-###`; the actor that synthesizes or weakens an oracle cannot approve its own release from that evidence alone.
 
+### Independent test coverage audit
+
+Before Red passes, QA maps the current locked requirements and affected existing behavior to concrete cases in the scenario and test matrix. The test coverage auditor reviews that matrix against approved surfaces, actors and permissions, lifecycle operations, service boundaries, and escaped defects. Audit existing products from their deployed feature inventory, including behavior missing from the spec. Record gaps, severity, owner and clearing condition in `VER-###`.
+
+- **Unit:** exercise individual functions and domain rules, including boundaries and failure cases.
+- **Integration:** exercise each affected service against its relevant real test dependencies, including persistence and service contracts. Record any substituted external boundary.
+- **End to end:** exercise user-visible flows through the approved product surface and the deployed application stack in a test environment. For each exposed CRUD resource, cover create, read/list, update and delete where supported, including persisted state after reload or a fresh request. Add separate cases for materially distinct roles, validation, empty states, missing records and failure/recovery paths where applicable. Assert user-visible outcomes and durable side effects. A mocked product service cannot prove the corresponding full-stack behavior.
+
+Every in-scope user-visible capability must map to E2E evidence or an explicitly approved manual check with an owner and rationale. Core flows, supported CRUD and escaped regressions require automated E2E. Line coverage may highlight gaps; gate eligibility depends on traced behavior and assertions.
+
 ## Execution Readiness preflight (Red → implementation)
 
 Before an agent begins implementation, require an `ER-###` record proving that the approved sandbox, tool/API/CLI/MCP access, credentials policy, test fixtures, test/staging environment, observability, stop signals, retry/idempotency behavior, and rollback path work. Exercise a safe failure or recovery path where practical. This preflight does not add a top-level gate or prove product correctness; it controls whether autonomous implementation may start.
 
 ## Green gate
 
-Require target e2e tests and proportionate broader checks to pass. Every build has a `TRUN-###` recording required suites and individual pass/fail/error/skip outcomes, diagnostics, environment, durations, linked scenarios/rules/QARs/risks, failure disposition, and retest lineage. Counts reconcile and no required test is hidden by summary. Separate completion, quality eligibility, verification, and acceptance. Clear authorization, verification-independence, architecture-fitness, security, data-integrity, migration, payment, destructive-operation, recovery, and rollback vetoes.
+Require the applicable unit, integration and end-to-end suites to pass on the candidate. Refresh the independent audit after changes to requirements, behavior or tests. Link case results in `TRUN-###` to the current matrix and record the auditor’s verdict in `VER-###`. A missing required case, an assertion that does not prove the stated outcome, or an open blocking finding prevents Green. Every build has a `TRUN-###` recording required suites and individual pass/fail/error/skip outcomes, diagnostics, environment, durations, linked scenarios/rules/QARs/risks, failure disposition, and retest lineage. Counts reconcile and no required test is hidden by summary. Separate completion, quality eligibility, verification, and acceptance. Clear authorization, verification-independence, architecture-fitness, security, data-integrity, migration, payment, destructive-operation, recovery, and rollback vetoes.
 
 ## Output gate
 
