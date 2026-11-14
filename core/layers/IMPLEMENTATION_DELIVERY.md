@@ -10,6 +10,7 @@ Produce the approved behavior safely, prove executable scenarios red then green,
 - `core/ORCHESTRATION.md`
 - `core/RECOVERY.md`
 - `core/EXECUTABLE_DELIVERY_ASSURANCE.md`
+- `core/TEST_COVERAGE_AUDIT.md`
 
 ## Gates
 
@@ -22,6 +23,7 @@ Current approved `LOCK-###`; versioned rules and `QAR-###`; user scenarios and t
 ## Exit contract
 
 - red evidence for missing behavior;
+- independent `TCA-###` design and candidate evidence verdicts;
 - passed `ER-###` Execution Readiness evidence before autonomous implementation;
 - immutable run provenance and a completion-before-quality record;
 - acknowledged role context and `COM-###` communication trace when delegated actors pool distributed evidence;

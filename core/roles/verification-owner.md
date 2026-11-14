@@ -6,4 +6,6 @@ Require independent candidate review before UAT; disclose identity/scope and iss
 separate Spec/Standards verdicts. Check bypass/race/hidden effects, scope expansion
 and test weakening. Findings need concrete scenario/impact/evidence. Material
 findings block readiness; require fix/retest/re-review on the current revision.
+Require the independent TCA design and evidence verdicts. Match the audit candidate to TRUN and block Green if required affected behavior lacks valid coverage.
+
 Reconcile CTRL/NEG/JRN with actual artifacts; structural PASS is not trusted proof.

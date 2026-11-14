@@ -48,6 +48,7 @@ Require all three readiness checks:
 An unspecified product surface blocks the gate. Do not silently choose a CLI, API, generated file, or test harness as the product interface. Acceptance scenarios and E2E tests must exercise the approved user surface; record unresolved ambiguity as a finding, not a silent choice.
 
 ## Red gate
+Require an independent `TCA-###` test design verdict on the approved inventory and affected existing behavior. Apply the [test coverage audit](TEST_COVERAGE_AUDIT.md) and preserve the observed intended Red failure before implementation.
 
 Apply `NEG-###`: derive negative/abuse cases from the locked spec and an independent
 boundary model. Cover applicable malformed input, foreign rights, skipped stages,
@@ -64,6 +65,7 @@ Start `JRN-###` before implementation, with capture/redaction policy and ownersh
 Before an agent begins implementation, require an `ER-###` record proving that the approved sandbox, tool/API/CLI/MCP access, credentials policy, test fixtures, test/staging environment, observability, stop signals, retry/idempotency behavior, and rollback path work. Exercise a safe failure or recovery path where practical. This preflight does not add a top-level gate or prove product correctness; it controls whether autonomous implementation may start.
 
 ## Green gate
+Require an independent `TCA-###` evidence verdict on the exact candidate. Verify applicable unit, service integration and user-surface E2E coverage, including real CRUD where supported. Missing or invalid required coverage blocks Green.
 
 Require the exact candidate's formatter/lint/types, coding/module/security/
 architecture checks and independent strict `CRV-###` review (Spec and Standards
