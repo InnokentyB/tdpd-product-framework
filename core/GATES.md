@@ -62,7 +62,7 @@ Require human UAT against the original problem in realistic use. Without this, r
 
 ## GTM gate
 
-Require an explicit initial segment, positioning, offer, channel, observable sales/decision stages, contracting/billing readiness when applicable, onboarding to a defined activation event, support ownership, measurement from reach through activation, capacity boundaries, and pause/rollback/kill triggers.
+Require an explicit initial segment, positioning, offer, a [JTBD-led promotion strategy](GTM.md#promotion-strategy) with channel experiments and owned content briefs or an evidenced deferral, observable sales/decision stages, contracting/billing readiness when applicable, onboarding to a defined activation event, support ownership, measurement from reach through activation, capacity boundaries, and pause/rollback/kill triggers.
 
 ## Launch gate
 
