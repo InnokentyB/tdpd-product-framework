@@ -24,6 +24,7 @@ A business question, available sources, decision owner, and known constraints. P
 - opportunity and alternatives;
 - ranked assumptions and experiment evidence;
 - human opportunity decision;
+- applicable `PROM-###` hypotheses, experiment and decision boundary;
 - buyer/value exchange and commercial model;
 - economic ranges, capacity, accepted uncertainty, and kill criteria;
 - human commercial decision;

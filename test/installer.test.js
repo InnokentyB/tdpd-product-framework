@@ -533,3 +533,53 @@ test("audits a valid installation and rejects corrupt state", async () => {
     await rm(target, { recursive: true, force: true });
   }
 });
+
+test("installs the independent coverage audit for standalone delivery", async () => {
+  const target = await mkdtemp(join(tmpdir(), "tdpd-test-coverage-audit-"));
+  try {
+    await exec(process.execPath, [
+      cli, "init", "--adapter", "codex", "--layer", "implementation-delivery", "--target", target
+    ]);
+    const gates = await readFile(join(target, ".tdpd/core/GATES.md"), "utf8");
+    assert.match(gates, /Red gate[\s\S]*?TCA-###.*test design verdict/);
+    assert.match(gates, /Green gate[\s\S]*?TCA-###.*exact candidate/);
+
+    const contract = await readFile(join(target, ".tdpd/core/TEST_COVERAGE_AUDIT.md"), "utf8");
+    for (const level of ["Unit", "Integration", "End-to-end"]) {
+      assert.ok(contract.includes(`| ${level} |`));
+    }
+    const role = await readFile(join(target, ".tdpd/core/roles/test-coverage-auditor.md"), "utf8");
+    assert.match(role, /independently derive/i);
+    const template = await readFile(join(target, ".tdpd/templates/test-coverage-audit.md"), "utf8");
+    assert.match(template, /Candidate TRUN/);
+  } finally {
+    await rm(target, { recursive: true, force: true });
+  }
+});
+
+test("installs the promotion contract for standalone Opportunity and GTM", async () => {
+  for (const layer of ["product-business", "launch-operations"]) {
+    const target = await mkdtemp(join(tmpdir(), `tdpd-promotion-${layer}-`));
+    try {
+      await exec(process.execPath, [cli, "init", "--adapter", "codex", "--layer", layer, "--target", target]);
+      const localCli = join(target, ".tdpd/bin/tdpd.js");
+      await exec(process.execPath, [localCli, "start", "--mode", "manual", "--layer", layer, "--target", target]);
+
+      const gates = await readFile(join(target, ".tdpd/core/GATES.md"), "utf8");
+      assert.match(gates, /Opportunity gate[\s\S]*?new product.*PROM-###.*before committing/);
+      assert.match(gates, /GTM gate[\s\S]*?PROM-###.*observable/);
+      const contract = await readFile(join(target, ".tdpd/core/PROMOTION.md"), "utf8");
+      assert.match(contract, /search intent/i);
+      const template = join(target, ".tdpd/templates/promotion-hypotheses.md");
+      assert.match(await readFile(template, "utf8"), /First value/);
+      await exec(process.execPath, [localCli, "audit", "--layer", layer, "--target", target]);
+      await rm(template);
+      await assert.rejects(
+        exec(process.execPath, [localCli, "audit", "--layer", layer, "--target", target]),
+        /missing .*promotion-hypotheses/
+      );
+    } finally {
+      await rm(target, { recursive: true, force: true });
+    }
+  }
+});

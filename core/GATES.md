@@ -21,6 +21,8 @@ Require an actor, real job or pain, current workaround, desired outcome, and obs
 
 ## Opportunity gate
 
+For a new product, material audience expansion, or acquisition route change, require a sourced `PROM-###` promotion hypothesis before committing the product investment. Record the user job, market, language, search intent where relevant, channel alternatives and a bounded experiment. See [Promotion and discovery](PROMOTION.md).
+
 Require a source-grounded opportunity, alternatives map, ranked assumption register, proportionate experiments with predeclared pass/fail/inconclusive rules, preserved observations, and a human `OPP-DEC-###` decision. For `MATERIAL` or `HIGH` reliance/harm, require direct contextual evidence for load-bearing user assumptions, explicit edge/excluded-user coverage, immediate and delayed consequence analysis, and guardrail signals. Proceeding work has an investment boundary, residual uncertainty, and kill criteria. Stated interest alone does not establish behavioral demand.
 
 ## Business gate
@@ -49,6 +51,8 @@ An unspecified product surface blocks the gate. Do not silently choose a CLI, AP
 
 ## Red gate
 
+Require an independent `TCA-###` test design verdict on the approved inventory and affected existing behavior. Apply the [test coverage audit](TEST_COVERAGE_AUDIT.md) and preserve the observed intended Red failure before implementation.
+
 Apply `NEG-###`: derive negative/abuse cases from the locked spec and an independent
 boundary model. Cover applicable malformed input, foreign rights, skipped stages,
 stale approvals, replay/races, bypass and interruption/recovery. Assert correct
@@ -65,6 +69,8 @@ Before an agent begins implementation, require an `ER-###` record proving that t
 
 ## Green gate
 
+Require an independent `TCA-###` evidence verdict on the exact candidate. Verify applicable unit, service integration and user-surface E2E coverage, including real CRUD where supported. Missing or invalid required coverage blocks Green.
+
 Require the exact candidate's formatter/lint/types, coding/module/security/
 architecture checks and independent strict `CRV-###` review (Spec and Standards
 verdicts). Material findings block readiness until fixed, retested and re-reviewed.
@@ -80,6 +86,8 @@ Require human UAT against the original problem in realistic use. Without this, r
 
 ## GTM gate
 
+For the applicable `PROM-###`, link plans and publishable claims to the job and evidence. Prove the observable path to a qualified action or first value and verify measurement before launch.
+
 Require an explicit initial segment, positioning, offer, channel, observable sales/decision stages, contracting/billing readiness when applicable, onboarding to a defined activation event, support ownership, measurement from reach through activation, capacity boundaries, and pause/rollback/kill triggers.
 
 ## Launch gate
@@ -88,13 +96,15 @@ Require accepted UAT, validated decision-critical instrumentation, bounded audie
 
 ## Outcome gate
 
+Reconcile applicable promotion observations against the `PROM-###` thresholds. Record visibility, qualified interest, commitment and activation separately, with attribution limits and a decision.
+
 Require production observations compared with a frozen measurement contract, visible data-quality and attribution limitations, guardrail and operational evidence, and a human `LIFE-DEC-###` decision to Iterate, Scale, Hold, Roll back, or Sunset. Return learning to the earliest affected gate.
 
 ## Traceability
 
 Use stable IDs for non-trivial work:
 
-`CB/CTX → S/MME → F/C/G/A/R/EVD/COM → DL/DVE → PROB/RH → OPP/ASM/EXP/OBS/OPP-DEC → BIZ/PRICE-EXP/COM-DEC → MEAS → SURF/UI → RULE/QAR → ARCH/ADR/RISK/FIT → PROJ/AUT/FID/LOCK → SCN → E2E/MANUAL → ER → WORK/HANDOFF/RUN/TRUN/VER → UAT/REG → GTM → LAUNCH → OUT-OBS/OUT-REV → LIFE-DEC`
+`CB/CTX → S/MME → F/C/G/A/R/EVD/COM → DL/DVE → PROB/RH → OPP/ASM/EXP/OBS/PROM/OPP-DEC → BIZ/PRICE-EXP/COM-DEC → MEAS → SURF/UI → RULE/QAR → ARCH/ADR/RISK/FIT → PROJ/AUT/FID/LOCK → SCN → UNIT/INT/E2E/MANUAL/TCA → ER → WORK/HANDOFF/RUN/TRUN/VER → UAT/REG → GTM → LAUNCH → OUT-OBS/OUT-REV → LIFE-DEC`
 
 Every material rule maps to a scenario or explicit manual check. Every test maps to user value or a necessary safety constraint.
 

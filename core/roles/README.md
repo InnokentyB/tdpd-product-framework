@@ -6,4 +6,4 @@ Use the smallest council that covers the risk. `Specification Owner`, `Verificat
 
 Recommended flow:
 
-`Spec Architect → Experience reviewers → Quality Architect → System Architect → Security Officer + Failure Skeptic → Specification Owner → QA Analyst → Execution Engineer → QA Automation + Verification Owner → Documentation/Operations → human UAT`
+`Spec Architect → Experience reviewers → Quality Architect → System Architect → Security Officer + Failure Skeptic → Specification Owner → QA Analyst + QA Automation → Test Coverage Auditor → Execution Engineer → QA Automation + Test Coverage Auditor + Verification Owner → Documentation/Operations → human UAT`

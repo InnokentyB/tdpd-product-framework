@@ -20,6 +20,7 @@ Accepted product/UAT evidence, buyer and commercial boundaries, measurement and 
 ## Exit contract
 
 - GTM readiness and activation path;
+- applicable `PROM-###` content, route verification and measurement evidence;
 - controlled launch evidence;
 - production outcome, guardrail, economics, support, and reliability observations;
 - attribution limitations;

@@ -17,9 +17,9 @@ The Development Council is an optional execution profile for applying TDPD respo
 | Quality attributes | QA Analyst, Tech Lead, Security Officer, Operations | measurable QARs, workload, tests and monitoring |
 | Architecture | System Architect, Tech Lead, Security Officer, Architecture/Failure Skeptic | ARCH, ADRs, RISK, fitness functions, human decision |
 | Specification Lock | accountable specification owner | LOCK approval or exact blockers |
-| Red | QA Analyst, QA Automation, Verification Owner | failing executable scenarios and oracle evidence |
+| Red | QA Analyst, QA Automation, Test Coverage Auditor, Verification Owner | failing executable scenarios and oracle evidence |
 | Implementation | Execution Engineer | smallest coherent implementation and handoff |
-| Green | QA Automation, Security Officer, Architect, Failure Skeptic, Verification Owner | TRUN records, risk/fitness verdicts, release recommendation |
+| Green | QA Automation, Test Coverage Auditor, Security Officer, Architect, Failure Skeptic, Verification Owner | TRUN records, risk/fitness verdicts, release recommendation |
 | UAT | Product Lead and responsible human | acceptance, rejection, or constrained acceptance |
 | Operations | Documentation/Operations and Launch owner | runbook, observability, rollback, learning loop |
 

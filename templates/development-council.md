@@ -17,6 +17,7 @@
 | Architecture / Failure Skeptic |  |  |  |  |  |  |  |
 | Execution Engineer |  |  |  |  |  |  |  |
 | QA Automation |  |  |  |  |  |  |  |
+| Test Coverage Auditor |  |  | TCA design and evidence verdicts | Independent of test and implementation authors |  |  | Verification Owner |
 | Verification Owner |  |  |  |  |  |  |  |
 | Documentation / Operations |  |  |  |  |  |  |  |
 

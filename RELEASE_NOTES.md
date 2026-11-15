@@ -1,9 +1,13 @@
 # TDPD Release Notes
 
-## 0.14.0 — review candidate, 2026-10-20
+## 0.14.0 — 2026-11-15
 
-Review branch: `review/tdpd-0.14.0`. Not tagged as a stable release or installed
-into portfolio projects. Base: v0.13.0 (`2f5c87c`). See [Changelog](CHANGELOG.md).
+Release tag: `v0.14.0`. Base: v0.13.0 (`2f5c87c`). See [Changelog](CHANGELOG.md).
+
+- `TCA`: independent coverage design and evidence verdicts for unit, service
+  integration and user-surface E2E, including durable CRUD and failure outcomes.
+- `PROM`: job, search intent, market, channel alternatives and measurable content
+  routes carried through Opportunity, GTM and Outcome.
 
 - `CTRL`: protected asset, actual permission/isolation/guard, safe negative probe,
   forbidden effects, revision and residual risk. Instructions/tests are not prevention.

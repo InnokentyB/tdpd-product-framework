@@ -1,15 +1,13 @@
-# 0.13 → 0.14 review and compatibility
+# 0.13 → 0.14 migration and compatibility
 
-Status: review candidate on `review/tdpd-0.14.0`, not a tagged stable release.
-Do not use a nonexistent v0.14 tag.
-Do not run an automatic fleet upgrade or edit live skills because this package exists.
+Once published, pin `v0.14.0` for an opt-in project upgrade.
 
 1. Back up managed files, local instruction changes, run state and initiative evidence.
-2. In a disposable target install the review checkout with the desired adapter;
+2. In a disposable target install the tagged checkout with the desired adapter;
    diff its `.tdpd/core`, templates, bin and entrypoints against the project.
 3. Review/merge project-specific instructions manually. `init --force` still replaces
    colliding managed files; it is NOT a safe merging/upgrading engine.
-4. Add CTRL/NEG/CRV/JRN proportionately to the next approved delivery. Existing
+4. Add CTRL/NEG/CRV/JRN and applicable TCA/PROM records to the next approved delivery. Existing
    historical runs are not retroactively GREEN under new assurance requirements.
    Do not fabricate old journal entries. Record historical evidence/capture gaps.
 5. Run nearest regression/adapter checks in the approved isolated environment;
