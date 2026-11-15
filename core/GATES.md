@@ -20,7 +20,8 @@ For agentic or cross-session work, also require a role-bounded `CTX-###` Context
 Require an actor, real job or pain, current workaround, desired outcome, and observable success signal. Record a proportionate `RH-###` Reliance & Harm preflight covering dependency, practical ability to exit, consequence severity and duration, reversibility, and support/recovery. Distinguish the expressed request from the underlying need. If value or the risk classification is unclear, run discovery or a cheap experiment before building.
 
 ## Opportunity gate
-For a new audience or acquisition route, require a sourced `PROM-###` promotion hypothesis before committing the product investment. Record the user job, market, language, search intent where relevant, channel alternatives and a bounded experiment. See [Promotion and discovery](PROMOTION.md).
+
+For a new product, material audience expansion, or acquisition route change, require a sourced `PROM-###` promotion hypothesis before committing the product investment. Record the user job, market, language, search intent where relevant, channel alternatives and a bounded experiment. See [Promotion and discovery](PROMOTION.md).
 
 Require a source-grounded opportunity, alternatives map, ranked assumption register, proportionate experiments with predeclared pass/fail/inconclusive rules, preserved observations, and a human `OPP-DEC-###` decision. For `MATERIAL` or `HIGH` reliance/harm, require direct contextual evidence for load-bearing user assumptions, explicit edge/excluded-user coverage, immediate and delayed consequence analysis, and guardrail signals. Proceeding work has an investment boundary, residual uncertainty, and kill criteria. Stated interest alone does not establish behavioral demand.
 
@@ -49,6 +50,7 @@ Require all three readiness checks:
 An unspecified product surface blocks the gate. Do not silently choose a CLI, API, generated file, or test harness as the product interface. Acceptance scenarios and E2E tests must exercise the approved user surface; record unresolved ambiguity as a finding, not a silent choice.
 
 ## Red gate
+
 Require an independent `TCA-###` test design verdict on the approved inventory and affected existing behavior. Apply the [test coverage audit](TEST_COVERAGE_AUDIT.md) and preserve the observed intended Red failure before implementation.
 
 Apply `NEG-###`: derive negative/abuse cases from the locked spec and an independent
@@ -66,6 +68,7 @@ Start `JRN-###` before implementation, with capture/redaction policy and ownersh
 Before an agent begins implementation, require an `ER-###` record proving that the approved sandbox, tool/API/CLI/MCP access, credentials policy, test fixtures, test/staging environment, observability, stop signals, retry/idempotency behavior, and rollback path work. Exercise a safe failure or recovery path where practical. This preflight does not add a top-level gate or prove product correctness; it controls whether autonomous implementation may start.
 
 ## Green gate
+
 Require an independent `TCA-###` evidence verdict on the exact candidate. Verify applicable unit, service integration and user-surface E2E coverage, including real CRUD where supported. Missing or invalid required coverage blocks Green.
 
 Require the exact candidate's formatter/lint/types, coding/module/security/
@@ -82,6 +85,7 @@ Require target e2e tests and proportionate broader checks to pass. Every build h
 Require human UAT against the original problem in realistic use. Without this, report **engineering complete, awaiting UAT**. Every material rejection, accepted-with-follow-up gap, rollback, or escaped defect must link to a `REG-###` Regression Memory decision: add or update a scenario/test, adopt a human-approved versioned rule, or retain an explicitly owned manual check.
 
 ## GTM gate
+
 For the applicable `PROM-###`, link plans and publishable claims to the job and evidence. Prove the observable path to a qualified action or first value and verify measurement before launch.
 
 Require an explicit initial segment, positioning, offer, channel, observable sales/decision stages, contracting/billing readiness when applicable, onboarding to a defined activation event, support ownership, measurement from reach through activation, capacity boundaries, and pause/rollback/kill triggers.
@@ -91,6 +95,7 @@ Require an explicit initial segment, positioning, offer, channel, observable sal
 Require accepted UAT, validated decision-critical instrumentation, bounded audience/exposure, operational and support owners, monitoring, communications, applicable privacy/legal/billing/migration readiness, rollback triggers and path, and a scheduled outcome review. A responsible human can locate governing specifications, operate the system, diagnose representative failures, and execute rollback; green but opaque delivery is an operational risk.
 
 ## Outcome gate
+
 Reconcile applicable promotion observations against the `PROM-###` thresholds. Record visibility, qualified interest, commitment and activation separately, with attribution limits and a decision.
 
 Require production observations compared with a frozen measurement contract, visible data-quality and attribution limitations, guardrail and operational evidence, and a human `LIFE-DEC-###` decision to Iterate, Scale, Hold, Roll back, or Sunset. Return learning to the earliest affected gate.

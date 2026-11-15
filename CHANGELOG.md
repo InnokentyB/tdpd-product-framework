@@ -3,10 +3,9 @@
 TDPD / Test-Driven Product Development is an original method by Innokenty Bodrov.
 Detailed historical notes are in [RELEASE_NOTES.md](RELEASE_NOTES.md).
 
-## 0.14.0 — review candidate — 2026-10-20
+## 0.14.0 — 2026-11-15
 
-Branch: `review/tdpd-0.14.0`. This is a versioned review candidate, not a tagged
-stable release or an automatic upgrade of existing product installations.
+Release tag: `v0.14.0`. Project upgrades are opt-in.
 
 ### Added
 - Independent test coverage audit (`TCA`) for test design and exact-candidate evidence across unit, service integration and user-surface E2E.

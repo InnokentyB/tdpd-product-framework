@@ -4,12 +4,12 @@ A platform-independent product framework with four connected but independently a
 
 **Test-Driven Product Development (TDPD) is an original method by Innokenty Bodrov.** User scenarios become executable end-to-end tests before production implementation. A delivery is complete only after those tests pass and a responsible human accepts the result through UAT.
 
-Review candidate: **0.14.0** on `review/tdpd-0.14.0`, not a tagged stable release
-or fleet installation. Stable release: **0.13.0**. See [Changelog](CHANGELOG.md),
-[Release Notes](RELEASE_NOTES.md) and [0.14 migration](MIGRATION_0.14.md).
+**Version 0.14.0.** Pin `v0.14.0` once the release tag is published.
+See [Changelog](CHANGELOG.md), [Release Notes](RELEASE_NOTES.md) and
+[0.14 migration](MIGRATION_0.14.md).
 
-## 0.14 review scope
-The 0.14 candidate adds an [independent test coverage audit](core/TEST_COVERAGE_AUDIT.md) at Red and Green and [promotion hypotheses](core/PROMOTION.md) from Opportunity through GTM and Outcome. The CLI audit checks installed files and run-state structure. Project reviewers and project CI own delivery decisions and evidence.
+## 0.14 release scope
+The 0.14 release adds an [independent test coverage audit](core/TEST_COVERAGE_AUDIT.md) at Red and Green and [promotion hypotheses](core/PROMOTION.md) from Opportunity through GTM and Outcome. The CLI audit checks installed files and run-state structure. Project reviewers and project CI own delivery decisions and evidence.
 
 Executable restrictions (`CTRL`), negative/abuse boundary assertions (`NEG`),
 current-candidate code gates and independent review (`CRV`), contemporaneous
@@ -48,12 +48,12 @@ a job exists; there is no app health endpoint or long-running stack to activate.
 
 ## Install into a project
 
-### Current stable production release (unchanged)
+### Install the tagged release
 
-Install the immutable 0.13 release from GitHub:
+Once `v0.14.0` is published, install that immutable GitHub tag:
 
 ```bash
-npx --yes --package=github:InnokentyB/tdpd-product-framework#v0.13.0 tdpd init --adapter codex --target .
+npx --yes --package=github:InnokentyB/tdpd-product-framework#v0.14.0 tdpd init --adapter codex --target .
 ```
 
 Replace `codex` with `claude-code`, `cline`, `cursor`, `windsurf`, `github-copilot`, or `universal`. Use `--force` only for a reviewed upgrade of framework-managed files.

@@ -566,7 +566,7 @@ test("installs the promotion contract for standalone Opportunity and GTM", async
       await exec(process.execPath, [localCli, "start", "--mode", "manual", "--layer", layer, "--target", target]);
 
       const gates = await readFile(join(target, ".tdpd/core/GATES.md"), "utf8");
-      assert.match(gates, /Opportunity gate[\s\S]*?PROM-###.*before committing/);
+      assert.match(gates, /Opportunity gate[\s\S]*?new product.*PROM-###.*before committing/);
       assert.match(gates, /GTM gate[\s\S]*?PROM-###.*observable/);
       const contract = await readFile(join(target, ".tdpd/core/PROMOTION.md"), "utf8");
       assert.match(contract, /search intent/i);
