@@ -110,6 +110,7 @@ The gate passes only when:
 - load-bearing assumptions are visible and ranked;
 - reliance/harm is classified and the depth of evidence is proportionate;
 - material desirability/adoption risk has behavioral evidence or an explicit constrained decision;
+- applicable promotion hypotheses link the user job and market to a credible route and a bounded experiment. See [Promotion and discovery](PROMOTION.md);
 - `MATERIAL` and `HIGH` opportunities have direct contextual evidence, edge-user coverage, consequence analysis, and guardrail signals or remain blocked;
 - experiments have predeclared pass, fail, and inconclusive rules;
 - observations and interpretations remain distinct;

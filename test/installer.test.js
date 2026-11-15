@@ -556,3 +556,30 @@ test("installs the independent coverage audit for standalone delivery", async ()
     await rm(target, { recursive: true, force: true });
   }
 });
+
+test("installs the promotion contract for standalone Opportunity and GTM", async () => {
+  for (const layer of ["product-business", "launch-operations"]) {
+    const target = await mkdtemp(join(tmpdir(), `tdpd-promotion-${layer}-`));
+    try {
+      await exec(process.execPath, [cli, "init", "--adapter", "codex", "--layer", layer, "--target", target]);
+      const localCli = join(target, ".tdpd/bin/tdpd.js");
+      await exec(process.execPath, [localCli, "start", "--mode", "manual", "--layer", layer, "--target", target]);
+
+      const gates = await readFile(join(target, ".tdpd/core/GATES.md"), "utf8");
+      assert.match(gates, /Opportunity gate[\s\S]*?PROM-###.*before committing/);
+      assert.match(gates, /GTM gate[\s\S]*?PROM-###.*observable/);
+      const contract = await readFile(join(target, ".tdpd/core/PROMOTION.md"), "utf8");
+      assert.match(contract, /search intent/i);
+      const template = join(target, ".tdpd/templates/promotion-hypotheses.md");
+      assert.match(await readFile(template, "utf8"), /First value/);
+      await exec(process.execPath, [localCli, "audit", "--layer", layer, "--target", target]);
+      await rm(template);
+      await assert.rejects(
+        exec(process.execPath, [localCli, "audit", "--layer", layer, "--target", target]),
+        /missing .*promotion-hypotheses/
+      );
+    } finally {
+      await rm(target, { recursive: true, force: true });
+    }
+  }
+});

@@ -9,6 +9,7 @@ or fleet installation. Stable release: **0.13.0**. See [Changelog](CHANGELOG.md)
 [Release Notes](RELEASE_NOTES.md) and [0.14 migration](MIGRATION_0.14.md).
 
 ## 0.14 review scope
+The 0.14 candidate adds an [independent test coverage audit](core/TEST_COVERAGE_AUDIT.md) at Red and Green and [promotion hypotheses](core/PROMOTION.md) from Opportunity through GTM and Outcome. The CLI audit checks installed files and run-state structure. Project reviewers and project CI own delivery decisions and evidence.
 
 Executable restrictions (`CTRL`), negative/abuse boundary assertions (`NEG`),
 current-candidate code gates and independent review (`CRV`), contemporaneous

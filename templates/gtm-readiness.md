@@ -5,6 +5,7 @@
 | Initial segment and positioning |  |  |  |  |
 | Offer, packaging, pricing |  |  |  |  |
 | Channel and attribution |  |  |  |  |
+| Promotion hypothesis, content claims, discoverability and measured CTA / first-value route |  |  |  |  |
 | Sales/decision motion |  |  |  |  |
 | Contracting/procurement |  |  |  |  |
 | Billing/entitlements/refunds |  |  |  |  |

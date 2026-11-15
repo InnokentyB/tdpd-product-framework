@@ -9,6 +9,8 @@ Branch: `review/tdpd-0.14.0`. This is a versioned review candidate, not a tagged
 stable release or an automatic upgrade of existing product installations.
 
 ### Added
+- Independent test coverage audit (`TCA`) for test design and exact-candidate evidence across unit, service integration and user-surface E2E.
+- Promotion hypotheses (`PROM`) connecting jobs, market, search intent, channel alternatives, content, qualified action and activation across Opportunity, GTM and Outcome.
 
 - Executable Delivery Assurance: critical restrictions map protected assets to
   permission/isolation/guard mechanisms and safe negative probes (`CTRL`).

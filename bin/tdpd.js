@@ -19,6 +19,8 @@ const sharedFiles = [
   ".tdpd/core/DEVELOPMENT_COUNCIL.md",
   ".tdpd/core/EXECUTABLE_DELIVERY_ASSURANCE.md",
   ".tdpd/core/GATES.md",
+  ".tdpd/core/PROMOTION.md",
+  ".tdpd/templates/promotion-hypotheses.md",
   ".tdpd/core/TEST_COVERAGE_AUDIT.md",
   ".tdpd/core/roles/test-coverage-auditor.md",
   ".tdpd/templates/test-coverage-audit.md",

@@ -4,6 +4,8 @@
 |---|---|---|---|---|---|---|---|---|---|
 |  |  |  |  |  |  |  |  |  |  |
 
+For each applicable channel, link its `PROM-###`, job and search intent, market and language, content asset, claim evidence, CTA and first-value outcome. Reuse the [promotion template](promotion-hypotheses.md) for option comparison.
+
 ## Channel test
 
 - **Hypothesis:**

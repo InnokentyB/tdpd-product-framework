@@ -6,6 +6,8 @@ Define the initial segment, positioning, offer, packaging, acquisition/distribut
 
 Validate the chain `Reach → Qualified interest → Commitment → Onboarding → Activation`. Do not scale acquisition while activation, retention, contribution, or guardrails fail. Keep support-assisted activation and cross-channel attribution limitations visible.
 
+Carry the applicable `PROM-###` from Opportunity into the channel plan, content, and measurement. See [Promotion and discovery](PROMOTION.md).
+
 The GTM gate requires owners, instrumentation, commercial readiness, capacity boundaries, and pause/rollback/kill triggers before Launch.
 
 See `templates/channel-plan.md`, `sales-motion.md`, `onboarding-activation.md`, and `gtm-readiness.md`.
